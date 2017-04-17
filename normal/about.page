@@ -12,11 +12,11 @@ This is the default shield used by Mecha. I recommend you to use this shield as 
 ### Features
 
  - Automatic menu navigation
- - Automatic breadcrumbs
+ - Automatic breadcrumb navigation
  - Automatic set the home page view to `article`
- - Widgets: tags (requires tag extension), recent posts, related posts
  - Comments (requires comment extension)
  - Manual post excerpt (requires to add `<!-- cut -->` to the post content)
- - Post formats: quote.
+ - Post Formats: _HTML_, _Markdown_, _Quote_
+ - Widgets: _Tags_ (requires tag extension), _Recent Posts_, _Related Posts_.
 
 <!-- block:donate -->

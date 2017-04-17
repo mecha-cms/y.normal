@@ -1,0 +1,22 @@
+---
+title: Normal
+description: Port of the normal shield in Mecha version `1.x.x`.
+author: Taufik Nurrohman
+type: Markdown
+link: http://mecha-cms.com
+version: 2.0.0
+...
+
+This is the default shield used by Mecha. I recommend you to use this shield as the base framework if you want to create a new shield for Mecha.
+
+### Features
+
+ - Automatic menu navigation
+ - Automatic breadcrumbs
+ - Automatic set the home page view to `article`
+ - Widgets: tags (requires tag extension), recent posts, related posts
+ - Comments (requires comment extension)
+ - Manual post excerpt (requires to add `<!-- cut -->` to the post content)
+ - Post formats: quote.
+
+<!-- block:donate -->

@@ -1,0 +1,21 @@
+---
+type: YAML
+...
+
+article: Article
+articles: Articles
+
+article_continue: Read More
+
+f_types:
+  quote: Quote
+
+posted_by__: Posted by %{0}% on %{1}%
+powered_by__: Powered by <strong>Mecha %{0}%</strong>
+
+widget:
+  page:
+    random: Random Posts
+    recent: Recent Posts
+    connect: Related Posts
+  tag: Tags

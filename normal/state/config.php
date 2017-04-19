@@ -6,9 +6,8 @@ return [
     'chunk' => 14, // Post(s) per page
     'widget' => [ // Widget setting(s)
         'comment' => [
-            'path' => COMMENT,
             'chunk' => 5,
-            'snippet' => [100, '&#x2026;']
+            'snippet' => [25, '&#x2026;']
         ],
         'page' => [
             'path' => 'article', // Your article’s folder relative to `lot\page`

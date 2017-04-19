@@ -7,7 +7,7 @@
     <div class="widget-content">
     <?php
 
-    $_path = $state->widget['comment']['path'];
+    $_path = COMMENT;
     $_chunk = $state->widget['comment']['chunk'];
     $_snippet = $state->widget['comment']['snippet'];
 
@@ -34,7 +34,7 @@
                 echo '</h5>';
                 echo '</header>';
                 echo '<section class="recent-comment-body">';
-                echo '<p>' . To::snippet($_comment->content, false, $_snippet) . '</p>';
+                echo '<p>' . To::snippet($_comment->content, true, $_snippet) . '</p>';
                 echo '</section>';
                 echo '<footer class="recent-comment-footer">';
                 echo '<p class="recent-comment-property">';

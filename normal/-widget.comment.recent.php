@@ -34,7 +34,7 @@
                 echo '</h5>';
                 echo '</header>';
                 echo '<section class="recent-comment-body">';
-                echo '<p>' . To::snippet($_comment->content, true, $_snippet) . '</p>';
+                echo '<p>' . To::snippet($_comment->content, false, $_snippet) . '</p>';
                 echo '</section>';
                 echo '<footer class="recent-comment-footer">';
                 echo '<p class="recent-comment-property">';

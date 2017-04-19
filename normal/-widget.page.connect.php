@@ -1,14 +1,16 @@
-<div class="widget-wrapper">
-  <?php $_type = $site->is === 'page' ? 'connect' : 'random'; ?>
-  <h4 class="widget-title"><?php echo $language->widget->page->{$_type}; ?></h4>
-  <div class="widget-content">
-    <div class="widget widget-page widget-page-<?php echo $_type; ?>">
+<?php $_type = $site->is === 'page' ? 'connect' : 'random'; ?>
+<section class="widget widget--page widget--page-<?php echo $_type; ?>">
+  <header class="widget-header">
+    <h4 class="widget-title"><?php echo $language->widget->page->{$_type}; ?></h4>
+  </header>
+  <section class="widget-body">
+    <div class="widget-content">
     <?php
 
-    $_path = PAGE . DS . (Path::D($url->path) ?: $state->widget['path']);
-    $_chunk = $state->widget['chunk'];
-    $_pages = $_relates = [];
+    $_path = PAGE . DS . (Path::D($url->path) ?: $state->widget['page']['path']);
+    $_chunk = $state->widget['page']['chunk'];
 
+    $_pages = $_relates = [];
     if ($_current = Lot::get('page')) {
         if ($_pages = Get::pages($_path, 'page')) {
             $_slug = $_current->slug;
@@ -24,13 +26,13 @@
             }
         }
         echo '<ul>';
-        $_relates = array_unique($_relates);
+        $_relates = array_unique($_relates); // Remove duplicate(s)…
         if (!empty($_relates)) {
             foreach (Anemon::eat($_relates)->shake()->chunk($_chunk, 0) as $_relate) {
                 $_relate = new Page($_relate);
                 echo '<li>' . HTML::a($_relate->title, $_relate->url) . '</li>';
             }
-        } else if (!empty($_pages)) { // random page(s)…
+        } else if (!empty($_pages)) { // Random page(s)…
             foreach (Anemon::eat($_pages)->shake()->chunk($_chunk, 0) as $_page) {
                 $_page = new Page($_page['path']);
                 echo '<li' . ($page->slug === $_page->slug ? ' class="current"' : "") . '>' . HTML::a($_page->title, $_page->url) . '</li>';
@@ -43,5 +45,5 @@
 
     ?>
     </div>
-  </div>
-</div>
+  </section>
+</section>

@@ -19,3 +19,10 @@ Hook::set('page.excerpt', function($content, $lot) use($language) {
     // Return the first part!
     return trim(explode('<!-- cut -->', $s['content'])[0]) . '<p>' . HTML::a($language->article_continue, $s['url']) . '</p>';
 });
+
+// Mark site author’s comment (requires panel extension)
+if (Route::is('%*%/' . Extend::state('comment', 'path', '-comment')) && Request::is('post')) {
+    if (Extend::exist('panel') && User::current()) {
+        Request::set('post', 'status', 1);
+    }
+}

@@ -1,11 +1,13 @@
 <?php if (Extend::exist('tag')): ?>
-<div class="widget-wrapper">
-  <h4 class="widget-title"><?php echo $language->widget->tag; ?></h4>
-  <div class="widget-content">
-    <div class="widget widget-tag">
+<section class="widget widget--tag widget--tag-list">
+  <header class="widget-header">
+    <h4 class="widget-title"><?php echo $language->widget->tag; ?></h4>
+  </header>
+  <section class="widget-body">
+    <div class="widget-content">
     <?php
 
-    $_base = $state->widget['path'];
+    $_base = $state->widget['page']['path'];
 
     if ($_kinds = glob(PAGE . DS . $_base . DS . '*' . DS . 'kind.data', GLOB_NOSORT)) {
         echo '<ul>';
@@ -30,6 +32,6 @@
 
     ?>
     </div>
-  </div>
-</div>
+  </section>
+</section>
 <?php endif; ?>

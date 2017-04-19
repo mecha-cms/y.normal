@@ -1,11 +1,13 @@
-<div class="widget-wrapper">
-  <h4 class="widget-title"><?php echo $language->widget->page->recent; ?></h4>
-  <div class="widget-content">
-    <div class="widget widget-page widget-page-recent">
+<section class="widget widget--page widget--page-recent">
+  <header class="widget-header">
+    <h4 class="widget-title"><?php echo $language->widget->page->recent; ?></h4>
+  </header>
+  <section class="widget-body">
+    <div class="widget-content">
     <?php
 
-    $_path = PAGE . DS . $state->widget['path'];
-    $_chunk = $state->widget['chunk'];
+    $_path = PAGE . DS . $state->widget['page']['path'];
+    $_chunk = $state->widget['page']['chunk'];
 
     if ($_pages = Get::pages($_path, 'page', [-1, 'time'])) {
         echo '<ul>';
@@ -15,10 +17,10 @@
         }
         echo '</ul>';
     } else {
-        echo '<p>No posts yet.</p>';
+        echo '<p>' . $language->message_info_void($language->articles) . '</p>';
     }
 
     ?>
     </div>
-  </div>
-</div>
+  </section>
+</section>

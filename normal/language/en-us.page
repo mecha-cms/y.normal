@@ -14,6 +14,8 @@ posted_by__: Posted by %{0}% on %{1}%
 powered_by__: Powered by <strong>Mecha %{0}%</strong>
 
 widget:
+  comment:
+    recent: Recent Comments
   page:
     random: Random Posts
     recent: Recent Posts

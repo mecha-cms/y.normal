@@ -15,17 +15,18 @@
     <link href="<?php echo $url; ?>/favicon.ico" rel="shortcut icon">
   </head>
   <body>
-    <div class="blog-wrapper">
-      <header class="blog-header">
-        <h1 class="blog-title">
+    <div class="wrapper">
+      <header class="header">
+        <h1 class="title">
           <?php if ($url->path !== ""): ?>
           <a href="<?php echo $url; ?>"><?php echo $site->title; ?></a>
           <?php else: ?>
           <span class="a"><?php echo $site->title; ?></span>
           <?php endif; ?>
         </h1>
-        <p class="blog-description"><?php echo $site->description; ?></p>
+        <p class="description"><?php echo $site->description; ?></p>
       </header>
       <?php Shield::get('nav'); ?>
-      <div class="blog-content">
+      <div class="content">
         <?php Shield::get('aside'); ?>
+        <main class="main">

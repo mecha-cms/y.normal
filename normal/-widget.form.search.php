@@ -1,9 +1,9 @@
-<div class="widget-wrapper">
-  <div class="widget-content">
-    <div class="widget widget-search widget-search-form">
-      <form class="form-search" action="<?php echo $url . '/' . $state->widget['path']; ?>" method="get">
+<section class="widget widget--form widget--form-search">
+  <section class="widget-body">
+    <div class="widget-content">
+      <form class="form-search" action="<?php echo $url . '/' . $state->widget['page']['path']; ?>" method="get">
         <?php echo Form::text($config->q, Request::get($config->q), $language->search . '…', ['classes' => ['input']]) . ' ' . Form::submit(null, null, "", ['classes' => ['button']]); ?>
       </form>
-	</div>
-  </div>
-</div>
+    </div>
+  </section>
+</section>

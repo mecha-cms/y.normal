@@ -1,7 +1,6 @@
-<?php $_type = $site->is === 'page' ? 'connect' : 'random'; ?>
-<section class="widget widget--page widget--page-<?php echo $_type; ?>">
+<section class="widget widget--page widget--page-connect">
   <header class="widget-header">
-    <h4 class="widget-title"><?php echo $language->widget->page->{$_type}; ?></h4>
+    <h4 class="widget-title"><?php echo $language->widget->page->connect; ?></h4>
   </header>
   <section class="widget-body">
     <div class="widget-content">

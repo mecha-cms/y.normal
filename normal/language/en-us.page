@@ -17,7 +17,6 @@ widget:
   comment:
     recent: Recent Comments
   page:
-    random: Random Posts
     recent: Recent Posts
     connect: Related Posts
   tag: Tags

@@ -1276,6 +1276,9 @@ pre {
   font-style:normal;
 }
 
+.post--quote:first-child blockquote:first-child,
+.post--quote:first-child blockquote p:first-child {margin-top:0}
+
 .page-page .post--quote blockquote {font-size:220%}
 
 .post--quote blockquote + p {

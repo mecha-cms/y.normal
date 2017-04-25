@@ -1356,7 +1356,7 @@ pre {
 .pager-previous a:before,
 .comments-header h3:before,
 .comment-reply-v:before,
-.comment-status\:1 .comment-author:after,
+.comment-status\:1 > .comment-header > .comment-author:after,
 .form-comment .button-publish:before,
 .form-comment .button-cancel:before,
 .form-search .button:before,
@@ -1403,7 +1403,7 @@ pre {
   margin-right:.25em;
 }
 
-.comment-status\:1 .comment-author:after {
+.comment-status\:1 > .comment-header > .comment-author:after {
   content:'\f2be';
   margin-left:.5em;
 }

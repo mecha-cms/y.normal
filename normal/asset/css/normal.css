@@ -1,3 +1,6 @@
+@import url('http://fonts.googleapis.com/css?family=Roboto:400,700,400i,700i|Roboto+Mono:400,700,400i,700i|Droid+Serif:400,700,400i,700i');
+
+
 /**
  * =======
  *  RESET
@@ -123,11 +126,7 @@ sup {
 
 sub {top:.4em}
 
-blockquote {
-  font-style:italic;
-  font-size:110%;
-}
-
+blockquote {font-size:110%}
 blockquote:before,
 blockquote:after,
 q:before,
@@ -586,7 +585,6 @@ legend {
   text-transform:uppercase;
   font-weight:bold;
   font-size:76%;
-  line-height:0;
   overflow:visible;
 }
 
@@ -628,7 +626,7 @@ pre {
   padding:1em 1.2em;
 }
 
-code {font-size:96%}
+code {font-size:85%}
 
 pre code {
   display:block;
@@ -754,7 +752,7 @@ img {
 html {
   background:#FFF;
   color:#333;
-  font-family:Helmet, FreeSans, Sans-Serif;
+  font-family:Roboto,Helmet,FreeSans,Sans-Serif;
 }
 
 body {
@@ -769,11 +767,11 @@ a {color:#365D98}
 a:focus,
 a:hover {color:#666}
 
-blockquote {font-family:Georgia,'URW Bookman L',Serif}
+blockquote {font-family:'Droid Serif',Georgia,'URW Bookman L',Serif}
 
 code,
 pre,
-.code {font-family:Consolas,'Andale Mono WT','Andale Mono','Lucida Console','Lucida Sans Typewriter','DejaVu Sans Mono','Bitstream Vera Sans Mono','Liberation Mono','Nimbus Mono L',Monaco,'Courier New',Courier,Monospace}
+.code {font-family:'Roboto Mono',Consolas,'Andale Mono WT','Andale Mono','Lucida Console','Lucida Sans Typewriter','DejaVu Sans Mono','Bitstream Vera Sans Mono','Liberation Mono','Nimbus Mono L',Monaco,'Courier New',Courier,Monospace}
 
 .notes p {margin:0}
 .notes ol {font-size:84%}
@@ -1273,7 +1271,6 @@ pre {
 .post--quote blockquote {
   font-size:120%;
   text-indent:-.4em; /* same with the opening curly quote’s width */
-  font-style:normal;
 }
 
 .post--quote:first-child blockquote:first-child,

@@ -1268,10 +1268,8 @@ pre {
 
 
 /* @format */
-.post--quote blockquote {
-  font-size:120%;
-  text-indent:-.4em; /* same with the opening curly quote’s width */
-}
+.post--quote blockquote {font-size:120%}
+.post--quote blockquote p:first-child {text-indent:-.4em} /* same with the opening curly quote’s width */
 
 .post--quote:first-child blockquote:first-child,
 .post--quote:first-child blockquote p:first-child {margin-top:0}

@@ -1,5 +1,5 @@
 <?php if (Extend::exist('comment')): ?>
-<section class="widget widget--comment widget--comment-recent">
+<section class="widget widget-comment widget-comment-recent">
   <header class="widget-header">
     <h4 class="widget-title"><?php echo $language->widget->comment->recent; ?></h4>
   </header>

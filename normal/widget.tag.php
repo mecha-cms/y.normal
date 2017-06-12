@@ -1,5 +1,5 @@
 <?php if (Extend::exist('tag')): ?>
-<section class="widget widget--tag widget--tag-list">
+<section class="widget widget-tag widget-tag-list">
   <header class="widget-header">
     <h4 class="widget-title"><?php echo $language->widget->tag; ?></h4>
   </header>

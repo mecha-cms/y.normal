@@ -1,4 +1,4 @@
-<section class="widget widget--page widget--page-recent">
+<section class="widget widget-page widget-page-recent">
   <header class="widget-header">
     <h4 class="widget-title"><?php echo $language->widget->page->recent; ?></h4>
   </header>

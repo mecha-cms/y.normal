@@ -1,4 +1,4 @@
-<section class="widget widget--page widget--page-connect">
+<section class="widget widget-page widget-page-connect">
   <header class="widget-header">
     <h4 class="widget-title"><?php echo $language->widget->page->connect; ?></h4>
   </header>

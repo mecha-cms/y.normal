@@ -1,4 +1,4 @@
-<section class="widget widget--form widget--form-search">
+<section class="widget widget-form widget-form-search">
   <section class="widget-body">
     <div class="widget-content">
       <form class="form-search" action="<?php echo $url . '/' . $state->widget['page']['path']; ?>" method="get">

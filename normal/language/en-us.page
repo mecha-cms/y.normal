@@ -8,6 +8,7 @@ articles: Articles
 article_continue: Read More
 
 f_types:
+  log: Log
   quote: Quote
 
 posted_by__: Posted by %{0}% on %{1}%

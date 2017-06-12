@@ -10,10 +10,14 @@ if (Extend::exist('user') && $page->author instanceof User) {
 }
 
 ?>
-<article class="post post-index post--<?php echo __c2f__($page->type . ""); ?>" id="post-<?php echo $page->id; ?>">
-  <?php if ($page->type ==='Quote'): ?>
+<article class="post post-index post-format:<?php echo __c2f__($page->type . ""); ?>" id="post-<?php echo $page->id; ?>">
+  <?php $content = str_replace(["\n\n", "\n", '<p></p>'], ['</p><p>', '<br>', ""], n(To::text($page->content, HTML_WISE_I, true))); ?>
+  <?php if ($page->type === 'Log'): ?>
+  <p><?php echo $content; ?></p>
+  <p><?php echo $author; ?> &#x00B7; <?php echo HTML::a('<time datetime="' . $page->date->W3C . '">' . $page->date->{str_replace('-', '_', $site->language)} . '</time>', $page->url); ?></p>
+  <?php elseif ($page->type ==='Quote'): ?>
   <blockquote>
-    <p>&#x201C;<?php echo str_replace(["\n\n", "\n", '<p></p>'], ['</p><p>', '<br>', ""], n(To::text($page->content, HTML_WISE, true))); ?>&#x201D;</p>
+    <p>&#x201C;<?php echo $content; ?>&#x201D;</p>
   </blockquote>
   <p><?php echo $author; ?> &#x00B7; <?php echo HTML::a('<time datetime="' . $page->date->W3C . '">' . $page->date->{str_replace('-', '_', $site->language)} . '</time>', $page->url); ?></p>
   <?php else: ?>
@@ -55,5 +59,5 @@ if (Extend::exist('user') && $page->author instanceof User) {
   </div>
 </article>
 <?php endif; ?>
-<?php Shield::get('-pager'); ?>
+<?php Shield::get('pager'); ?>
 <?php Shield::get('footer'); ?>

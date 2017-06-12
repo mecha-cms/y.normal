@@ -4,7 +4,7 @@ description: Port of the normal shield in Mecha version `1.x.x`.
 author: Taufik Nurrohman
 type: Markdown
 link: http://mecha-cms.com
-version: 2.2.0
+version: 2.3.0
 ...
 
 This is the default shield used by Mecha version `1.x.x`.
@@ -19,6 +19,7 @@ This is the default shield used by Mecha version `1.x.x`.
  - Manual post excerpt (requires you to insert `<!-- cut -->` in the post content)
  - Formats:
    - HTML
+   - Log
    - Markdown
    - Quote
  - Widgets:

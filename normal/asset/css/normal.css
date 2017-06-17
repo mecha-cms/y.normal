@@ -1353,10 +1353,16 @@ pre {
 
 .form-comment .rich-text-editor {
   border-width:0;
+  border-color:#3A64A4;
   background:#333;
   color:#FFF;
 }
-.form-comment .rich-text-editor-tool {font-size:120%}
+.form-comment .rich-text-editor-view {padding:.7692307692307693em}
+.form-comment .rich-text-editor-tool {
+  font-size:120%;
+  visibility:visible;
+  opacity:1;
+}
 .form-comment .rich-text-editor-tool a {
   background:none;
   color:#AAA;

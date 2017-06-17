@@ -8,8 +8,8 @@ articles: Articles
 article_continue: Read More
 
 f_types:
-  log: Log
-  quote: Quote
+  Log: Log
+  Quote: Quote
 
 posted_by__: Posted by %{0}% on %{1}%
 powered_by__: Powered by <strong>Mecha %{0}%</strong>

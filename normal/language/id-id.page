@@ -7,7 +7,7 @@ articles: Articles
 
 article_continue: Read More
 
-o_types:
+o_type:
   Log: Log
   Quote: Quote
 

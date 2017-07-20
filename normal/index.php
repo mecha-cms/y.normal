@@ -22,7 +22,7 @@ Hook::set('page.excerpt', function($content, $lot) use($language) {
 
 // Mark site author’s comment (requires panel extension)
 if (Route::is('%*%/' . Extend::state('comment', 'path', '-comment')) && Request::is('post')) {
-    if (Extend::exist('panel') && User::current()) {
+    if (Extend::exist('panel') && User::get()) {
         Request::set('post', 'status', 1);
     }
 }

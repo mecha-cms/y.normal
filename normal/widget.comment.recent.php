@@ -12,13 +12,10 @@
     $_snippet = $state->widget['comment']['snippet'];
 
     $_comments = [];
-    if ($_pages = File::explore($_path, true, true)) {
+    if ($_pages = File::explore([$_path, 'page'], true)) {
         echo '<ul class="recent-comments">';
         foreach ($_pages as $_k => $_v) {
-            if ($_v === 0) continue; // Is a folder, skip…
-            $_s = explode('.', Path::B($_k)); // `[$name, $x]`
-            if ($_s[1] !== 'page') continue; // Is not published, skip…
-            $_comments[$_s[0]] = $_k;
+            $_comments[Path::B($_k)] = $_k;
         }
         if (!empty($_comments)) {
             krsort($_comments);

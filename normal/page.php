@@ -32,12 +32,12 @@ if (Extend::exist('user') && $page->author instanceof User) {
       <span class="a"><?php echo $page->title; ?></span>
     </h2>
   </header>
-  <section class="post-body">
+  <div class="post-body">
     <div class="post-content"><?php echo $page->content; ?></div>
     <?php if ($page->link): ?>
     <p><a class="button action post-link" href="<?php echo $page->link; ?>"><?php echo $language->article_continue; ?></a></p>
     <?php endif; ?>
-  </section>
+  </div>
   <?php if (strpos($url->path, '/') !== false): ?>
   <footer class="post-footer">
     <div><?php echo $language->posted_by__([$author, '<time datetime="' . $page->date->W3C . '">' . $page->date->F4 . '</time>'], true); ?></div>

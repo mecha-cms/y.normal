@@ -3,7 +3,7 @@
   <header class="widget-header">
     <h4 class="widget-title"><?php echo $language->widget->comment->recent; ?></h4>
   </header>
-  <section class="widget-body">
+  <div class="widget-body">
     <div class="widget-content">
     <?php
 
@@ -30,9 +30,9 @@
                 echo HTML::a($_comment->author . "", $_comment->url, false, ['classes' => ['recent-comment-url'], 'rel' => 'nofollow']);
                 echo '</h5>';
                 echo '</header>';
-                echo '<section class="recent-comment-body">';
+                echo '<div class="recent-comment-body">';
                 echo '<p>' . To::snippet($_comment->content, true, $_snippet) . '</p>';
-                echo '</section>';
+                echo '</div>';
                 echo '<footer class="recent-comment-footer">';
                 echo '<p class="recent-comment-property">';
                 echo '<time class="recent-comment-time" datetime="' . $_comment->date->W3C . '">' . $_comment->date->F2 . '</time>';
@@ -50,6 +50,6 @@
 
     ?>
     </div>
-  </section>
+  </div>
 </section>
 <?php endif; ?>

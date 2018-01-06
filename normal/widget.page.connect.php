@@ -2,7 +2,7 @@
   <header class="widget-header">
     <h4 class="widget-title"><?php echo $language->widget->page->connect; ?></h4>
   </header>
-  <section class="widget-body">
+  <div class="widget-body">
     <div class="widget-content">
     <?php
 
@@ -44,5 +44,5 @@
 
     ?>
     </div>
-  </section>
+  </div>
 </section>

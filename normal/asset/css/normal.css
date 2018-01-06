@@ -1389,6 +1389,7 @@ pre {
   color:#FFF;
 }
 .form-comment .rich-text-editor-view {padding:.7692307692307693em}
+.form-comment .rich-text-editor-view a {color:#365D98}
 .form-comment .rich-text-editor-tool {
   font-size:120%;
   visibility:visible;

@@ -27,7 +27,7 @@
                 echo '</figure>';
                 echo '<header class="recent-comment-header">';
                 echo '<h5 class="recent-comment-author">';
-                echo HTML::a($_comment->author . "", $_comment->url, false, ['classes' => ['recent-comment-url'], 'rel' => 'nofollow']);
+                echo HTML::a($_comment->author . "", $_comment->url, false, ['class[]' => ['recent-comment-url'], 'rel' => 'nofollow']);
                 echo '</h5>';
                 echo '</header>';
                 echo '<div class="recent-comment-body">';

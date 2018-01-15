@@ -6,7 +6,7 @@
 if (Extend::exist('user') && $page->author instanceof User) {
     $author = HTML::a($page->author . "", $page->author->link, false);
 } else {
-    $author = HTML::span($page->author . "", ['classes' => ['a']]);
+    $author = HTML::span($page->author . "", ['class[]' => ['a']]);
 }
 
 ?>

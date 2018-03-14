@@ -28,3 +28,7 @@ if (Route::is('%*%/' . Extend::state('comment', 'path', X)) && Request::is('post
         Request::set('post', 'status', 1);
     }
 }
+
+// Set custom page conditional statement(s)
+$site->is_user = Extend::exist('user') && strpos($url->path . '/', Extend::state('user', 'path') . '/') === 0;
+$site->is_static = strpos($url->path, '/') === false || $site->is_user;

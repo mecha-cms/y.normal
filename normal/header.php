@@ -18,10 +18,10 @@
     <div class="wrapper">
       <header class="header">
         <h1 class="title">
-          <?php if ($url->path !== ""): ?>
-          <a href="<?php echo $url; ?>"><?php echo $site->title; ?></a>
-          <?php else: ?>
+          <?php if (!$url->path || $url->path === $site->path): ?>
           <span class="a"><?php echo $site->title; ?></span>
+          <?php else: ?>
+          <a href="<?php echo $url; ?>"><?php echo $site->title; ?></a>
           <?php endif; ?>
         </h1>
         <p class="description"><?php echo $site->description; ?></p>

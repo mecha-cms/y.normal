@@ -2,7 +2,7 @@
 <?php
 
 if (Extend::exist('user') && $page->author instanceof User) {
-    $author = HTML::a($page->author . "", $page->author->link, false);
+    $author = HTML::a($page->author . "", $page->author->link ?: $page->author->url, false);
 } else {
     $author = HTML::span($page->author . "", ['class[]' => ['a']]);
 }
@@ -20,7 +20,7 @@ if (Extend::exist('user') && $page->author instanceof User) {
   <p><?php echo $author; ?> &#x00B7; <time datetime="<?php echo $page->date->W3C; ?>"><?php echo $page->date->{str_replace('-', '_', $site->language)}; ?></time></p>
   <?php else: ?>
   <header class="post-header">
-    <?php if (strpos($url->path, '/') !== false): ?>
+    <?php if (!$site->is_static): ?>
     <p class="post-property">
       <time class="post-time" datetime="<?php echo $page->date->W3C; ?>">
         <?php echo $page->date->{str_replace('-', '_', $site->language)}; ?>
@@ -38,7 +38,7 @@ if (Extend::exist('user') && $page->author instanceof User) {
     <p><a class="button action post-link" href="<?php echo $page->link; ?>"><?php echo $language->article_continue; ?></a></p>
     <?php endif; ?>
   </div>
-  <?php if (strpos($url->path, '/') !== false): ?>
+  <?php if (!$site->is_static): ?>
   <footer class="post-footer">
     <div><?php echo $language->posted_by__([$author, '<time datetime="' . $page->date->W3C . '">' . $page->date->F4 . '</time>'], true); ?></div>
     <?php if (Extend::exist('tag')): ?>
@@ -48,7 +48,7 @@ if (Extend::exist('user') && $page->author instanceof User) {
   <?php endif; ?>
   <?php endif; ?>
 </article>
-<?php if (strpos($url->path, '/') !== false): ?>
+<?php if (!$site->is_static): ?>
 <?php Shield::get('pager'); ?>
 <?php Shield::get('comments'); ?>
 <?php endif; ?>

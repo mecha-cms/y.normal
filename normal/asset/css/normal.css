@@ -498,7 +498,7 @@ fieldset[disabled] button,
 fieldset[disabled] input,
 fieldset[disabled] select,
 fieldset[disabled] textarea,
-fieldset[disabled] .btn {
+fieldset[disabled] .button {
   cursor:default;
   cursor:not-allowed;
   opacity:.9;
@@ -1406,6 +1406,15 @@ pre {
 }
 .form-comment .rich-text-editor-d input {color:#FFF}
 
+.form-user .button {background:#365D98}
+.form-user .button:focus,
+.form-user .button:hover {background:#3A64A4}
+.form-user .button:active {background:#32568C}
+.form-user\:exit .button[name="x"] {background:#933}
+.form-user\:exit .button[name="x"]:focus,
+.form-user\:exit .button[name="x"]:hover {background:#A53737}
+.form-user\:exit .button[name="x"]:active {background:#8D2F2F}
+
 
 /* @icon */
 .aside-toggle:before,
@@ -1416,6 +1425,7 @@ pre {
 .comment-status\:1 > .comment-header > .comment-author:after,
 .form-comment .button-submit:before,
 .form-comment .button-reset:before,
+.form-user .button:before,
 .form-search .button:before,
 .message-error:before,
 .message-info:before,
@@ -1473,6 +1483,21 @@ pre {
 
 .form-comment .button-reset:before {
   content:'\f057'; /* times-circle */
+  margin-right:.25em;
+}
+
+.form-user\:enter .button:before {
+  content:'\f084'; /* key */
+  margin-right:.25em;
+}
+
+.form-user\:exit .button[name="x"]:before {
+  content:'\f235'; /* user-times */
+  margin-right:.25em;
+}
+
+.form-user\:exit .button[href="/"]:before {
+  content:'\f015'; /* home */
   margin-right:.25em;
 }
 

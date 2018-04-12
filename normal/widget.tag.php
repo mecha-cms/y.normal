@@ -21,9 +21,9 @@
         }
         foreach (array_count_values($_data) as $_k => $_v) {
             if (($_slug = To::tag($_k)) === false) continue;
-            $_tag = new Page(TAG . DS . $_slug . '.page', [], 'tag');
-            $_t = $url . '/' . To::url($_base) . '/' . Extend::state('tag', 'path', 'tag');
-            echo '<li' . ($site->tag && $site->tag->slug === $_slug ? ' class="current"' : "") . '>' . HTML::a($_tag->title, $_t . '/' . $_tag->slug) . ' <span class="counter">' . $_v . '</span></li>';
+            $_tag = new Tag(TAG . DS . $_slug . '.page');
+            $_t = $url . '/' . To::URL($_base) . '/' . Extend::state('tag', 'path');
+            echo '<li' . ($site->is('tags') && $parent->slug === $_slug ? ' class="current"' : "") . '>' . HTML::a($_tag->title, $_t . '/' . $_tag->slug) . ' <span class="counter">' . $_v . '</span></li>';
         }
         echo '</ul>';
     } else {

@@ -35,7 +35,7 @@
                 echo '</div>';
                 echo '<footer class="recent-comment-footer">';
                 echo '<p class="recent-comment-property">';
-                echo '<time class="recent-comment-time" datetime="' . $_comment->date->W3C . '">' . $_comment->date->F2 . '</time>';
+                echo '<time class="recent-comment-time" datetime="' . $_comment->time->W3C . '">' . $_comment->time->F2 . '</time>';
                 echo '</p>';
                 echo '</footer>';
                 echo '</li>';

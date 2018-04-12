@@ -4,7 +4,7 @@
 <?php
 
 if (Extend::exist('user') && $page->author instanceof User) {
-    $author = HTML::a($page->author . "", $page->author->link ?: $page->author->url, false);
+    $author = HTML::a($page->author . "", $page->author->link ?: $page->author->url);
 } else {
     $author = HTML::span($page->author . "", ['class[]' => ['a']]);
 }
@@ -14,17 +14,17 @@ if (Extend::exist('user') && $page->author instanceof User) {
   <?php $content = str_replace(["\n\n", "\n", '<p></p>'], ['</p><p>', '<br>', ""], n(To::text($page->content, HTML_WISE_I, true))); ?>
   <?php if ($page->type === 'Log'): ?>
   <p><?php echo $content; ?></p>
-  <p><?php echo $author; ?> &#x00B7; <?php echo HTML::a('<time datetime="' . $page->date->W3C . '">' . $page->date->{str_replace('-', '_', $site->language)} . '</time>', $page->url); ?></p>
+  <p><?php echo $author; ?> &#x00B7; <?php echo HTML::a('<time datetime="' . $page->time->W3C . '">' . $page->time->{str_replace('-', '_', $site->language)} . '</time>', $page->url); ?></p>
   <?php elseif ($page->type ==='Quote'): ?>
   <blockquote>
     <p>&#x201C;<?php echo $content; ?>&#x201D;</p>
   </blockquote>
-  <p><?php echo $author; ?> &#x00B7; <?php echo HTML::a('<time datetime="' . $page->date->W3C . '">' . $page->date->{str_replace('-', '_', $site->language)} . '</time>', $page->url); ?></p>
+  <p><?php echo $author; ?> &#x00B7; <?php echo HTML::a('<time datetime="' . $page->time->W3C . '">' . $page->time->{str_replace('-', '_', $site->language)} . '</time>', $page->url); ?></p>
   <?php else: ?>
   <header class="post-header">
     <p class="post-property">
-      <time class="post-time" datetime="<?php echo $page->date->W3C; ?>">
-        <?php echo $page->date->{str_replace('-', '_', $site->language)}; ?>
+      <time class="post-time" datetime="<?php echo $page->time->W3C; ?>">
+        <?php echo $page->time->{str_replace('-', '_', $site->language)}; ?>
         <?php echo $page->view ? ' &#x00B7; ' . $page->view : ""; ?>
       </time>
     </p>

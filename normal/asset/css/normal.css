@@ -1311,6 +1311,7 @@ pre {
   color:#AAA;
 }
 
+.form-comment h4,
 .form-comment .form-comment-button,
 .form-comment .form-comment-input,
 .form-comment .form-comment-select,
@@ -1496,8 +1497,8 @@ pre {
   margin-right:.25em;
 }
 
-.form-user\:exit .button[href="/"]:before {
-  content:'\f015'; /* home */
+.form-user\:exit .button[href]:before {
+  content:'\f007'; /* user */
   margin-right:.25em;
 }
 

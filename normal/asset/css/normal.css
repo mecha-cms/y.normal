@@ -291,7 +291,11 @@ textarea.na {
 .table td {border:1px solid}
 .table {width:100%}
 
-.image-container,
+.image-container {
+  display:block;
+  text-align:center;
+}
+
 .p {display:block}
 
 .image-container img {
@@ -1116,11 +1120,11 @@ pre {
   color:#AAA;
 }
 
-.post-index .post-time {font-size:76.92307692307693%} /* magic number :( */
+.is-pages .post-time {font-size:76.92307692307693%} /* magic number :( */
 
 .post-footer {margin:5% 0 0}
 
-.page-404 .post-body {
+.is-error .post-body {
   padding:20% 0;
   text-align:center;
 }
@@ -1274,7 +1278,7 @@ pre {
 .post-format\:quote:first-child blockquote:first-child,
 .post-format\:quote:first-child blockquote p:first-child {margin-top:0}
 
-.page-page .post-format\:quote blockquote {font-size:220%}
+.is-page .post-format\:quote blockquote {font-size:220%}
 
 .post-format\:quote blockquote + p {
   font-size:80%;
@@ -1540,7 +1544,7 @@ pre {
   margin:.1em .5em 0 0; /* magic number :( */
 }
 
-.post-index .post-time:before {margin-top:.45em} /* magic number :( */
+.is-pages .post-time:before {margin-top:.45em} /* magic number :( */
 
 
 /* @media */

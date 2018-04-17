@@ -2,8 +2,10 @@
 
 return [
     'path' => 'article', // Your home page path
-    'sort' => [-1, 'time'], // Default post(s) order
-    'chunk' => 14, // Post(s) per page
+    'page' => [
+        'sort' => [-1, 'time'], // Default post(s) order
+        'chunk' => 14 // Post(s) per page
+    ],
     'widget' => [ // Widget setting(s)
         'comment' => [
             'chunk' => 5,

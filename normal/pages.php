@@ -10,7 +10,7 @@ if (Extend::exist('user') && $page->author instanceof User) {
 }
 
 ?>
-<article class="post post-index post-format:<?php echo __c2f__($page->type . ""); ?>" id="post-<?php echo $page->id; ?>">
+<article class="post post-format:<?php echo __c2f__($page->type . ""); ?>" id="post-<?php echo $page->id; ?>">
   <?php $content = str_replace(["\n\n", "\n", '<p></p>'], ['</p><p>', '<br>', ""], n(To::text($page->content, HTML_WISE_I, true))); ?>
   <?php if ($page->type === 'Log'): ?>
   <p><?php echo $content; ?></p>

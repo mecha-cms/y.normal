@@ -23,7 +23,7 @@
             if (($_slug = To::tag($_k)) === false) continue;
             $_tag = new Tag(TAG . DS . $_slug . '.page');
             $_t = $url . '/' . To::URL($_base) . '/' . Extend::state('tag', 'path');
-            echo '<li' . ($site->is('tags') && $parent->slug === $_slug ? ' class="current"' : "") . '>' . HTML::a($_tag->title, $_t . '/' . $_tag->slug) . ' <span class="counter">' . $_v . '</span></li>';
+            echo '<li' . ($site->is('tags') && $page->tag->slug === $_slug ? ' class="current"' : "") . '>' . HTML::a($_tag->title, $_t . '/' . $_tag->slug) . ' <span class="counter">' . $_v . '</span></li>';
         }
         echo '</ul>';
     } else {

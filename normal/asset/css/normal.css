@@ -573,6 +573,21 @@ optgroup option {
 
 label .input:checked + span {opacity:.8}
 
+form p:first-child,
+form .p:first-child {margin-top:0}
+
+form p > label,
+form .p > label {
+  display:inline-block;
+  padding-top:.7692307692307693em;
+  width:4.5em !important; /* TODO */
+}
+
+form p > label + span,
+form p > label + div
+form .p > label + span,
+form .p > label + div {margin-left:6em !important /* TODO */}
+
 fieldset {
   padding:0 1.3846153846153846em 1.3846153846153846em;
   border:1px solid;
@@ -1271,34 +1286,17 @@ pre {
 .widget .recent-comment-footer {margin-left:4.8461538461538463em}
 
 
-/* @format */
-.post-format\:quote blockquote {font-size:120%}
-.post-format\:quote blockquote p:first-child {text-indent:-.4em} /* same with the opening curly quote’s width */
-
-.post-format\:quote:first-child blockquote:first-child,
-.post-format\:quote:first-child blockquote p:first-child {margin-top:0}
-
-.is-page .post-format\:quote blockquote {font-size:220%}
-
-.post-format\:quote blockquote + p {
-  font-size:80%;
-  letter-spacing:.15384615384615385em;
-  color:#AAA;
-}
-.post-format\:quote blockquote + p a {color:inherit}
-
-.post-format\:quote blockquote + p a:focus,
-.post-format\:quote blockquote + p a:hover {text-decoration:underline}
-
-.post-format\:log {
-  padding:0 0 0 1em;
-  border-left:1px solid;
-}
-.post-format\:log p:first-child {margin-top:0}
-.post-format\:log p:last-child {font-size:80%}
-
-
-/* @extend */
+/* @extend(
+  comment,
+  pager,
+  plugin.comment-editor,
+  plugin.contact,
+  plugin.contact-editor,
+  plugin.t-o-c,
+  rich-text-editor,
+  type,
+  user
+) */
 
 .comments {margin:5% 0 0}
 
@@ -1324,92 +1322,93 @@ pre {
 .form-comment .form-comment-input.p,
 .form-comment .form-comment-select.p,
 .form-comment .form-comment-textarea.p,
-.form-comment .p {
-  margin:1.3846153846153846em 0 0 -1em;
+.form-comment .p,
+
+.form-contact .form-contact-button,
+.form-contact .form-contact-input,
+.form-contact .form-contact-select,
+.form-contact .form-contact-textarea,
+.form-contact .form-contact-button.p,
+.form-contact .form-contact-input.p,
+.form-contact .form-contact-select.p,
+.form-contact .form-contact-textarea.p,
+.form-contact .p {
+  margin:1.3846153846153846em 0 0 0;
   padding:0;
 }
 
-.form-comment .form-comment-button:first-child,
-.form-comment .form-comment-input:first-child,
-.form-comment .form-comment-select:first-child,
-.form-comment .form-comment-textarea:first-child,
-.form-comment .form-comment-button.p:first-child,
-.form-comment .form-comment-input.p:first-child,
-.form-comment .form-comment-select.p:first-child,
-.form-comment .form-comment-textarea.p:first-child,
-.form-comment .p:first-child {margin-top:0}
-
 .form-comment .form-comment .messages {margin-bottom:1.3846153846153846em}
 
-.form-comment .form-comment-button > label,
-.form-comment .form-comment-input > label,
-.form-comment .form-comment-select > label,
-.form-comment .form-comment-textarea > label,
-.form-comment .form-comment-button.p > label,
-.form-comment .form-comment-input.p > label,
-.form-comment .form-comment-select.p > label,
-.form-comment .form-comment-textarea.p > label,
-.form-comment .p > label {
-  padding-top:.7692307692307693em;
-  width:4.5em;
-}
+.button-submit {background:#4B9343}
 
-.form-comment .form-comment-button > label + span,
-.form-comment .form-comment-button > label + div,
-.form-comment .form-comment-input > label + span,
-.form-comment .form-comment-input > label + div,
-.form-comment .form-comment-select > label + span,
-.form-comment .form-comment-select > label + div,
-.form-comment .form-comment-textarea > label + span,
-.form-comment .form-comment-textarea > label + div,
-.form-comment .form-comment-button.p > label + span,
-.form-comment .form-comment-button.p > label + div,
-.form-comment .form-comment-input.p > label + span,
-.form-comment .form-comment-input.p > label + div,
-.form-comment .form-comment-select.p > label + span,
-.form-comment .form-comment-select.p > label + div,
-.form-comment .form-comment-textarea.p > label + span,
-.form-comment .form-comment-textarea.p > label + div,
-.form-comment .p > label + span,
-.form-comment .p > label + div {margin-left:6em}
+.button-submit:focus,
+.button-submit:hover {background:#519F48}
 
-.form-comment .button-submit {background:#4B9343}
+.button-submit:active {background:#45873E}
 
-.form-comment .button-submit:focus,
-.form-comment .button-submit:hover {background:#519F48}
+.button-reset {background:#933}
 
-.form-comment .button-submit:active {background:#45873E}
+.button-reset:focus,
+.button-reset:hover {background:#A53737}
 
-.form-comment .button-reset {background:#933}
+.button-reset:active {background:#8D2F2F}
 
-.form-comment .button-reset:focus,
-.form-comment .button-reset:hover {background:#A53737}
-
-.form-comment .button-reset:active {background:#8D2F2F}
-
-.form-comment .rich-text-editor {
+.form-comment .rich-text-editor,
+.form-contact .rich-text-editor {
   border-width:0;
   border-color:#3A64A4;
   background:#333;
   color:#FFF;
 }
-.form-comment .rich-text-editor-view {padding:.7692307692307693em}
-.form-comment .rich-text-editor-view a {color:#365D98}
-.form-comment .rich-text-editor-tool {
+.form-comment .rich-text-editor-view,
+.form-contact .rich-text-editor-view {padding:.7692307692307693em}
+.form-comment .rich-text-editor-view a,
+.form-contact .rich-text-editor-view a {color:#365D98}
+.form-comment .rich-text-editor-tool,
+.form-contact .rich-text-editor-tool {
   font-size:120%;
   visibility:visible;
   opacity:1;
 }
-.form-comment .rich-text-editor-tool a {
+.form-comment .rich-text-editor-tool a,
+.form-contact .rich-text-editor-tool a {
   background:none;
   color:#AAA;
 }
 .form-comment .rich-text-editor-tool a:focus,
-.form-comment .rich-text-editor-tool a:hover {
+.form-comment .rich-text-editor-tool a:hover,
+.form-contact .rich-text-editor-tool a:focus,
+.form-contact .rich-text-editor-tool a:hover {
   background:none;
   color:#FFF;
 }
-.form-comment .rich-text-editor-d input {color:#FFF}
+.form-comment .rich-text-editor-d input,
+.form-contact .rich-text-editor-d input {color:#FFF}
+
+.post-format\:quote blockquote {font-size:120%}
+.post-format\:quote blockquote p:first-child {text-indent:-.4em} /* same with the opening curly quote’s width */
+
+.post-format\:quote:first-child blockquote:first-child,
+.post-format\:quote:first-child blockquote p:first-child {margin-top:0}
+
+.is-page .post-format\:quote blockquote {font-size:220%}
+
+.post-format\:quote blockquote + p {
+  font-size:80%;
+  letter-spacing:.15384615384615385em;
+  color:#AAA;
+}
+.post-format\:quote blockquote + p a {color:inherit}
+
+.post-format\:quote blockquote + p a:focus,
+.post-format\:quote blockquote + p a:hover {text-decoration:underline}
+
+.post-format\:log {
+  padding:0 0 0 1em;
+  border-left:1px solid;
+}
+.post-format\:log p:first-child {margin-top:0}
+.post-format\:log p:last-child {font-size:80%}
 
 .form-user .button {background:#365D98}
 .form-user .button:focus,
@@ -1430,6 +1429,7 @@ pre {
 .comment-status\:1 > .comment-header > .comment-author:after,
 .form-comment .button-submit:before,
 .form-comment .button-reset:before,
+.form-contact .button-submit:before,
 .form-user .button:before,
 .form-search .button:before,
 .message-error:before,
@@ -1488,6 +1488,11 @@ pre {
 
 .form-comment .button-reset:before {
   content:'\f057'; /* times-circle */
+  margin-right:.25em;
+}
+
+.form-contact .button-submit:before {
+  content:'\f1d8'; /* send */
   margin-right:.25em;
 }
 

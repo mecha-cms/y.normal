@@ -90,8 +90,6 @@ kbd {
   font-size:76%;
   padding:.2em .5em;
   border:2px outset;
-  -webkit-border-radius:4px;
-  -moz-border-radius:4px;
   border-radius:4px;
 }
 
@@ -277,11 +275,7 @@ textarea.na {
   font:inherit;
   color:inherit;
   text-align:inherit;
-  -webkit-border-radius:0;
-  -moz-border-radius:0;
   border-radius:0;
-  -webkit-box-shadow:none;
-  -moz-box-shadow:none;
   box-shadow:none;
 }
 
@@ -765,13 +759,43 @@ img {
  *
  */
 
+:root {
+  --color:#333;
+  --color--active:#2F2F2F;
+  --color--hover:#373737;
+  --color--inverse:#FFF;
+  --color-a:#365D98;
+  --color-a--inverse:#666;
+  --color-alt-1:#888;
+  --color-alt-2:#AAA;
+  --color-border:var(--color-alt-2);
+  --color-button-error:#933;
+  --color-button-error--hover:#A53737;
+  --color-button-error--active:#8D2F2F;
+  --color-button-info:#365D98;
+  --color-button-info--hover:#3A64A4;
+  --color-button-info--active:#32568C;
+  --color-button-success:#4b9343;
+  --color-button-success--hover:#519f48;
+  --color-button-success--active:#45873E;
+  --color-error--inverse:#FAA;
+  --color-mark:#FF0;
+  --color-mark-text:#FFA;
+  --color-message--error:#CF3030;
+  --color-message--info:#6AAAC2;
+  --color-message--success:#8EAB1A;
+  --color-selection:#F9DC62;
+  --text:Helmet,FreeSans,sans-serif;
+  --text-code:Consolas,'Andale Mono WT','Andale Mono','Lucida Console','Lucida Sans Typewriter','DejaVu Sans Mono','Bitstream Vera Sans Mono','Liberation Mono','Nimbus Mono L',Monaco,'Courier New',Courier,monospace;
+}
+
 
 /* @general */
 
 html {
-  background:#FFF;
-  color:#333;
-  font-family:Helmet,FreeSans,Sans-Serif;
+  background:var(--color--inverse);
+  color:var(--color);
+  font-family:var(--text);
 }
 
 body {
@@ -781,23 +805,21 @@ body {
   box-sizing:border-box;
 }
 
-a {color:#365D98}
+a {color:var(--color-a)}
 
 a:focus,
-a:hover {color:#666}
-
-blockquote {font-family:Georgia,'URW Bookman L',Serif}
+a:hover {color:var(--color-a--inverse)}
 
 code,
 pre,
-.code {font-family:Consolas,'Andale Mono WT','Andale Mono','Lucida Console','Lucida Sans Typewriter','DejaVu Sans Mono','Bitstream Vera Sans Mono','Liberation Mono','Nimbus Mono L',Monaco,'Courier New',Courier,Monospace}
+.code {font-family:var(--text-code)}
 
 .notes p {margin:0}
 .notes ol {font-size:84%}
 
 .notes hr {
   border-style:solid;
-  border-color:#AAA;
+  border-color:var(--color-border);
   width:7em;
 }
 
@@ -805,125 +827,118 @@ pre,
 /* @miscellaneous */
 
 ::-webkit-input-placeholder {
-  color:#AAA;
+  color:var(--color-border);
   opacity:1;
   overflow:visible; /* webkit only :( */
   line-height:inherit;
 }
 
 ::-moz-placeholder {
-  color:#AAA;
+  color:var(--color-alt-2);
   opacity:1;
   line-height:inherit;
 }
 
 :-moz-placeholder {
-  color:#AAA;
+  color:var(--color-alt-2);
   opacity:1;
   line-height:inherit;
 }
 
 :-ms-input-placeholder {
-  color:#AAA;
+  color:var(--color-alt-2);
   opacity:1;
   line-height:inherit;
 }
 
 :placeholder {
-  color:#AAA;
+  color:var(--color-alt-2);
   opacity:1;
   line-height:inherit;
 }
 
-:focus::-webkit-input-placeholder {color:#888 !important}
-:focus::-moz-placeholder {color:#888 !important}
-:focus:-moz-placeholder {color:#888 !important}
-:focus:-ms-input-placeholder {color:#888 !important}
-:focus:placeholder {color:#888 !important}
+:focus::-webkit-input-placeholder {color:var(--color-alt-1) !important}
+:focus::-moz-placeholder {color:var(--color-alt-1) !important}
+:focus:-moz-placeholder {color:var(--color-alt-1) !important}
+:focus:-ms-input-placeholder {color:var(--color-alt-1) !important}
+:focus:placeholder {color:var(--color-alt-1) !important}
 
 ::-moz-selection {
-  background:#F9DC62;
-  color:#1A1A1A;
+  background:var(--color-selection);
+  color:var(--color);
   text-shadow:none;
 }
 
 ::selection {
-  background:#F9DC62;
-  color:#1A1A1A;
+  background:var(--color-selection);
+  color:var(--color);
   text-shadow:none;
 }
 
 mark {
-  background:#FF0;
-  color:#333;
+  background:var(--color-mark);
+  color:var(--color);
 }
 
 .button,
 .input,
 .select,
 .textarea {
-  background:#333;
-  color:#FFF;
+  background:var(--color);
+  color:var(--color--inverse);
 }
 
 .button {
-  background:#333;
-  color:#FFA;
-  -webkit-border-radius:2px;
-  -moz-border-radius:2px;
+  background:var(--color);
+  color:var(--color-mark-text);
   border-radius:2px;
 }
 
 .button:focus,
 .button:hover {
-  background:#373737;
-  color:#FFA;
+  background:var(--color--hover);
+  color:var(--color-mark-text);
   text-decoration:none;
 }
 
 .button:active {
-  background:#2F2F2F;
+  background:var(--color--active);
   text-decoration:none;
-  -webkit-box-shadow:inset 0 2px 1px rgba(0, 0, 0, .1);
-  -moz-box-shadow:inset 0 2px 1px rgba(0, 0, 0, .1);
-  box-shadow:inset 0 2px 1px rgba(0, 0, 0, .1);
+  box-shadow:inset 0 2px 1px rgba(0,0,0,.1);
 }
 
 .input:invalid,
 .select:invalid,
 .textarea:invalid {
-  color:#FAA;
-  -webkit-box-shadow:none;
-  -moz-box-shadow:none;
+  color:var(--color-error--inverse);
   box-shadow:none;
 }
-
-.button.action {background:#365D98}
+.button.action {background:var(--color-button-info)}
 
 .button.action:focus,
-.button.action:hover {background:#3A64A4}
+.button.action:hover {background:var(--color-button-info--hover)}
 
-.button.action:active {background:#32568C}
+.button.action:active {background:var(--color-button-info-active)}
 
 .button.accept,
 .button.begin,
-.button.construct {background:#4B9343}
+.button.construct {background:var(--color-button-success)}
 
 .button.accept:focus,
 .button.accept:hover,
 .button.begin:focus,
 .button.begin:hover,
 .button.construct:focus,
-.button.construct:hover {background:#519F48}
+.button.construct:hover {background:var(--color-button-success--hover)}
 
 .button.accept:active,
 .button.begin:active,
-.button.construct:active {background:#45873E}
+.button.construct:active {background:var(--color-button-success--active)}
 
 .button.danger,
 .button.destruct,
 .button.error,
-.button.reject {background:#933}
+.button.reject {background:var(--color-button-error)}
 
 .button.danger:focus,
 .button.danger:hover,
@@ -932,35 +947,22 @@ mark {
 .button.error:focus,
 .button.error:hover,
 .button.reject:focus,
-.button.reject:hover {background:#A53737}
+.button.reject:hover {background:var(--color-button-error--hover)}
 
 .button.danger:active,
 .button.destruct:active,
 .button.error:active,
-.button.reject:active {background:#8D2F2F}
+.button.reject:active {background:var(--color-button-error--active)}
 
 pre {
-  background:#333;
-  color:#FFF;
-  -webkit-border-radius:3px;
-  -moz-border-radius:3px;
+  background:var(--color);
+  color:var(--color--inverse);
   border-radius:3px;
 }
 
-.text-fade {color:#AAA}
-.text-accept,
-.text-begin,
-.text-construct {color:#4B9343}
-.text-info {color:#00A2D1}
-.text-warning {color:#DB582C}
-.text-danger,
-.text-destruct,
-.text-error,
-.text-reject {color:#933}
-
 .message {
-  background:#333;
-  color:#FFF;
+  background:var(--color);
+  color:var(--color--inverse);
 }
 
 .message code {
@@ -969,20 +971,13 @@ pre {
 }
 
 .message pre code {opacity:1}
-
-.message-success {background:#8EAB1A}
-.message-info {background:#6AAAC2}
-
-.message-warning {
-  background:#FFDE76;
-  color:#333;
-}
-
-.message-error {background:#CF3030}
+.message-error {background:var(--color-message--error)}
+.message-info {background:var(--color-message--info)}
+.message-success {background:var(--color-message--success)}
 
 .message-success a,
 .message-info a,
-.message-error a {color:#FFA}
+.message-error a {color:var(--color-mark-text)}
 
 
 /* @wrapper */
@@ -1075,13 +1070,13 @@ pre {
 }
 
 .nav .current > a {
-  background:#365D98;
-  color:#FFF;
+  background:var(--color-button-info);
+  color:var(--color--inverse);
 }
 
 .nav .current > a:focus,
-.nav .current > a:hover {background:#3A64A4}
-.nav .current > a:active {background:#32568C}
+.nav .current > a:hover {background:var(--color-button-info--hover)}
+.nav .current > a:active {background:var(--color-button-info--active)}
 
 .nav li ul {
   line-height:2.6153846153846154em;
@@ -1091,10 +1086,8 @@ pre {
   z-index:999;
   max-width:15.384615384615385em;
   min-width:10.76923076923077em;
-  background:#FFF;
+  background:var(--color--inverse);
   border:1px solid;
-  -webkit-box-shadow:0 2px 5px rgba(0,0,0,.3);
-  -moz-box-shadow:0 2px 5px rgba(0,0,0,.3);
   box-shadow:0 2px 5px rgba(0,0,0,.3);
   visibility:hidden;
 }
@@ -1132,7 +1125,7 @@ pre {
 .post-property {
   text-transform:uppercase;
   letter-spacing:.15384615384615385em;
-  color:#AAA;
+  color:var(--color-alt-2);
 }
 
 .is-pages .post-time {font-size:76.92307692307693%} /* magic number :( */
@@ -1194,7 +1187,7 @@ pre {
 
 .widget .form-search {
   margin:0;
-  background:#333;
+  background:var(--color);
   overflow:hidden;
   position:relative;
 }
@@ -1275,7 +1268,7 @@ pre {
   font-size:60%;
   text-transform:uppercase;
   letter-spacing:.15384615384615385em;
-  color:#AAA;
+  color:var(--color-alt-2);
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
@@ -1310,7 +1303,7 @@ pre {
   font-size:80%;
   text-transform:uppercase;
   letter-spacing:.15384615384615385em;
-  color:#AAA;
+  color:var(--color-alt-2);
 }
 
 .form-comment h4,
@@ -1339,85 +1332,102 @@ pre {
 
 .form-comment .form-comment .messages {margin-bottom:1.3846153846153846em}
 
-.button-submit {background:#4B9343}
+.button-submit {background:var(--color-button-success)}
 
 .button-submit:focus,
-.button-submit:hover {background:#519F48}
+.button-submit:hover {background:var(--color-button-success--hover)}
 
-.button-submit:active {background:#45873E}
+.button-submit:active {background:var(--color-button-success--active)}
 
-.button-reset {background:#933}
+.button-reset {background:var(--color-button-error)}
 
 .button-reset:focus,
-.button-reset:hover {background:#A53737}
+.button-reset:hover {background:var(--color-button-error--hover)}
 
-.button-reset:active {background:#8D2F2F}
+.button-reset:active {background:var(--color-button-error--active)}
 
 .form-comment .rich-text-editor,
 .form-contact .rich-text-editor {
   border-width:0;
-  border-color:#3A64A4;
-  background:#333;
-  color:#FFF;
+  border-color:var(--color-a);
+  background:var(--color);
+  color:var(--color--inverse);
 }
 .form-comment .rich-text-editor-view,
 .form-contact .rich-text-editor-view {padding:.7692307692307693em}
 .form-comment .rich-text-editor-view a,
-.form-contact .rich-text-editor-view a {color:#365D98}
-.form-comment .rich-text-editor-tool,
-.form-contact .rich-text-editor-tool {
+.form-contact .rich-text-editor-view a {color:var(--color-a)}
+.form-comment .rich-text-editor-tools,
+.form-contact .rich-text-editor-tools {
   font-size:120%;
   visibility:visible;
   opacity:1;
 }
-.form-comment .rich-text-editor-tool a,
-.form-contact .rich-text-editor-tool a {
+.form-comment .rich-text-editor-tools a,
+.form-contact .rich-text-editor-tools a {
   background:none;
-  color:#AAA;
+  color:var(--color-alt-2);
 }
-.form-comment .rich-text-editor-tool a:focus,
-.form-comment .rich-text-editor-tool a:hover,
-.form-contact .rich-text-editor-tool a:focus,
-.form-contact .rich-text-editor-tool a:hover {
+.form-comment .rich-text-editor-tools a:focus,
+.form-comment .rich-text-editor-tools a:hover,
+.form-contact .rich-text-editor-tools a:focus,
+.form-contact .rich-text-editor-tools a:hover {
   background:none;
-  color:#FFF;
+  color:var(--color--inverse);
 }
 .form-comment .rich-text-editor-d input,
-.form-contact .rich-text-editor-d input {color:#FFF}
+.form-contact .rich-text-editor-d input {color:var(--color--inverse)}
 
-.post-format\:quote blockquote {font-size:120%}
-.post-format\:quote blockquote p:first-child {text-indent:-.4em} /* same with the opening curly quote’s width */
+.pager-step a {
+  background:var(--color-button-info);
+  color:var(--color--inverse);
+  border-radius:2px;
+}
 
-.post-format\:quote:first-child blockquote:first-child,
-.post-format\:quote:first-child blockquote p:first-child {margin-top:0}
+.pager-step a:focus,
+.pager-step a:hover {background:var(--color-button-info--hover)}
 
-.is-page .post-format\:quote blockquote {font-size:220%}
+.pager-step a:active {background:var(--color-button-info--active)}
 
-.post-format\:quote blockquote + p {
+.pager-step .a {
+  background:var(--color-button-alt-1);
+  color:inherit;
+  border-radius:2px;
+}
+
+.post-type\:quote blockquote {font-size:120%}
+.post-type\:quote blockquote p:first-child {text-indent:-.4em} /* Same with the opening curly quote’s width */
+
+.post-type\:quote:first-child blockquote:first-child,
+.post-type\:quote:first-child blockquote p:first-child {margin-top:0}
+
+.is-page .post-type\:quote blockquote {font-size:220%}
+
+.post-type\:quote blockquote + p {
   font-size:80%;
   letter-spacing:.15384615384615385em;
-  color:#AAA;
+  color:var(--color-alt-2);
 }
-.post-format\:quote blockquote + p a {color:inherit}
+.post-type\:quote blockquote + p a {color:inherit}
 
-.post-format\:quote blockquote + p a:focus,
-.post-format\:quote blockquote + p a:hover {text-decoration:underline}
+.post-type\:quote blockquote + p a:focus,
+.post-type\:quote blockquote + p a:hover {text-decoration:underline}
 
-.post-format\:log {
+.post-type\:log {
   padding:0 0 0 1em;
   border-left:1px solid;
 }
-.post-format\:log p:first-child {margin-top:0}
-.post-format\:log p:last-child {font-size:80%}
+.post-type\:log p:first-child {margin-top:0}
+.post-type\:log p:last-child {font-size:80%}
 
-.form-user .button {background:#365D98}
+.form-user .button {background:var(--color-button-info)}
 .form-user .button:focus,
-.form-user .button:hover {background:#3A64A4}
-.form-user .button:active {background:#32568C}
-.form-user\:exit .button[name="x"] {background:#933}
+.form-user .button:hover {background:var(--color-button-info--hover)}
+.form-user .button:active {background:var(--color-button-info--active)}
+.form-user\:exit .button[name="x"] {background:var(--color-button-error)}
 .form-user\:exit .button[name="x"]:focus,
-.form-user\:exit .button[name="x"]:hover {background:#A53737}
-.form-user\:exit .button[name="x"]:active {background:#8D2F2F}
+.form-user\:exit .button[name="x"]:hover {background:var(--color-button-error--hover)}
+.form-user\:exit .button[name="x"]:active {background:var(--color-button-error--active)}
 
 
 /* @icon */
@@ -1435,7 +1445,6 @@ pre {
 .message-error:before,
 .message-info:before,
 .message-success:before,
-.message-warning:before,
 .post-link:before,
 .post-link:after,
 .post-time:before {
@@ -1529,7 +1538,6 @@ pre {
 
 .message-info:before {content:'\f129'} /* info */
 .message-success:before {content:'\f00c'} /* check */
-.message-warning:before {content:'\f071'} /* exclamation-triangle */
 
 .post-link:after {
   content:'\f14c'; /* external-link-square */
@@ -1582,8 +1590,6 @@ pre {
     min-width:0;
     background:none;
     border:none;
-    -webkit-box-shadow:none;
-    -moz-box-shadow:none;
     box-shadow:none;
   }
   .nav li li ul {margin-left:0}
@@ -1623,7 +1629,7 @@ pre {
   }
   .footer-right:before {
     content:'\2013';
-    color:#AAA;
+    color:var(--color-alt-2);
     margin:0 1em;
   }
   .align-left,

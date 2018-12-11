@@ -7,7 +7,7 @@
     <meta name="description" content="<?php echo $s; ?>">
     <?php endif; ?>
     <?php if ($page->state === 'archive'): ?>
-    <!-- Prevent search engines from indexing a page with `archive` state -->
+    <!-- Prevent search engines from indexing pages with `archive` state -->
     <meta name="robots" content="noindex">
     <?php endif; ?>
     <meta name="author" content="<?php echo $page->author; ?>">

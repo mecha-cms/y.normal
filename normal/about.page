@@ -3,7 +3,7 @@ title: Normal
 description: Port of the normal shield in Mecha version `1.x.x`.
 author: Taufik Nurrohman
 type: Markdown
-version: 2.7.0
+version: 2.8.0
 ...
 
 This is the default shield used by Mecha version `1.x.x`.
@@ -13,18 +13,72 @@ This is the default shield used by Mecha version `1.x.x`.
  - Automatic menu navigation
  - Automatic breadcrumb navigation
  - Automatic set the home page view to `article`
- - Comments (requires comment extension)
- - Page views counter (requires view plugin)
- - Manual post excerpt (requires you to insert `<!-- cut -->` in the post content)
- - Formats:
-   - HTML
-   - Log
-   - Markdown
-   - Quote
+ - Comments (requires Comment extension)
+ - Page views counter (requires View plugin)
+ - Manual post excerpt (requires Excerpt plugin)
+ - Formats (requires Type extension)
  - Widgets:
-   - Tags (requires tag extension)
+   - Tags (requires Tag extension)
    - Recent Posts
    - Related Posts
-   - Recent Comments (requires comment extension).
+   - Recent Comments (requires Comment extension)
+   - List (custom)
+
+### Widgets
+
+To create a custom widget, open `aside.php` file then add this code just before the `</aside>` tag:
+
+~~~ .php
+<?php Shield::get('widget', [
+    'id' => 'foo-bar', // Optional
+    'title' => 'Your Custom Widget Title', // Optional
+    'content' => '<p>Your custom widget content.</p>'
+]); ?>
+~~~
+
+Example widget as advertisement container:
+
+~~~ .php
+<?php
+
+$content = <<<HTML
+
+// Remove this line then paste your AD code here!
+
+HTML;
+
+Shield::get('widget', [
+  'title' => 'Advertisement',
+  'content' => $content
+]);
+
+?>
+~~~
+
+Example widget list:
+
+~~~ .php
+<?php Shield::get('widget/list', [
+    'title' => 'My List',
+    'list' => [
+        'List Item 1',
+        'List Item 2',
+        'List Item 3',
+    ]
+]); ?>
+~~~
+
+Example widget list as link list:
+
+~~~ .php
+<?php Shield::get('widget/list', [
+    'title' => 'My List',
+    'list' => [
+        HTML::a('Link 1', 'http://example.com/link-1'),
+        HTML::a('Link 2', 'http://example.com/link-2'),
+        HTML::a('Link 3', 'http://example.com/link-3'),
+    ]
+]); ?>
+~~~
 
 <!-- block:donate -->

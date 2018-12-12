@@ -2,22 +2,18 @@
 type: YAML
 ...
 
-article: Article
-articles: Articles
+article: Artikel
+articles: Artikel
 
-article_continue: Read More
+article_continue: Baca Selengkapnya
 
-o_type:
-  Log: Log
-  Quote: Quote
-
-posted_by__: Posted by %{0}% on %{1}%
-powered_by__: Powered by <strong>Mecha %{0}%</strong>
+posted_by__: Diposting oleh %{0}% on %{1}%
+powered_by__: Diberdayakan oleh <strong>Mecha %{0}%</strong>
 
 widget_comment:
-  recent: Recent Comments
+  recent: Komentar Terbaru
 widget_page:
-  recent: Recent Posts
-  connect: Related Posts
+  recent: Posting Terbaru
+  relate: Posting Terkait
 widget_tag:
-  explore: Tags
+  $: Label

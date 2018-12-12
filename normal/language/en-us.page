@@ -14,6 +14,6 @@ widget_comment:
   recent: Recent Comments
 widget_page:
   recent: Recent Posts
-  connect: Related Posts
+  relate: Related Posts
 widget_tag:
-  explore: Tags
+  $: Tags

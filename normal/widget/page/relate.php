@@ -40,7 +40,7 @@ call_user_func(function() {
     if ($content) {
         Shield::get('widget', [
             'id' => 'page-relate',
-            'title' => $language->widget_page->connect,
+            'title' => $language->widget_page->relate,
             'content' => $content
         ]);
     }

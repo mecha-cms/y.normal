@@ -1,6 +1,6 @@
 <?php extract($lot); ?>
 <?php if (!empty($title) || !empty($content)): ?>
-<section class="widget <?php echo implode(' ', array_reverse(Anemon::step($id ?? 'default', '-'))); ?>">
+<section class="<?php echo implode(' ', array_reverse(Anemon::step('widget-' . ($id ?? 'default'), '-'))); ?>">
   <?php if (!empty($title)): ?>
   <header class="widget-header">
     <h4 class="widget-title"><?php echo $title; ?></h4>

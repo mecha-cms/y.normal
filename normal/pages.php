@@ -1,5 +1,5 @@
 <?php Shield::get('header'); ?>
-<?php if ($pages): ?>
+<?php if ($pages->count): ?>
 <?php foreach ($pages as $page): ?>
 <article class="post post-type:<?php echo c2f($page->type); ?>" id="post-<?php echo $page->id; ?>">
   <?php if (has(['Image', 'Log', 'Quote', 'Video'], $page->type)): ?>

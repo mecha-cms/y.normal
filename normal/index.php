@@ -11,6 +11,17 @@ Hook::set('page.description', function($description) {
     return $description;
 });
 
+// Add continue link
+if (Plugin::exist('excerpt')) {
+    Hook::set('page.excerpt', function($excerpt) {
+        if (strpos($this->get('content', false), Plugin::state('excerpt', 'cut')) !== false) {
+            global $language;
+            return $excerpt . '<p><a href="' . $this->url . '#more:' . $this->id . '">' . $language->do_continue . '</a></p>';
+        }
+        return $excerpt;
+    });
+}
+
 // Load asset(s)
 Asset::set($url->protocol . 'maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', 20);
 Asset::set('css/normal.min.css', 20);

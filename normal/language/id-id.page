@@ -5,7 +5,7 @@ type: YAML
 article: Artikel
 articles: Artikel
 
-article_continue: Baca Selengkapnya
+do_continue: Baca Selengkapnya
 
 posted_by__: Diposting oleh %{0}% on %{1}%
 powered_by__: Diberdayakan oleh <strong>Mecha %{0}%</strong>

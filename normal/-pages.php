@@ -17,8 +17,8 @@
   </h4>
 </header>
 <div class="post-body">
-  <?php if ($page->excerpt): ?>
-  <div class="post-excerpt"><?php echo $page->excerpt; ?></div>
+  <?php if ($excerpt = $page->excerpt): ?>
+  <div class="post-excerpt"><?php echo $excerpt; ?></div>
   <?php else: ?>
   <div class="post-description">
     <p><?php echo To::snippet((string) $page->description); ?></p>

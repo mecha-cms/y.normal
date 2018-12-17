@@ -5,7 +5,7 @@ type: YAML
 article: Article
 articles: Articles
 
-article_continue: Read More
+do_continue: Read More
 
 posted_by__: Posted by %{0}% on %{1}%
 powered_by__: Powered by <strong>Mecha %{0}%</strong>

@@ -217,6 +217,15 @@ time {display:inline}
   text-align:center;
 }
 
+.align-left img,
+.align-right img {display:block}
+.align-center,
+.align-center img {
+  display:block;
+  margin-right:auto;
+  margin-left:auto;
+}
+
 .align-top {vertical-align:top}
 .align-bottom {vertical-align:bottom}
 .align-middle {vertical-align:middle}

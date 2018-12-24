@@ -21,6 +21,6 @@
 <?php if ($site->has('parent')): ?>
 <footer class="post-footer">
   <div><?php echo $language->posted_by__([Shield::get('page.author', [], false), '<time datetime="' . $page->time->W3C . '">' . $page->time('%h%:%m% %N%') . '</time>'], true); ?></div>
-  <div><?php Shield::get('tags'); ?></div>
+  <div><?php Shield::get('page.tags', ['page' => $page]); ?></div>
 </footer>
 <?php endif; ?>

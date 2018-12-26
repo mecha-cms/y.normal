@@ -27,7 +27,7 @@
         </h1>
         <p class="description"><?php echo $site->description; ?></p>
       </header>
-      <?php Shield::get('nav'); ?>
+      <?php static::nav(); ?>
       <div class="content">
-        <?php Shield::get('aside'); ?>
+        <?php static::aside(); ?>
         <main class="main">

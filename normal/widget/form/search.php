@@ -8,7 +8,7 @@ call_user_func(function() {
     $content .= Form::submit(null, null, "", ['class[]' => ['button']]);
     $content .= '</form>';
     $id = To::slug(Path::N(__FILE__));
-    Shield::get('widget', [
+    static::widget([
         'id' => 'form-search',
         'content' => $content
     ]);

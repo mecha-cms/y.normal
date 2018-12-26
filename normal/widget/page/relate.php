@@ -38,7 +38,7 @@ call_user_func(function() {
         }
     }
     if ($content) {
-        Shield::get('widget', [
+        static::widget([
             'id' => 'page-relate',
             'title' => $language->widget_page->relate,
             'content' => $content

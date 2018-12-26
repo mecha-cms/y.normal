@@ -41,7 +41,7 @@ if (Extend::exist('comment')) {
         } else {
             $content = '<p>' . $language->message_info_void($language->comments) . '</p>';
         }
-        Shield::get('widget', [
+        static::widget([
             'id' => 'comment-recent',
             'title' => $language->widget_comment->recent,
             'content' => $content

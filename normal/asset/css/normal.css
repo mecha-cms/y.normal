@@ -1308,7 +1308,7 @@ pre {
 .comments {margin:var(--s) 0 0}
 
 .comment-author,
-.toc-header {
+.t-o-c-header {
   font:inherit;
   font-weight:bold;
 }

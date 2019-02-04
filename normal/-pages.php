@@ -1,7 +1,7 @@
 <?php extract($lot); ?>
 <header class="post-header">
   <p class="post-property">
-    <time class="post-time" datetime="<?php echo $page->time->W3C; ?>">
+    <time class="post-time" datetime="<?php echo $page->time->ISO8601; ?>">
       <?php echo $page->time->{strtr($site->language, '-', '_')}; ?>
       <?php echo $page->view ? ' &#x00B7; ' . $page->view : ""; ?>
     </time>

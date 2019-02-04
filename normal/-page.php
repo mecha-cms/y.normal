@@ -2,7 +2,7 @@
 <header class="post-header">
   <?php if ($site->has('parent')): ?>
   <p class="post-property">
-    <time class="post-time" datetime="<?php echo $page->time->W3C; ?>">
+    <time class="post-time" datetime="<?php echo $page->time->ISO8601; ?>">
       <?php echo $page->time->{strtr($site->language, '-', '_')}; ?>
       <?php echo $page->view ? ' &#x00B7; ' . $page->view : ""; ?>
     </time>
@@ -20,7 +20,7 @@
 </div>
 <?php if ($site->has('parent')): ?>
 <footer class="post-footer">
-  <div><?php echo $language->posted_by__([static::get('page.author', ['page' => $page], false), '<time datetime="' . $page->time->W3C . '">' . $page->time('%h%:%m% %N%') . '</time>'], true); ?></div>
+  <div><?php echo $language->posted_by__([static::get('page.author', ['page' => $page], false), '<time datetime="' . $page->time->ISO8601 . '">' . $page->time('%h%:%m% %N%') . '</time>'], true); ?></div>
   <div><?php static::get('page.tags', ['page' => $page]); ?></div>
 </footer>
 <?php endif; ?>

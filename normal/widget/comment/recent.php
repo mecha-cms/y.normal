@@ -29,7 +29,7 @@ if (Extend::exist('comment')) {
                     $content .= '</div>';
                     $content .= '<footer class="recent-comment-footer">';
                     $content .= '<p class="recent-comment-property">';
-                    $content .= '<time class="recent-comment-time" datetime="' . $comment->time->W3C . '">' . $comment->time('%Y%/%M%/%D% %h%:%m% %N%') . '</time>';
+                    $content .= '<time class="recent-comment-time" datetime="' . $comment->time->ISO8601 . '">' . $comment->time('%Y%/%M%/%D% %h%:%m% %N%') . '</time>';
                     $content .= '</p>';
                     $content .= '</footer>';
                     $content .= '</li>';

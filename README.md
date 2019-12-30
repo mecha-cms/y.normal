@@ -1,4 +1,7 @@
-Normal Shield for Mecha
+Normal Layout for Mecha
 =======================
 
-> Port of the normal shield in Mecha version `1.x.x`.
+Release Notes
+-------------
+
+### 2.10.0-alpha

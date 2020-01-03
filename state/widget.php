@@ -10,4 +10,4 @@ return [
         'path' => '/article', // Your article’s folder relative to `.\lot\page`
         'chunk' => 7
     ]
-];
+];

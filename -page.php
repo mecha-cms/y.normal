@@ -26,7 +26,7 @@
   <?php endif; ?>
 </div>
 <?php if ($site->has('parent')): ?>
-<footer class="page-footer">
+<footer class="page-footer p">
   <div>
     <?= i('Posted by %s', [self::get('page.author', $lot)]); ?>
     <?= i('on %s', ['<time datetime="' . $page->time->ISO8601 . '">' . $page->time('%r') . '</time>']); ?>

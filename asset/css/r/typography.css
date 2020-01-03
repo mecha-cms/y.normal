@@ -1,0 +1,172 @@
+code,
+.code {
+  font-size: 96%;
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  display: block;
+  line-height: 1.25;
+  word-wrap: break-word;
+}
+
+h1,
+.h1 {
+  font-size: 200%;
+}
+
+h2,
+.h2 {
+  font-size: 180%;
+}
+
+h3,
+.h3 {
+  font-size: 160%;
+}
+
+h4,
+.h4 {
+  font-size: 140%;
+}
+
+h5,
+.h5 {
+  font-size: 120%;
+}
+
+h6,
+.h6 {
+  font-size: 100%;
+}
+
+hr {
+  border-top: 1px dashed;
+  color: inherit;
+}
+
+* + blockquote,
+* + dl,
+* + fieldset,
+* + figure,
+* + form,
+* + h1,
+* + h2,
+* + h3,
+* + h4,
+* + h5,
+* + h6,
+* + hr,
+* + nav,
+* + ol,
+* + p,
+* + pre,
+* + table,
+* + ul,
+* + .h1,
+* + .h2,
+* + .h3,
+* + .h4,
+* + .h5,
+* + .h6,
+* + .p {
+  margin-top: 18px;
+}
+
+ol {
+  margin-left: 36px;
+  list-style: decimal outside;
+}
+
+ul {
+  margin-left: 36px;
+  list-style: disc outside;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+  margin-top: 0;
+  margin-left: 18px;
+}
+
+dt {
+  font-size: 120%;
+}
+
+dd {
+  margin-left: 18px;
+}
+
+figure figcaption {
+  margin-top: 9px;
+  text-align: center;
+}
+
+fieldset {
+  padding: 18px;
+  border: 1px solid;
+}
+
+legend {
+  margin: 0;
+  padding: 0 9px;
+  white-space: nowrap;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 86%;
+  overflow: visible;
+}
+
+fieldset legend + * {
+  margin-top: 0;
+}
+
+optgroup {
+  font: inherit;
+  font-weight: bolder;
+}
+
+optgroup option {
+  padding-left: 18px;
+  font-weight: normal;
+}
+
+pre code {
+  padding: 10px 12px;
+}
+
+table caption {
+  margin: 0 0 9px;
+  text-align: center;
+}
+
+.table th,
+.table td {
+  padding: 8px 10px;
+}
+
+.align-left {
+  margin-right: 18px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.align-right {
+  margin-left: 18px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}

@@ -1,0 +1,12 @@
+.widget .counter::before {
+  content: '(';
+}
+
+.widget .counter::after {
+  content: ')';
+}
+
+.widget .current > a {
+  color: inherit;
+  text-decoration: none;
+}

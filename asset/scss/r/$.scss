@@ -1,5 +1,23 @@
-$x: 18px; // margin-x
-$y: 18px; // margin-y
+$x: 18px;
+$y: 18px;
 
-$z: 18px; // font-size
-$h: 18px; // line-height
+$z: 13px;
+$h: 18px;
+
+$w: 5%;
+
+
+$background: #fff;
+$color: #333;
+
+$color-button-primary: #365d98;
+$color-button-primary-active: darken($color-button-primary, 2%);
+$color-button-primary-hover: lighten($color-button-primary, 2%);
+
+$color-gray: #999;
+
+$color-link: #365d98;
+$color-link-active: darken($color-link, 10%);
+$color-link-hover: lighten($color-link, 10%);
+
+$color-yellow-2: #ffa;

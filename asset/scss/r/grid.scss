@@ -1,56 +1,47 @@
+
+
+
+
+
 .grid-group {
   display: block;
-}
-
-.grid-group::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.grid-group {
-  margin-right: -9px;
-  margin-left: -9px;
-}
-
-.grid {
-  background-clip: content-box;
-  min-height: 1px;
-  float: left;
-  padding: 0 9px;
-  cursor: inherit;
-}
-
-.grid-group.no-gap {
-  margin-right: 0;
-  margin-left: 0;
-}
-
-.no-gap .grid {
-  padding-right: 0;
-  padding-left: 0;
-}
-
-.span-1 {
-  width: 16.666%;
-}
-
-.span-2 {
-  width: 33.333%;
-}
-
-.span-3 {
-  width: 50%;
-}
-
-.span-4 {
-  width: 66.666%;
-}
-
-.span-5 {
-  width: 83.333%;
-}
-
-.span-6 {
-  width: 100%;
+  margin-right: -($x / 2);
+  margin-left: -($x / 2);
+  &.no-gap {
+    margin-right: 0;
+    margin-left: 0;
+    .grid {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+  .grid {
+    min-height: 1px;
+    float: left;
+    padding: 0 ($x / 2);
+    background-clip: content-box;
+    &.span {
+      &-1 {
+        width: (100% * (1 / 6));
+      }
+      &-2 {
+        width: (100% * (2 / 6));
+      }
+      &-3 {
+        width: (100% * (3 / 6));
+      }
+      &-4 {
+        width: (100% * (4 / 6));
+      }
+      &-5 {
+        width: (100% * (5 / 6));
+      }
+      &-6 {
+        width: (100% * (6 / 6));
+      }
+    }
+  }
+  &::after {
+    @extend .cf::after;
+  }
 }

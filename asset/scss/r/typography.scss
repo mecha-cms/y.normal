@@ -1,8 +1,29 @@
+html {
+  font: normal normal $z/$h Helmet, FreeSans, sans-serif;
+}
+
+blockquote {
+  font-size: ($z * 1.1);
+}
+
 code,
 .code {
-  font-size: 96%;
+  font-size: ($z * .86);
   font-weight: normal;
   font-style: normal;
+}
+
+code,
+pre,
+.code {
+  font-family: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
+}
+
+pre {
+  code {
+    padding: ($y / 2) ($x / 1.5);
+    font-size: 100%;
+  }
 }
 
 h1,
@@ -24,32 +45,32 @@ h6,
 
 h1,
 .h1 {
-  font-size: 200%;
+  font-size: ($z * 2);
 }
 
 h2,
 .h2 {
-  font-size: 180%;
+  font-size: ($z * 1.8);
 }
 
 h3,
 .h3 {
-  font-size: 160%;
+  font-size: ($z * 1.6);
 }
 
 h4,
 .h4 {
-  font-size: 140%;
+  font-size: ($z * 1.4);
 }
 
 h5,
 .h5 {
-  font-size: 120%;
+  font-size: ($z * 1.2);
 }
 
 h6,
 .h6 {
-  font-size: 100%;
+  font-size: ($z * 1);
 }
 
 hr {
@@ -57,116 +78,125 @@ hr {
   color: inherit;
 }
 
-* + blockquote,
-* + dl,
-* + fieldset,
-* + figure,
-* + form,
-* + h1,
-* + h2,
-* + h3,
-* + h4,
-* + h5,
-* + h6,
-* + hr,
-* + nav,
-* + ol,
-* + p,
-* + pre,
-* + table,
-* + ul,
-* + .h1,
-* + .h2,
-* + .h3,
-* + .h4,
-* + .h5,
-* + .h6,
-* + .p {
-  margin-top: 18px;
+* {
+  + blockquote,
+  + dl,
+  + fieldset,
+  + figure,
+  + form,
+  + h1,
+  + h2,
+  + h3,
+  + h4,
+  + h5,
+  + h6,
+  + hr,
+  + ol,
+  + p,
+  + pre,
+  + table,
+  + ul,
+  + .h1,
+  + .h2,
+  + .h3,
+  + .h4,
+  + .h5,
+  + .h6,
+  + .p {
+    margin-top: $y;
+  }
 }
 
 ol {
-  margin-left: 36px;
+  margin-left: ($x * 2);
   list-style: decimal outside;
 }
 
 ul {
-  margin-left: 36px;
+  margin-left: ($x * 2);
   list-style: disc outside;
 }
 
-ol ol,
-ul ul,
-ol ul,
-ul ol {
-  margin-top: 0;
-  margin-left: 18px;
+ol,
+ul {
+  ol,
+  ul {
+    margin-top: 0;
+    margin-left: $x;
+  }
 }
 
 dt {
-  font-size: 120%;
+  @extend .h5;
 }
 
 dd {
-  margin-left: 18px;
+  margin-left: $x;
 }
 
-figure figcaption {
-  margin-top: 9px;
+figcaption {
+  margin-top: ($y / 2);
   text-align: center;
 }
 
 fieldset {
-  padding: 18px;
+  padding: $y $x;
   border: 1px solid;
+  legend {
+    + * {
+      margin-top: 0;
+    }
+  }
 }
 
 legend {
   margin: 0;
-  padding: 0 9px;
+  padding: 0 ($x / 2);
   white-space: nowrap;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 86%;
+  font-size: ($z * .86);
   overflow: visible;
-}
-
-fieldset legend + * {
-  margin-top: 0;
 }
 
 optgroup {
   font: inherit;
   font-weight: bolder;
+  option {
+    padding-left: $x;
+    font-weight: normal;
+  }
 }
 
-optgroup option {
-  padding-left: 18px;
-  font-weight: normal;
+iframe {
+  &:not([width]) {
+    width: 100%;
+  }
+  &:not([height]) {
+    height: ($y * 5);
+  }
 }
 
-pre code {
-  padding: 10px 12px;
+.table {
+  caption {
+    margin: 0 0 ($y / 2);
+    text-align: center;
+  }
+  th,
+  td {
+    padding: (($y - (($h - $z) / 2)) / 2) ($x / 2);
+  }
 }
 
-table caption {
-  margin: 0 0 9px;
-  text-align: center;
-}
-
-.table th,
-.table td {
-  padding: 8px 10px;
-}
-
-.align-left {
-  margin-right: 18px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-.align-right {
-  margin-left: 18px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+.align {
+  &-right {
+    margin-left: $x;
+    padding-top: (($h - $z) / 2);
+    padding-bottom: (($h - $z) / 2);
+  }
+  &-left {
+    margin-right: $x;
+    padding-top: (($h - $z) / 2);
+    padding-bottom: (($h - $z) / 2);
+  }
 }

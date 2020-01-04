@@ -16,7 +16,7 @@
     <link href="<?= $url->clean; ?>" rel="canonical">
   </head>
   <body>
-    <div class="wrapper">
+    <div class="outer">
       <?= self::header(); ?>
       <?= self::nav(); ?>
       <div class="content">

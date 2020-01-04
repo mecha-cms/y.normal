@@ -12,16 +12,11 @@
   outline: none;
 }
 
-html {
-  font: normal normal 13px/18px sans-serif;
-}
-
 a {
   text-decoration: none;
-}
-
-a img {
-  border: none;
+  img {
+    border: 0;
+  }
 }
 
 abbr,
@@ -29,14 +24,6 @@ dfn {
   text-decoration: none;
   cursor: help;
 }
-
-kbd {
-  font-size: 76%;
-  display: inline-block;
-  padding: .2em .5em;
-  vertical-align: middle;
-}
-
 b,
 kbd,
 strong,
@@ -69,30 +56,26 @@ code {
 }
 
 small {
-  font-size: 80%;
+  font-size: smaller;
 }
 
 sub,
 sup {
   position: relative;
-  top: -.4em;
-  font-size: 80%;
+  top: -.5em;
+  font-size: smaller;
 }
-
 sub {
-  top: .4em;
+  top: .5em;
 }
 
-blockquote {
-  font-size: 110%;
-}
-
-blockquote::before,
-blockquote::after,
-q::before,
-q::after {
-  content: "";
-  display: none;
+blockquote,
+q {
+  &::before,
+  &::after {
+    content: "";
+    display: none;
+  }
 }
 
 article,
@@ -100,8 +83,8 @@ aside,
 footer,
 header,
 hgroup,
-section,
-nav {
+nav,
+section {
   display: block;
 }
 
@@ -118,15 +101,7 @@ img {
 iframe {
   display: inline-block;
   background: none;
-  border: none;
-}
-
-iframe:not([width]) {
-  width: 100%;
-}
-
-iframe:not([height]) {
-  height: 90px;
+  border: 0;
 }
 
 button,
@@ -137,12 +112,27 @@ label {
   cursor: pointer;
 }
 
-input[type="checkbox"],
-input[type="color"],
-input[type="file"],
-input[type="image"],
-input[type="radio"],
-input[type="range"],
+button,
+input {
+  &::-moz-focus-inner {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+  }
+}
+
+input {
+  &[type="checkbox"],
+  &[type="color"],
+  &[type="file"],
+  &[type="image"],
+  &[type="radio"],
+  &[type="range"] {
+    cursor: pointer;
+  }
+}
+
 select {
   cursor: pointer;
 }
@@ -153,10 +143,9 @@ pre {
   white-space: pre;
   white-space: -moz-pre-wrap;
   white-space: pre-wrap;
-}
-
-pre code {
-  display: block;
+  code {
+    display: block;
+  }
 }
 
 table {

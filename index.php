@@ -15,7 +15,7 @@ Hook::set('page.description', function($description) {
 $GLOBALS['widget'] = (object) require __DIR__ . DS . 'state' . DS . 'widget.php';
 
 // Set custom language phrase
-$GLOBALS['Search...'] = 'Search…';
+$GLOBALS['I']['Search...'] = 'Search…';
 
 // Create site link data to be used in navigation
 $GLOBALS['links'] = new Anemon((function($out, $state, $url) {
@@ -52,9 +52,9 @@ $GLOBALS['traces'] = new Pages((function($out, $state, $url) {
 
 // Load asset(s)
 Asset::set($url->protocol . 'maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', 20);
-Asset::set('css/r/reset.css', 20);
-Asset::set('css/r/h.css', 20.1);
-Asset::set('css/r/typography.css', 20.2);
-Asset::set('css/r/grid.css', 20.3);
-Asset::set('css/normal.css', 20);
+if (null !== State::get('x.scss')) {
+    Asset::set(__DIR__ . DS . 'asset' . DS . 'scss' . DS . 'normal.scss', 20);
+} else {
+    Asset::set(__DIR__ . DS . 'asset' . DS . 'css' . DS . 'normal.min.css', 20);
+}
 Asset::set('js/normal.min.js', 20);

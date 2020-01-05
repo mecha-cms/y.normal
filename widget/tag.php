@@ -8,7 +8,7 @@ if (null !== State::get('x.tag')) {
         $content = "";
         if ($kinds = glob(LOT . DS . 'page' . $r . DS . '*' . DS . 'kind.data', GLOB_NOSORT)) {
             foreach ($kinds as $kind) {
-                $kind = e(trim(file_get_contents($kind))); // TODO
+                $kind = e(file_get_contents($kind));
                 $data = concat($data, (array) $kind);
             }
             if ($data) {

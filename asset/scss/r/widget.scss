@@ -1,0 +1,135 @@
+.t-o-c {
+  summary {
+    text-transform: uppercase;
+  }
+}
+
+.widget {
+  li,
+  ol,
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    padding: ($y / 4) 0;
+    border: inherit;
+    border-width: 0 0 1px;
+  }
+  ol,
+  ul {
+    border: 0 solid $color-gray;
+    border-width: 1px 0 0;
+  }
+  .count {
+    &::before {
+      content: '(';
+    }
+    &::after {
+      content: ')';
+    }
+  }
+  .current {
+    > a {
+      color: inherit;
+    }
+  }
+  .form {
+    &-search {
+      position: relative;
+      background: $color;
+      color: $background;
+      overflow: hidden;
+      p {
+        margin: 0;
+      }
+      .button,
+      .input {
+        display: block;
+        width: 100%;
+        background: none;
+        border-radius: 0;
+      }
+      .button {
+        padding-right: 0;
+        padding-left: 0;
+        width: ($x * 2);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        &,
+        &:focus,
+        &:hover,
+        &:active {
+          background: none;
+          box-shadow: none;
+        }
+      }
+      .input {
+        padding-right: ($x * 2); // Same with button width
+      }
+    }
+  }
+}
+
+/*
+.widget .recent-comments, .widget .recent-comment, .widget .recent-comment:first-child {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 0;
+}
+.widget .recent-comment:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.widget .recent-comment p {
+  margin: 0;
+}
+.widget .recent-comment-body, .widget .recent-comment-footer {
+  margin: 0.5em 0 0;
+}
+.widget .recent-comment-author {
+  margin: 0;
+  font: inherit;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.widget .recent-comment + .recent-comment {
+  margin-top: 0.5em;
+}
+.widget .recent-comment-figure {
+  width: 3.8461538462em;
+  margin: 0.25em 0 0;
+  float: left;
+}
+.widget .recent-comment-avatar {
+  display: block;
+  width: 3.8461538462em;
+  height: 3.8461538462em;
+  margin: 0;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.05);
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  border-radius: 0;
+}
+.widget .recent-comment-time {
+  font-size: 60%;
+  text-transform: uppercase;
+  letter-spacing: 0.1538461538em;
+  color: var(--color-alt-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.widget .recent-comment-header, .widget .recent-comment-body, .widget .recent-comment-footer {
+  margin-left: 4.8461538462em;
+}
+*/

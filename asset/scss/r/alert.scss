@@ -1,16 +1,28 @@
-$color-alert: $color;
-$color-alert-error: #cf3030;
-$color-alert-info: #00a2d1;
-$color-alert-success: #8eab1a;
-$color-alert-warning: #ffde76;
+$colors: (
+  'error': #cf3030,
+  'info': #00a2d1,
+  'success': #8eab1a,
+  'warning': #ffde76
+);
 
 .alert {
   p {
     margin: 0;
     padding: ($y / 2) ($x / 1.5);
-    background: $color-alert;
+    background: $color;
     color: $background;
     overflow: hidden;
+    @each $k, $v in $colors {
+      &.#{$k} {
+        background: $v;
+      }
+    }
+    &.warning {
+      color: $color;
+      a {
+        @extend a;
+      }
+    }
     a {
       color: $color-yellow-2;
     }
@@ -19,29 +31,6 @@ $color-alert-warning: #ffde76;
     }
     + p {
       margin-top: 2px;
-    }
-  }
-  .error {
-    background: $color-alert-error;
-  }
-  .info {
-    background: $color-alert-info;
-  }
-  .success {
-    background: $color-alert-success;
-  }
-  .warning {
-    background: $color-alert-warning;
-    color: $color;
-    a {
-      color: $color-link;
-      &:focus,
-      &:hover {
-        color: $color-link-hover;
-      }
-      &:active {
-        color: $color-link-active;
-      }
     }
   }
 }

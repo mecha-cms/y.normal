@@ -1,47 +1,49 @@
 <?php
 
-call_user_func(function() {
-    extract(Lot::get());
-    $path = PAGE . DS . (Path::D($url->path) ?: $widget->page['path']);
-    $chunk = $widget->page['chunk'];
-    $relates = [];
-    $content = "";
-    if ($current = Lot::get('page')) {
-        $slug = $current->slug;
-        if ($pages = Get::pages($path, 'page', [1, 'path'])) {
-            $query = explode('-', $slug);
-            foreach ($pages as $page) {
-                $name = Path::N($page);
-                if ($name === $slug) {
-                    continue; // Is the same page, skip!
-                }
-                foreach ($query as $q) {
-                    if ($q && strpos($name, $q) !== false) {
-                        $relates[] = $page;
-                    }
-                }
-            }
-        }
-        $relates = array_unique($relates); // Remove duplicate(s)…
-        if (!empty($relates)) {
-            $relates = Anemon::eat($relates)->shake->chunk($chunk, 0);
-        } else {
-            $relates = $pages->shake->chunk($chunk, 0); // Random page(s)…
-        }
-        if ($relates->count) {
-            $content .= '<ul>';
-            foreach ($relates as $relate) {
-                $relate = new Page($relate);
-                $content .= '<li>' . HTML::a($relate->title, $relate->url) . '</li>';
-            }
-            $content .= '</ul>';
+$path = DS . trim(strtr(Path::D($url->path ?? "") ?? $widget->page['path'], '/', DS), DS);
+$chunk = $widget->page['chunk'];
+$content = "";
+$c = $page ?? 0; // Store current page instance if any
+$query = explode('-', $c ? $c->name : "");
+
+$alikes = [];
+foreach (g(LOT . DS . 'page' . $path, 'page') as $k => $v) {
+    foreach ($query as $q) {
+        if (false !== strpos(Path::N($k), $q)) {
+            $alikes[$k] = 1;
         }
     }
-    if ($content) {
-        static::widget([
-            'id' => 'page-relate',
-            'title' => $language->widget_page->relate,
-            'content' => $content
-        ]);
+}
+
+if ($alike = count($alikes) > 1) {
+    // Related post(s)
+    $content .= '<ul>';
+    foreach ((new Pages(array_keys($alikes)))->shake->chunk($chunk, 0) as $page) {
+        $content .= '<li' . ($c && $c->name === $page->name ? ' class="current"' : "") . '>';
+        $content .= '<a href="' . $page->url . '">' . $page->title . '</a>';
+        $content .= '</li>';
     }
-});
+    $content .= '</ul>';
+    $title = i('Related %s', ['Posts']);
+} else {
+    // Random post(s)
+    $pages = Pages::from(LOT . DS . 'page' . $path);
+    if ($pages->count) {
+        $content .= '<ul>';
+        foreach ($pages->shake->chunk($chunk, 0) as $page) {
+            $content .= '<li' . ($c && $c->name === $page->name ? ' class="current"' : "") . '>';
+            $content .= '<a href="' . $page->url . '">' . $page->title . '</a>';
+            $content .= '</li>';
+        }
+        $content .= '</ul>';
+    } else {
+        $content .= '<p>' . i('No %s yet.', ['posts']) . '</p>';
+    }
+    $title = i('Random %s', ['Posts']);
+}
+
+echo self::widget([
+    'id' => 'page-' . ($alike ? 'alike' : 'random'),
+    'title' => $title,
+    'content' => $content
+]);

@@ -3,7 +3,7 @@
   <p class="page-meta">
     <time class="page-time" datetime="<?= $page->time->ISO8601; ?>">
       <?= $page->time->{r('-', '_', $site->language)}; ?>
-      <?= $page->view ? ' &#x00B7; ' . $page->view : ""; ?>
+      <?= ($view = $page->view) ? ' &#x00B7; ' . $view : ""; ?>
     </time>
   </p>
   <h4 class="page-title">

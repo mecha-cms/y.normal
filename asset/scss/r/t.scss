@@ -38,71 +38,39 @@ h6,
 .h4,
 .h5,
 .h6 {
-  display: block;
+  @extend .p;
   line-height: 1.25;
   word-wrap: break-word;
 }
 
-h1,
-.h1 {
-  font-size: ($z * 2);
-}
-
-h2,
-.h2 {
-  font-size: ($z * 1.8);
-}
-
-h3,
-.h3 {
-  font-size: ($z * 1.6);
-}
-
-h4,
-.h4 {
-  font-size: ($z * 1.4);
-}
-
-h5,
-.h5 {
-  font-size: ($z * 1.2);
-}
-
-h6,
-.h6 {
-  font-size: ($z * 1);
+@for $i from 0 through 5 {
+  h#{$i + 1},
+  .h#{$i + 1} {
+    font-size: ($z * (2 - (.2 * $i)));
+  }
 }
 
 hr {
-  border-top: 1px dashed;
+  @extend .p;
+  border-top: 1px dashed $color-gray;
   color: inherit;
 }
 
-* {
-  + blockquote,
-  + dl,
-  + fieldset,
-  + figure,
-  + form,
-  + h1,
-  + h2,
-  + h3,
-  + h4,
-  + h5,
-  + h6,
-  + hr,
-  + ol,
-  + p,
-  + pre,
-  + table,
-  + ul,
-  + .h1,
-  + .h2,
-  + .h3,
-  + .h4,
-  + .h5,
-  + .h6,
-  + .p {
+blockquote,
+dl,
+fieldset,
+figure,
+form,
+ol,
+p,
+pre,
+// table,
+ul {
+  @extend .p;
+}
+
+table {
+  * + & {
     margin-top: $y;
   }
 }

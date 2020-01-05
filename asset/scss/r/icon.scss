@@ -1,0 +1,126 @@
+.alert .error::before,
+.alert .info::before,
+.alert .success::before,
+.alert .warning::before,
+.aside .toggle::before,
+.button.page-link::before,
+.comments-header h3::before,
+.comment-reply\:v::before,
+.comment-status\:1 > .comment-header > .comment-author::after,
+.form-comment .button[type='submit']::before,
+.form-comment .button[href$='#form-comment']::before,
+.form-user\:enter .button::before,
+.form-user\:exit .button[href]:before,
+.form-user\:exit .button[href*='exit=']::before,
+.is\:pages .page-time::before,
+.form-search .button::before,
+.page-link::after,
+.page-time::before,
+.pager-prev a::before,
+.pager-next a::after {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.alert p::before {
+  width: 1.28571429em; /* TODO */
+  text-align: center;
+  margin: 0 .25em 0 -.15em;
+}
+
+.alert .error::before {
+  content: '\f00d'; /* times */
+  margin-right: .5em;
+}
+
+.alert .info::before {
+  content: '\f129'; /* info */
+}
+
+.alert .success::before {
+  content: '\f00c'; /* check */
+}
+
+.alert .warning::before {
+  content: '\f071'; /* exclamation-triangle */
+}
+
+.button.page-link::before {
+  content: '\f074'; /* random */
+  margin-right: .25em;
+}
+
+.comments-header h3::before {
+  content: '\f086'; /* comments */
+  margin-right: .25em;
+}
+
+.comment-reply\:v::before {
+  content: '\f067'; /* plus */
+  margin-right: .25em;
+}
+
+.comment-status\:1 > .comment-header > .comment-author::after {
+  content: '\f2be';
+  margin-left: .5em;
+}
+
+.form-comment .button[type='submit']::before {
+  content: '\f058'; /* check-circle */
+  margin-right: .25em;
+}
+
+.form-comment .button[href$='#form-comment']::before {
+  content: '\f057'; /* times-circle */
+  margin-right: .25em;
+}
+
+.form-search .button::before {
+  content: '\f002'; /* search */
+  display: block;
+}
+
+.form-user\:enter .button::before {
+  content: '\f084'; /* key */
+  margin-right: .25em;
+}
+
+.form-user\:exit .button[href]:before {
+  content: '\f007'; /* user */
+  margin-right: .25em;
+}
+
+.form-user\:exit .button[href*='exit=']::before {
+  content: '\f235'; /* user-times */
+  margin-right: .25em;
+}
+
+.is\:pages .page-time::before {
+  margin-top: .45em; /* magic number :( */
+}
+
+.page-link::after {
+  content: '\f14c'; /* external-link-square */
+  margin-left: .5em;
+}
+
+.page-time::before {
+  content: '\f073'; /* calendar */
+  display: block;
+  float: left;
+  margin: .1em .5em 0 0; /* magic number :( */
+}
+
+.pager-prev a::before {
+  content: '\f104'; /* angle-left */
+  margin-right: .5em;
+}
+
+.pager-next a::after {
+  content: '\f105'; /* angle-right */
+  margin-left: .5em;
+}

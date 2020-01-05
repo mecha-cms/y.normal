@@ -9,15 +9,24 @@ $w: 5%;
 
 $background: #fff;
 $color: #333;
-
-$color-button-primary: #365d98;
-$color-button-primary-active: darken($color-button-primary, 2%);
-$color-button-primary-hover: lighten($color-button-primary, 2%);
-
+$color-button: (
+  'primary': #365d98,
+  'error': #933,
+  'info': #6aaac2,
+  'success': #4b9343,
+  'warning': #db582c
+);
 $color-gray: #999;
-
+$color-input-invalid: #faa;
 $color-link: #365d98;
-$color-link-active: darken($color-link, 10%);
-$color-link-hover: lighten($color-link, 10%);
-
+$color-marker: #f9dc62;
 $color-yellow-2: #ffa;
+
+@mixin placeholder {
+  color: lighten($color, 30%);
+  opacity: 1;
+  line-height: inherit;
+  :focus& {
+    color: lighten($color, 20%);
+  }
+}

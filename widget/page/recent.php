@@ -1,28 +1,25 @@
 <?php
 
-call_user_func(function() {
-    extract(Lot::get());
-    $r = $widget->page['path'];
-    $chunk = $widget->page['chunk'];
-    $data = [];
-    $content = "";
-    $current = $page; // Catch original `$page` variable
-    $slug = $current->slug;
-    $pages = Get::pages(PAGE . DS . $r, 'page', [-1, 'time'], 'path');
-    if ($pages->count) {
-        $content .= '<ul>';
-        foreach ($pages->chunk($chunk, 0) as $page) {
-            $page = new Page($page);
-            $content .= '<li' . ($page->slug === $slug ? ' class="current"' : "") . '>' . HTML::a($page->title, $page->url) . '</li>';
-        }
-        $content .= '</ul>';
-    } else {
-        $content = '<p>' . $language->message_info_void($language->articles) . '</p>';
+$path = $widget->page['path'];
+$chunk = $widget->page['chunk'];
+$content = "";
+$c = $page ?? 0; // Store current page instance if any
+$pages = Pages::from(LOT . DS . 'page' . $path)->sort([-1, 'time']);
+
+if ($pages->count) {
+    $content .= '<ul>';
+    foreach ($pages->chunk($chunk, 0) as $page) {
+        $content .= '<li' . ($c && $c->name === $page->name ? ' class="current"' : "") . '>';
+        $content .= '<a href="' . $page->url . '">' . $page->title . '</a>';
+        $content .= '</li>';
     }
-    $id = To::slug(Path::N(__FILE__));
-    static::widget([
-        'id' => 'page-recent',
-        'title' => $language->widget_page->recent,
-        'content' => $content
-    ]);
-});
+    $content .= '</ul>';
+} else {
+    $content .= '<p>' . i('No %s yet.', ['posts']) . '</p>';
+}
+
+echo self::widget([
+    'id' => 'page-recent',
+    'title' => i('Recent %s', ['Posts']),
+    'content' => $content
+]);

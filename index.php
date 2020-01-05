@@ -34,27 +34,11 @@ $GLOBALS['links'] = new Anemon((function($out, $state, $url) {
     return $out;
 })([], $state, $url));
 
-// Create site trace data to be used in navigation
-$GLOBALS['traces'] = new Pages((function($out, $state, $url) {
-    $chops = explode('/', trim($url->path, '/'));
-    $v = LOT . DS . 'page';
-    while ($chop = array_shift($chops)) {
-        $v .= '/' . $chop;
-        if ($file = File::exist([
-            $v . '.page',
-            $v . '.archive'
-        ])) {
-            $out[] = $file;
-        }
-    }
-    return $out;
-})([], $state, $url));
-
 // Load asset(s)
 Asset::set($url->protocol . 'maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', 20);
 if (null !== State::get('x.scss')) {
-    Asset::set(__DIR__ . DS . 'asset' . DS . 'scss' . DS . 'normal.scss', 20);
+    Asset::set('scss/normal.scss', 20);
 } else {
-    Asset::set(__DIR__ . DS . 'asset' . DS . 'css' . DS . 'normal.min.css', 20);
+    Asset::set('css/normal.min.css', 20);
 }
 Asset::set('js/normal.min.js', 20);

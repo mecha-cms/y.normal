@@ -51,7 +51,7 @@
     margin-left: auto;
     text-align: center;
     img {
-      display: inline-block;
+      display: block;
       margin-right: auto;
       margin-left: auto;
     }
@@ -82,9 +82,17 @@
   }
 }
 
-/* <div class="audio p"><audio src></audio></div> */
-.audio {
+/* `<div class="p">` */
+.p {
   display: block;
+  * + & {
+    margin-top: $y;
+  }
+}
+
+/* `<div class="audio"><audio src></audio></div>` */
+.audio {
+  @extend .p;
   position: relative;
   audio {
     display: block;
@@ -92,9 +100,9 @@
   }
 }
 
-/* <figure class="image"> */
+/* `<figure class="image">` */
 .image {
-  display: block;
+  @extend .p;
   text-align: center;
   img {
     display: inline-block;
@@ -103,14 +111,8 @@
   }
 }
 
-/* <div class="p"> */
-.p {
-  display: block;
-}
-
-/* <table class="table"> */
+/* `<table class="table">` */
 .table {
-  border-collapse: collapse;
   width: 100%;
   th,
   td {
@@ -118,9 +120,9 @@
   }
 }
 
-/* <div class="video p"><video src></video></div> */
+/* `<div class="video"><video src></video></div>` */
 .video {
-  display: block;
+  @extend .p;
   height: 0;
   padding-bottom: 56.25%;
   position: relative;

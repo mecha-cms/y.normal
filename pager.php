@@ -1,4 +1,7 @@
-<nav class="pager">
+<?php if ($site->is('pages') && null !== State::get('x.pager')): ?>
+<?= self::pager('step'); ?>
+<?php else: ?>
+<nav class="pager pager-normal">
   <?php if ($pager->prev): ?>
   <span class="pager-prev">
     <?php echo $pager->prev(i('Newer')); ?>
@@ -10,3 +13,4 @@
   </span>
   <?php endif; ?>
 </nav>
+<?php endif; ?>

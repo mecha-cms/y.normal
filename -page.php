@@ -1,9 +1,9 @@
 <header class="page-header">
-  <?php if ($site->has('parent')): ?>
+  <?php if ($site->has('parent') && !$site->is('user')): ?>
   <p class="page-meta">
     <time class="page-time" datetime="<?= $page->time->ISO8601; ?>">
       <?= $page->time->{r('-', '_', $site->language)}; ?>
-      <?= $page->view ? ' &#x00B7; ' . $page->view : ""; ?>
+      <?= ($view = $page->view) ? ' &#x00B7; ' . $view : ""; ?>
     </time>
   </p>
   <?php endif; ?>
@@ -19,17 +19,17 @@
   </div>
   <?php if ($page->link): ?>
   <p>
-    <a class="button action page-link" href="<?= $page->link; ?>">
+    <a class="button page-link" href="<?= $page->link; ?>">
       <?= i('Read More'); ?>
     </a>
   </p>
   <?php endif; ?>
 </div>
-<?php if ($site->has('parent')): ?>
+<?php if ($site->has('parent') && !$site->is('user')): ?>
 <footer class="page-footer p">
   <div>
     <?= i('Posted by %s', [self::get('page.author', $lot)]); ?>
-    <?= i('on %s', ['<time datetime="' . $page->time->ISO8601 . '">' . $page->time('%r') . '</time>']); ?>
+    <?= i('at %s', ['<time datetime="' . $page->time->ISO8601 . '">' . $page->time('%r') . '</time>']); ?>
   </div>
   <div>
     <?= self::get('page.tags', $lot); ?>

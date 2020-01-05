@@ -1,0 +1,7 @@
+.comments {
+  margin: $w 0 0;
+}
+
+.form-comment .button.comment-reply\:x {
+  @extend .button.error;
+}

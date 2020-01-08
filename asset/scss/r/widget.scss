@@ -39,7 +39,7 @@
     &-search {
       position: relative;
       background: $color;
-      color: $background;
+      color: $color-back;
       overflow: hidden;
       p {
         margin: 0;
@@ -72,64 +72,63 @@
       }
     }
   }
+  .recent {
+    &-comments,
+    &-comment {
+      margin-right: 0;
+      margin-left: 0;
+      padding: 0;
+      border-width: 0;
+      list-style: none;
+    }
+    &-comments {
+      li + li {
+        margin-top: ($y / 2);
+      }
+    }
+    &-comment {
+      p {
+        margin: 0;
+      }
+      &-author {
+        font: inherit;
+        font-weight: bolder;
+        margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      &-avatar {
+        display: block;
+        width: 50px;
+        height: 50px;
+      }
+      &-body,
+      &-footer {
+        margin-top: ($z / 4);
+      }
+      &-figure {
+        width: (($y / 2) + 50);
+        float: left;
+      }
+      &-time {
+        font-size: ($z * .8);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: $color-gray;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      &::after {
+        @extend .cf::after;
+      }
+    }
+  }
 }
 
-/*
-.widget .recent-comments, .widget .recent-comment, .widget .recent-comment:first-child {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  border: 0;
+.aside {
+  .widget-header + .widget-body {
+    margin-top: ($y / 2);
+  }
 }
-.widget .recent-comment:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.widget .recent-comment p {
-  margin: 0;
-}
-.widget .recent-comment-body, .widget .recent-comment-footer {
-  margin: 0.5em 0 0;
-}
-.widget .recent-comment-author {
-  margin: 0;
-  font: inherit;
-  font-weight: bold;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.widget .recent-comment + .recent-comment {
-  margin-top: 0.5em;
-}
-.widget .recent-comment-figure {
-  width: 3.8461538462em;
-  margin: 0.25em 0 0;
-  float: left;
-}
-.widget .recent-comment-avatar {
-  display: block;
-  width: 3.8461538462em;
-  height: 3.8461538462em;
-  margin: 0;
-  padding: 0;
-  background: rgba(0, 0, 0, 0.05);
-  border: 0;
-  outline: 0;
-  box-shadow: none;
-  border-radius: 0;
-}
-.widget .recent-comment-time {
-  font-size: 60%;
-  text-transform: uppercase;
-  letter-spacing: 0.1538461538em;
-  color: var(--color-alt-2);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.widget .recent-comment-header, .widget .recent-comment-body, .widget .recent-comment-footer {
-  margin-left: 4.8461538462em;
-}
-*/

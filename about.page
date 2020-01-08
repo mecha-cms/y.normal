@@ -3,23 +3,23 @@ title: Normal
 description: Port of the default layout in Mecha version `1.x.x`.
 author: Taufik Nurrohman
 type: Markdown
-version: 2.10.0-alpha
+version: 2.10.0
 ...
 
-This is the default layout used by Mecha version `1.x.x`.
+![Normal Layout](https://user-images.githubusercontent.com/1669261/71982602-6bc77a00-3257-11ea-8aee-a031a2e3e4cb.png)
 
-**NOT READY YET FOR MECHA 2.2.0. DO NOT USE IT IN PRODUCTION!**
+This is the default layout used by Mecha version `1.x.x`.
 
 ### Features
 
  - Automatic menu navigation
- - Automatic breadcrumb navigation
- - Automatic set the home page view to `article`
+ - Automatic set the home page view to `/article`
  - Comments (requires `comment` extension)
  - Page views counter (requires `view` extension)
  - Manual post excerpt (requires `excerpt` extension)
  - Widgets:
    - Tags (requires `tag` extension)
+   - Random Posts
    - Recent Posts
    - Related Posts
    - Recent Comments (requires `comment` extension)
@@ -80,4 +80,86 @@ Example widget list as link list:
         '<a href="http://example.com/link-3">Link 3</a>'
     ]
 ]); ?>
+~~~
+
+### Grid System
+
+~~~ .html
+<div class="grids">
+  <div class="grid span-6">1 Column</div>
+</div>
+
+<div class="grids">
+  <div class="grid span-3">2 Columns</div>
+  <div class="grid span-3">2 Columns</div>
+</div>
+
+<div class="grids">
+  <div class="grid span-2">3 Columns</div>
+  <div class="grid span-2">3 Columns</div>
+  <div class="grid span-2">3 Columns</div>
+</div>
+
+<div class="grids">
+  <div class="grid span-1">6 Columns</div>
+  <div class="grid span-1">6 Columns</div>
+  <div class="grid span-1">6 Columns</div>
+  <div class="grid span-1">6 Columns</div>
+  <div class="grid span-1">6 Columns</div>
+  <div class="grid span-1">6 Columns</div>
+</div>
+
+<div class="grids">
+  <div class="grid span-1">Size 1/6</div>
+  <div class="grid span-5">Size 5/6</div>
+</div>
+
+<div class="grids">
+  <div class="grid span-2">Size 2/6</div>
+  <div class="grid span-4">Size 4/6</div>
+</div>
+~~~
+
+### Embeds
+
+Embedding a video:
+
+~~~ .html
+<div class="video">
+  <!-- Video embed code goes here… -->
+</div>
+~~~
+
+Embedding an audio:
+
+~~~ .html
+<div class="audio">
+  <!-- Video embed code goes here… -->
+</div>
+~~~
+
+Embedding an image with caption:
+
+~~~ .html
+<figure class="image">
+  <img alt="" src="/path/to/image.jpg">
+  <figcaption>Image caption goes here.</figcaption>
+</figure>
+~~~
+
+Embedding a table with borders:
+
+~~~ .html
+<table class="table">
+  <caption>Table caption goes here.</caption>
+  <!-- Table data goes here… -->
+</table>
+~~~
+
+### Image Alignments
+
+~~~ .html
+<img alt="" class="align-right" src="/path/to/image.jpg">
+<img alt="" class="align-center" src="/path/to/image.jpg">
+<img alt="" class="align-left" src="/path/to/image.jpg">
 ~~~

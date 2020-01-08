@@ -7,13 +7,13 @@
 @import 'r/alert';
 
 ::selection {
-  background: lighten($color-marker, 20%);
-  color: #333;
+  background: lighten($color-back-marker, 20%);
+  color: $color;
   text-shadow: none;
 }
 
 html {
-  background: $background;
+  background: $color-back;
   color: $color;
   border-top: 5px solid;
 }
@@ -46,7 +46,7 @@ hr {
 mark {
   &,
   &::selection {
-    background: $color-marker;
+    background: $color-back-marker;
     color: $color;
   }
 }
@@ -54,7 +54,7 @@ mark {
 pre {
   code {
     background: $color;
-    color: $background;
+    color: $color-back;
     border-radius: 3px;
   }
 }
@@ -80,17 +80,6 @@ pre {
   float: left;
   clear: both;
   overflow: hidden;
-  .toggle {
-    position: absolute;
-    top: 5px; /* border-top-width */
-    left: 0;
-    width: 45px;
-    height: 40.5px;
-    font-size: 19.5px;
-    line-height: 40.5px;
-    text-align: center;
-    display: none;
-  }
   .widget {
     &-title {
       margin: 0;
@@ -135,7 +124,7 @@ pre {
       z-index: 9999;
       max-width: ($x * 10);
       min-width: ($x * 8);
-      background: $background;
+      background: $color-back;
       border: 1px solid;
       box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
       visibility: hidden;
@@ -156,16 +145,35 @@ pre {
   }
   .current {
     > a {
-      background: map-get($color-button, 'primary');
-      color: $background;
+      background: map-get($color-back-button, 'primary');
+      color: $color-back;
       &:focus,
       &:hover {
-        background: lighten(map-get($color-button, 'primary'), 2%);
+        background: lighten(map-get($color-back-button, 'primary'), 2%);
       }
       &:active {
-        background: darken(map-get($color-button, 'primary'), 2%);
+        background: darken(map-get($color-back-button, 'primary'), 2%);
       }
     }
+  }
+}
+
+.toggle {
+  position: absolute;
+  top: 5px; /* border-top-width */
+  left: 0;
+  width: 44px;
+  height: 44px;
+  font-size: 26px;
+  line-height: 44px;
+  text-align: center;
+  display: none;
+  &::before {
+    display: block;
+    width: inherit;
+    height: inherit;
+    font-size: 100%;
+    line-height: inherit;
   }
 }
 
@@ -183,7 +191,7 @@ pre {
   }
   &-meta {
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     color: $color-gray;
   }
   + .page {
@@ -202,8 +210,11 @@ pre {
   }
   &\:pages {
     .page {
-      &-time {
+      &-meta {
         font-size: ($z * .8);
+        letter-spacing: 2px;
+      }
+      &-time {
       }
     }
   }
@@ -225,235 +236,8 @@ pre {
 
 @import 'r/widget';
 @import 'r/comment';
+@import 'r/user';
 @import 'r/pager';
 @import 'r/icon';
 
-/*
-.comments {
-  margin: 5% 0 0;
-}
-.comment-author {
-  font: inherit;
-  font-weight: bold;
-}
-.comment-meta {
-  font-size: 80%;
-  text-transform: uppercase;
-  letter-spacing: 0.1538461538em;
-  color: var(--color-alt-2);
-}
-.form-comment h4, .form-comment .form-comment-button, .form-comment .form-comment-input, .form-comment .form-comment-select, .form-comment .form-comment-textarea, .form-comment .form-comment-button.p, .form-comment .form-comment-input.p, .form-comment .form-comment-select.p, .form-comment .form-comment-textarea.p, .form-comment .p, .form-contact .form-contact-button, .form-contact .form-contact-input, .form-contact .form-contact-select, .form-contact .form-contact-textarea, .form-contact .form-contact-button.p, .form-contact .form-contact-input.p, .form-contact .form-contact-select.p, .form-contact .form-contact-textarea.p, .form-contact .p {
-  margin: var(--y) 0 0 0;
-  padding: 0;
-}
-.form-comment .form-comment .alert {
-  margin-bottom: var(--y);
-}
-.form-comment .button[type='submit'] {
-  background: var(--color-button-success);
-}
-.form-comment .button[type='submit']:focus, .form-comment .button[type='submit']:hover {
-  background: var(--color-button-success--hover);
-}
-.form-comment .button[type='submit']:active {
-  background: var(--color-button-success--active);
-}
-.form-comment .button[href$='#form-comment'] {
-  background: var(--color-button-error);
-}
-.form-comment .button[href$='#form-comment']:focus, .form-comment .button[href$='#form-comment']:hover {
-  background: var(--color-button-error--hover);
-}
-.form-comment .button[href$='#form-comment']:active {
-  background: var(--color-button-error--active);
-}
-/*
- .form-comment .rich-text-editor,
- .form-contact .rich-text-editor {
- border-width:0;
- border-color:var(--color-a);
- background:var(--color);
- color:var(--color--inverse);
- }
- .form-comment .rich-text-editor-view,
- .form-contact .rich-text-editor-view {padding:.7692307692307693em}
- .form-comment .rich-text-editor-view a,
- .form-contact .rich-text-editor-view a {color:var(--color-a)}
- .form-comment .rich-text-editor-tools,
- .form-contact .rich-text-editor-tools {
- font-size:120%;
- visibility:visible;
- opacity:1;
- }
- .form-comment .rich-text-editor-tools a,
- .form-contact .rich-text-editor-tools a {
- background:none;
- color:var(--color-alt-2);
- }
- .form-comment .rich-text-editor-tools a:focus,
- .form-comment .rich-text-editor-tools a:hover,
- .form-contact .rich-text-editor-tools a:focus,
- .form-contact .rich-text-editor-tools a:hover {
- background:none;
- color:var(--color--inverse);
- }
- .form-comment .rich-text-editor-d input,
- .form-contact .rich-text-editor-d input {color:var(--color--inverse)}
-
-.pager-step span a, .pager-step span b {
-  border-radius: 2px;
-}
-
- .page-type\:quote blockquote {font-size:120%}
- .page-type\:quote blockquote p:first-child {text-indent:-.4em} // Same with the opening curly quote’s width //
- .page-type\:quote:first-child blockquote:first-child,
- .page-type\:quote:first-child blockquote p:first-child {margin-top:0}
- .is-page .page-type\:quote blockquote {font-size:220%}
- .page-type\:quote blockquote + p {
- font-size:80%;
- letter-spacing:.15384615384615385em;
- color:var(--color-alt-2);
- }
- .page-type\:quote blockquote + p a {color:inherit}
- .page-type\:quote blockquote + p a:focus,
- .page-type\:quote blockquote + p a:hover {text-decoration:underline}
- .page-type\:log {
- padding:0 0 0 1em;
- border-left:1px solid;
- }
- .page-type\:log p:first-child {margin-top:0}
- .page-type\:log p:last-child {font-size:80%}
- */
-
-
-.aside .toggle::before {
-  /* navicon */
-  display: block;
-  width: inherit;
-  height: inherit;
-  font-size: 100%;
-  line-height: inherit;
-}
-
-/* @media */
-@media (max-width: 60em) {
-  .outer {
-    width: auto;
-    margin: 0 5%;
-  }
-}
-@media (max-width: 43.125em) {
-  body {
-    padding-top: 3.0769230769em;
-  }
-  .header {
-    text-align: center;
-  }
-  .nav {
-    display: none;
-    height: auto;
-  }
-  .nav li {
-    float: none;
-    display: block;
-  }
-  .nav li ul {
-    visibility: visible;
-    margin-top: 0;
-    opacity: 1;
-    position: static;
-    width: auto;
-    max-width: 100%;
-    min-width: 0;
-    background: none;
-    border: none;
-    box-shadow: none;
-  }
-  .nav li li ul {
-    margin-left: 0;
-  }
-  .nav li ul a, .nav li ul .a {
-    font-weight: normal;
-    font-size: 96%;
-    margin: 0;
-  }
-  .nav li ul ul {
-    margin-left: 1em;
-  }
-  .aside, .main, .aside + .main {
-    float: none;
-    display: block;
-    clear: both;
-    width: auto;
-    padding: 0;
-  }
-  .aside {
-    padding-bottom: 5%;
-    display: none;
-  }
-  .aside-toggle, .aside-is-visible .nav, .aside-is-visible .aside {
-    display: block;
-  }
-  .aside-is-visible .aside-toggle {
-    position: static;
-    float: left;
-    margin: 0 0 5%;
-  }
-  .footer {
-    text-align: center;
-  }
-  .footer-left, .footer-right {
-    float: none;
-    display: inline;
-  }
-  .footer-right:before {
-    content: '\2013';
-    color: var(--color-alt-2);
-    margin: 0 1em;
-  }
-  .align-left, .align-right {
-    float: none;
-    display: block;
-    margin: 0 auto var(--y);
-    text-align: center;
-  }
-}
-@media (max-width: 36.25em) {
-  .grid-group {
-    margin-right: 0;
-    margin-left: 0;
-  }
-  .grid {
-    float: none;
-    display: block;
-    width: auto;
-    margin: 0;
-    padding: 0;
-    text-align: inherit;
-  }
-  .grid.form-label {
-    line-height: inherit;
-    margin-bottom: var(--y);
-  }
-  .grid:empty {
-    display: none;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-.notes hr {
-  border-style: solid;
-  border-color: #999;
-  width: 91px;
-}
-.notes ol {
-  font-size: 11.18px;
-}
+@import 'r/@media';

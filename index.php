@@ -14,9 +14,6 @@ Hook::set('page.description', function($description) {
 // Load widget state…
 $GLOBALS['widget'] = (object) require __DIR__ . DS . 'state' . DS . 'widget.php';
 
-// Set custom language phrase
-$GLOBALS['I']['Search...'] = 'Search…';
-
 // Create site link data to be used in navigation
 $GLOBALS['links'] = new Anemon((function($out, $state, $url) {
     $index = LOT . DS . 'page' . strtr($state->path, '/', DS) . '.page';

@@ -2,6 +2,24 @@
   margin: $w 0 0;
 }
 
-.form-comment .button.comment-reply\:x {
-  @extend .button.error;
+.comment {
+  &-author {
+    font-weight: bolder;
+  }
+  &-meta {
+    font-size: ($z * .8);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: $color-gray;
+  }
 }
+
+.form-comment {
+  label {
+    padding-top: ((($y * 2) - $h) / 2);
+  }
+}
+
+// .form-comment .button.comment-reply\:x {
+//   @extend .button.error;
+// }

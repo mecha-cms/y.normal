@@ -9,6 +9,9 @@ $query = explode('-', $c ? $c->name : "");
 $alikes = [];
 foreach (g(LOT . DS . 'page' . $path, 'page') as $k => $v) {
     foreach ($query as $q) {
+        if ($c && $c->path === $k) {
+            continue; // Skip current page path
+        }
         if (false !== strpos(Path::N($k), $q)) {
             $alikes[$k] = 1;
         }
@@ -19,7 +22,7 @@ if ($alike = count($alikes) > 1) {
     // Related post(s)
     $content .= '<ul>';
     foreach ((new Pages(array_keys($alikes)))->shake->chunk($chunk, 0) as $page) {
-        $content .= '<li' . ($c && $c->name === $page->name ? ' class="current"' : "") . '>';
+        $content .= '<li>';
         $content .= '<a href="' . $page->url . '">' . $page->title . '</a>';
         $content .= '</li>';
     }

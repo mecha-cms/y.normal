@@ -1,7 +1,6 @@
         </main> <!-- .main -->
       </div> <!-- .content -->
       <?= self::footer(); ?>
-      </div> <!-- .content -->
-    </div> <!-- .wrapper -->
+    </div> <!-- .outer -->
   </body>
 </html>

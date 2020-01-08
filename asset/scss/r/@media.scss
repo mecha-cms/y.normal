@@ -1,0 +1,109 @@
+@media (max-width: 960px) {
+  .outer {
+    width: auto;
+    margin: 0 $w;
+  }
+}
+
+@media (max-width: 690px) {
+  body {
+    padding-top: 22px;
+  }
+  .header {
+    text-align: center;
+  }
+  .nav {
+    display: none;
+    height: auto;
+    li {
+      float: none;
+      display: block;
+      ul {
+        visibility: visible;
+        opacity: 1;
+        border: 0;
+        margin-top: 0;
+        position: static;
+        width: auto;
+        max-width: 100%;
+        min-width: 0;
+        background: none;
+        box-shadow: none;
+        a {
+          font-weight: normal;
+          font-size: ($z * .8);
+        }
+        ul {
+          margin-left: ($x / 2);
+        }
+      }
+    }
+  }
+  .aside,
+  .main,
+  .aside + .main {
+    float: none;
+    display: block;
+    clear: both;
+    width: auto;
+    padding: 0;
+  }
+  .aside {
+    padding-bottom: $w;
+    display: none;
+  }
+  .toggle,
+  .is\:aside-visible .aside,
+  .is\:aside-visible .nav {
+    display: block;
+  }
+  .is\:aside-visible body {
+    padding-top: 0;
+  }
+  .is\:aside-visible .toggle {
+    position: static;
+    float: left;
+    margin: 0 0 $w;
+  }
+  .footer {
+    text-align: center;
+    &-right,
+    &-left {
+      float: none;
+      display: inline;
+    }
+    &-right {
+      &::before {
+        content: '\2013';
+        color: $color-gray;
+        margin: 0 $z;
+      }
+    }
+  }
+  .align {
+    &-right,
+    &-left {
+      float: none;
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+      * + & {
+        margin-top: $y;
+      }
+    }
+  }
+}
+
+@media (max-width: 580px) {
+  .grids {
+    margin-right: 0;
+    margin-left: 0;
+    .grid {
+      float: none;
+      display: block;
+      width: auto;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}

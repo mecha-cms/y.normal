@@ -28,7 +28,7 @@
   vertical-align: middle;
   padding: ((($y * 2) - $h) / 2) ($x * .65);
   background: $color;
-  color: $background;
+  color: $color-back;
   border: 0;
   text-align: left;
   &.small {
@@ -41,7 +41,7 @@
     width: 100%;
   }
   &:invalid {
-    color: $color-input-invalid;
+    color: $color-input-error;
   }
 }
 
@@ -49,18 +49,20 @@
   width: auto;
   padding-right: ($x * .75);
   padding-left: ($x * .75);
-  color: $color-yellow-2;
+  color: $color-back-2;
   text-align: center;
   border-radius: 2px;
   &:focus,
   &:hover {
-    color: $color-yellow-2;
+    background: lighten($color, 2%);
+    color: $color-back-2;
   }
   &:active {
-    color: $color-yellow-2;
+    background: darken($color, 2%);
+    color: $color-back-2;
     box-shadow: inset 0 2px 1px rgba(0, 0, 0, .1);
   }
-  @each $k, $v in $color-button {
+  @each $k, $v in $color-back-button {
     &.#{$k} {
       background: $v;
       &:focus,

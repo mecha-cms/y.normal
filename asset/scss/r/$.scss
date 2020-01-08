@@ -6,21 +6,24 @@ $h: 18px;
 
 $w: 5%;
 
-
-$background: #fff;
 $color: #333;
-$color-button: (
+$color-back: #fff;
+$color-back-2: #ffa;
+$color-back-button: (
   'primary': #365d98,
   'error': #933,
   'info': #6aaac2,
   'success': #4b9343,
   'warning': #db582c
 );
+$color-back-marker: #f9dc62;
 $color-gray: #999;
-$color-input-invalid: #faa;
+$color-input-error: #faa;
 $color-link: #365d98;
-$color-marker: #f9dc62;
-$color-yellow-2: #ffa;
+
+$mono: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
+$sans: Helmet, FreeSans, sans-serif;
+$serif: 'Times New Roman', Times, serif;
 
 @mixin placeholder {
   color: lighten($color, 30%);
@@ -29,4 +32,10 @@ $color-yellow-2: #ffa;
   :focus& {
     color: lighten($color, 20%);
   }
+}
+
+@mixin user-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }

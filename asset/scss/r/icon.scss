@@ -2,7 +2,6 @@
 .alert .info::before,
 .alert .success::before,
 .alert .warning::before,
-.aside .toggle::before,
 .button.page-link::before,
 .comments-header h3::before,
 .comment-reply\:v::before,
@@ -10,14 +9,15 @@
 .form-comment .button[type='submit']::before,
 .form-comment .button[href$='#form-comment']::before,
 .form-user\:enter .button::before,
-.form-user\:exit .button[href]:before,
+.form-user\:exit .button[href]::before,
 .form-user\:exit .button[href*='exit=']::before,
 .is\:pages .page-time::before,
 .form-search .button::before,
 .page-link::after,
 .page-time::before,
 .pager-prev a::before,
-.pager-next a::after {
+.pager-next a::after,
+.toggle::before {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
@@ -27,9 +27,9 @@
 }
 
 .alert p::before {
-  width: 1.28571429em; /* TODO */
+  width: $x;
   text-align: center;
-  margin: 0 .25em 0 -.15em;
+  margin: 0 ($x / 4) 0 -($z / 4);
 }
 
 .alert .error::before {
@@ -89,7 +89,7 @@
   margin-right: .25em;
 }
 
-.form-user\:exit .button[href]:before {
+.form-user\:exit .button[href]::before {
   content: '\f007'; /* user */
   margin-right: .25em;
 }
@@ -123,4 +123,8 @@
 .pager-next a::after {
   content: '\f105'; /* angle-right */
   margin-left: .5em;
+}
+
+.toggle::before {
+  content: '\f0c9'; /* navicon */
 }

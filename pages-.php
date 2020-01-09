@@ -1,9 +1,14 @@
-<?php $page = $lot['page']; ?>
+<?php
+
+$page = $lot['page'];
+$view = !empty($state->x->view);
+
+?>
 <header class="page-header">
   <p class="page-meta">
     <time class="page-time" datetime="<?= $page->time->ISO8601; ?>">
       <?= $page->time->{r('-', '_', $site->language)}; ?>
-      <?= ($view = $page->view) ? ' &#x00B7; ' . $view : ""; ?>
+      <?= $view ? ' &#x00B7; ' . $page->view : ""; ?>
     </time>
   </p>
   <h4 class="page-title">

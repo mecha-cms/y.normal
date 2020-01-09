@@ -9,7 +9,7 @@ $query = explode('-', $c ? $c->name : "");
 $alikes = [];
 foreach (g(LOT . DS . 'page' . $path, 'page') as $k => $v) {
     foreach ($query as $q) {
-        if ($c && $c->path === $k) {
+        if ("" === $q || $c && $c->path === $k) {
             continue; // Skip current page path
         }
         if (false !== strpos(Path::N($k), $q)) {

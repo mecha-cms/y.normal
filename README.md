@@ -1,7 +1,7 @@
 Normal Layout for Mecha
 =======================
 
-![Normal Layout](https://user-images.githubusercontent.com/1669261/71982602-6bc77a00-3257-11ea-8aee-a031a2e3e4cb.png)
+![Normal Layout](https://user-images.githubusercontent.com/1669261/72040434-19c83800-32db-11ea-92e1-fce19cdc0630.png)
 
 Release Notes
 -------------

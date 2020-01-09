@@ -1,16 +1,16 @@
 <nav class="nav">
-  <ul><!--
-    --><li class="<?= $site->is('home') ? 'current' : ""; ?>">
+  <ul>
+    <li<?= $site->is('home') ? ' class="current"' : ""; ?>>
       <a href="<?= $url; ?>">
         <?= i('Home'); ?>
       </a>
-    </li><!--
+    </li>
     <?php foreach ($links as $link): ?>
-    --><li class="<?= $link->active ? 'current' : ""; ?>">
+    <li<?= $link->active ? ' class="current"' : ""; ?>>
       <a href="<?= $link->link ?? $link->url; ?>">
         <?= $link->title; ?>
       </a>
-    </li><!--
+    </li>
     <?php endforeach; ?>
-  --></ul>
+  </ul>
 </nav>

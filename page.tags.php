@@ -1,6 +1,6 @@
 <?php
 
-if (null !== State::get('x.tag')) {
+if (!empty($state->x->tag)) {
     $tags = $tags->map(function($tag) {
         if (is_string($tag)) {
             $tag = new Tag($tag);

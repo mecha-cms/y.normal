@@ -1,7 +1,6 @@
 <?php
 
-$c = State::get('x.search');
-if (null !== $c) {
+if ($c = $state->x->search ?? 0) {
     $query = Get::get($q = $c->key) ?? null;
     $content = '<form class="form-search" action="' . $url . $widget->page['path'] . '" method="get">';
     $content .= '<p>';

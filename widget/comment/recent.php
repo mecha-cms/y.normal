@@ -1,7 +1,6 @@
 <?php
 
-$c = State::get('x.comment');
-if (null !== $c) {
+if ($c = $state->x->comment ?? 0) {
     $chunk = $widget->comment['chunk'];
     $excerpt = $widget->comment['excerpt'];
     $content = "";

@@ -1,8 +1,8 @@
 <?php
 
-if (null !== State::get('x.tag')) {
+if ($cc = $state->x->tag ?? 0) {
     $path = $widget->page['path'];
-    $p = State::get('x.tag.path');
+    $p = $cc->path;
     $a = [];
     $c = $tag ?? 0; // Store current tag instance if any
     $content = "";

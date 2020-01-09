@@ -1,9 +1,10 @@
+<?php $view = !empty($state->x->view); ?>
 <header class="page-header">
   <?php if ($site->has('parent') && !$site->is('user')): ?>
   <p class="page-meta">
     <time class="page-time" datetime="<?= $page->time->ISO8601; ?>">
       <?= $page->time->{r('-', '_', $site->language)}; ?>
-      <?= ($view = $page->view) ? ' &#x00B7; ' . $view : ""; ?>
+      <?= $view ? ' &#x00B7; ' . $page->view : ""; ?>
     </time>
   </p>
   <?php endif; ?>

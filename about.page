@@ -86,37 +86,37 @@ Example widget list as link list:
 
 ~~~ .html
 <div class="grids">
-  <div class="grid span-6">1 Column</div>
+  <div class="grid span-6">6/6 Column</div>
 </div>
 
 <div class="grids">
-  <div class="grid span-3">2 Columns</div>
-  <div class="grid span-3">2 Columns</div>
+  <div class="grid span-3">2/6 Column</div>
+  <div class="grid span-3">2/6 Column</div>
 </div>
 
 <div class="grids">
-  <div class="grid span-2">3 Columns</div>
-  <div class="grid span-2">3 Columns</div>
-  <div class="grid span-2">3 Columns</div>
+  <div class="grid span-2">3/6 Column</div>
+  <div class="grid span-2">3/6 Column</div>
+  <div class="grid span-2">3/6 Column</div>
 </div>
 
 <div class="grids">
-  <div class="grid span-1">6 Columns</div>
-  <div class="grid span-1">6 Columns</div>
-  <div class="grid span-1">6 Columns</div>
-  <div class="grid span-1">6 Columns</div>
-  <div class="grid span-1">6 Columns</div>
-  <div class="grid span-1">6 Columns</div>
+  <div class="grid span-1">1/6 Column</div>
+  <div class="grid span-1">1/6 Column</div>
+  <div class="grid span-1">1/6 Column</div>
+  <div class="grid span-1">1/6 Column</div>
+  <div class="grid span-1">1/6 Column</div>
+  <div class="grid span-1">1/6 Column</div>
 </div>
 
 <div class="grids">
-  <div class="grid span-1">Size 1/6</div>
-  <div class="grid span-5">Size 5/6</div>
+  <div class="grid span-1">1/6 Column</div>
+  <div class="grid span-5">5/6 Column</div>
 </div>
 
 <div class="grids">
-  <div class="grid span-2">Size 2/6</div>
-  <div class="grid span-4">Size 4/6</div>
+  <div class="grid span-2">2/6 Column</div>
+  <div class="grid span-4">4/6 Column</div>
 </div>
 ~~~
 
@@ -134,7 +134,7 @@ Embedding an audio:
 
 ~~~ .html
 <div class="audio">
-  <!-- Video embed code goes here… -->
+  <!-- Audio embed code goes here… -->
 </div>
 ~~~
 

@@ -2,16 +2,16 @@
 <html class dir="<?= $site->direction; ?>">
   <head>
     <meta charset="<?= $site->charset; ?>">
-    <meta name="generator" content="Mecha <?= VERSION; ?>">
-    <meta name="viewport" content="width=device-width">
+    <meta content="Mecha <?= VERSION; ?>" name="generator">
+    <meta content="width=device-width" name="viewport">
     <?php if ($w = w($page->description($site->description))): ?>
-    <meta name="description" content="<?= $w; ?>">
+    <meta content="<?= $w; ?>" name="description">
     <?php endif; ?>
     <?php if ('archive' === $page->x): ?>
     <!-- Prevent search engines from indexing pages with `archive` state -->
-    <meta name="robots" content="noindex">
+    <meta content="noindex" name="robots">
     <?php endif; ?>
-    <meta name="author" content="<?= $page->author; ?>">
+    <meta content="<?= $page->author; ?>" name="author">
     <title><?= w($t->reverse); ?></title>
     <link href="<?= $url; ?>/favicon.ico" rel="shortcut icon">
     <link href="<?= $url->clean; ?>" rel="canonical">

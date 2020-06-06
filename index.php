@@ -1,16 +1,5 @@
 <?php
 
-// Wrap description data with paragraph tag(s) if needed
-Hook::set('page.description', function($description) {
-    if ($description && false === strpos($description, '</p>')) {
-        return '<p>' . strtr(trim(n($description)), [
-            "\n\n" => '</p><p>',
-            "\n" => '<br>'
-        ]) . '</p>';
-    }
-    return $description;
-});
-
 // Load widget state…
 $GLOBALS['widget'] = (object) require __DIR__ . DS . 'state' . DS . 'widget.php';
 

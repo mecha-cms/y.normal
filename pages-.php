@@ -40,7 +40,7 @@ $view = !empty($state->x->view);
   <?php else: ?>
   <div class="page-description">
     <p>
-      <?= To::excerpt((string) $page->description); ?>
+      <?= $page->description; ?>
     </p>
   </div>
   <?php endif; ?>

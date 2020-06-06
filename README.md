@@ -6,9 +6,13 @@ Normal Layout for Mecha
 Release Notes
 -------------
 
+### 2.10.2
+
+ - Removed automatic paragraph tags around page description data.
+
 ### 2.10.1
 
- - Add `<meta name="generator" content="Mecha 2.2.0">` meta tag.
+ - Add `<meta content="Mecha 2.2.0" name="generator">` meta tag.
 
 ### 2.10.0
 

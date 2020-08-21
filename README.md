@@ -6,6 +6,10 @@ Normal Layout for Mecha
 Release Notes
 -------------
 
+### 2.10.3
+
+ - Updated for Pager 1.3.0.
+
 ### 2.10.2
 
  - Removed automatic paragraph tags around page description data.

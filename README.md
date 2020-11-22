@@ -6,6 +6,10 @@ Normal Layout for Mecha
 Release Notes
 -------------
 
+### 2.10.4
+
+ - Do not show log-in link if user feature is not available.
+
 ### 2.10.3
 
  - Updated for Pager 1.3.0.

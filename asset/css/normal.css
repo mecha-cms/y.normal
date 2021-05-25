@@ -7,7 +7,7 @@
   font-size: 100%;
   box-sizing: border-box;
 }
-*:focus {
+:focus {
   outline: none;
 }
 a, .button.link {
@@ -171,10 +171,7 @@ td, th {
   text-align: justify;
 }
 /* `<div class="p">` */
-.p, .audio, .image, .video, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, dt, .h6, hr, blockquote, dl, fieldset, figure, form, ol, p, pre, ul, .grids {
-  display: block;
-}
-* + .p, * + .audio, * + .image, * + .video, * + h1, * + h2, * + h3, * + h4, * + h5, * + h6, * + .h1, * + .h2, * + .h3, * + .h4, * + .h5, * + dt, * + .h6, * + hr, * + blockquote, * + dl, * + fieldset, * + figure, * + form, * + ol, * + p, * + pre, * + ul, * + .grids {
+* + .p, * + .audio, * + .image, * + .video, * + h1, * + h2, * + h3, * + h4, * + h5, * + h6, * + .h1, * + .h2, * + .h3, * + .h4, * + .h5, * + dt, * + .h6, * + hr, * + blockquote, * + details, * + dl, * + fieldset, * + figure, * + form, * + ol, * + p, * + pre, * + table, * + ul, * + .grids {
   margin-top: 18px;
 }
 /* `<div class="audio"><audio src></audio></div>` */
@@ -229,6 +226,9 @@ code, .code {
 code, pre, .code {
   font-family: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
 }
+details summary {
+  cursor: pointer;
+}
 pre code {
   padding: 9px 12px;
   font-size: 100%;
@@ -258,9 +258,6 @@ h6, .h6 {
 hr {
   border-top: 1px dashed #999;
   color: inherit;
-}
-* + table {
-  margin-top: 18px;
 }
 ol {
   margin-left: 36px;
@@ -312,7 +309,8 @@ iframe:not([height]) {
   height: 90px;
 }
 .table caption {
-  margin: 0 0 9px;
+  caption-side: bottom;
+  margin: 9px 0 0;
   text-align: center;
 }
 .table th, .table td {
@@ -874,7 +872,7 @@ pre code {
 .pager-next {
   float: right;
 }
-.alert .error::before, .alert .info::before, .alert .success::before, .alert .warning::before, .button.page-link::before, .comments-header h3::before, .comment-reply\:v::before, .comment-status\:1 > .comment-header > .comment-author::after, .form-comment .button[type='submit']::before, .form-comment .button[href$='#form-comment']::before, .form-user\:enter .button::before, .form-user\:exit .button[href]::before, .form-user\:exit .button[href*='exit=']::before, .is\:pages .page-time::before, .form-search .button::before, .page-link::after, .page-time::before, .pager-prev a::before, .pager-prev .button.link::before, .pager-next a::after, .pager-next .button.link::after, .toggle::before {
+.alert .error::before, .alert .info::before, .alert .success::before, .alert .warning::before, .button.page-link::before, .comments-header h3::before, .comment-reply\:v::before, .comment-status\:1 > .comment-header > .comment-author::after, .form-comment .button[type='submit']::before, .form-comment .button[href$='#comment']::before, .form-user\:enter .button::before, .form-user\:exit .button[href]::before, .form-user\:exit .button[href*='exit=']::before, .is\:pages .page-time::before, .form-search .button::before, .page-link::after, .page-time::before, .pager-prev a::before, .pager-prev .button.link::before, .pager-next a::after, .pager-next .button.link::after, .toggle::before {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
@@ -928,7 +926,7 @@ pre code {
   /* check-circle */
   margin-right: 0.25em;
 }
-.form-comment .button[href$='#form-comment']::before {
+.form-comment .button[href$='#comment']::before {
   content: '\f057';
   /* times-circle */
   margin-right: 0.25em;

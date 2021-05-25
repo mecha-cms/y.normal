@@ -10,6 +10,6 @@ if (!empty($list)) {
 
 echo self::widget([
     'id' => 'list' . (isset($id) ? '-' . $id : ""),
-    'title' => $title ?? null,
-    'content' => $content ?? null
+    'title' => $title ?? "",
+    'content' => $content ?? ""
 ]);

@@ -1,13 +1,13 @@
 <header class="header">
   <h1 class="title">
     <?php if ($site->is('home')): ?>
-    <span class="a">
-      <?= $site->title; ?>
-    </span>
+      <span class="a">
+        <?= $site->title; ?>
+      </span>
     <?php else: ?>
-    <a href="<?= $url; ?>">
-      <?= $site->title; ?>
-    </a>
+      <a href="<?= $url; ?>">
+        <?= $site->title; ?>
+      </a>
     <?php endif; ?>
   </h1>
   <p class="description">

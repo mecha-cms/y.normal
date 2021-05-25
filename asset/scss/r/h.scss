@@ -84,7 +84,6 @@
 
 /* `<div class="p">` */
 .p {
-  display: block;
   * + & {
     margin-top: $y;
   }

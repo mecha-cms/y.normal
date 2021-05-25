@@ -6,11 +6,11 @@
       </a>
     </li>
     <?php foreach ($links as $link): ?>
-    <li<?= $link->active ? ' class="current"' : ""; ?>>
-      <a href="<?= $link->link ?? $link->url; ?>">
-        <?= $link->title; ?>
-      </a>
-    </li>
+      <li<?= $link->current ? ' class="current"' : ""; ?>>
+        <a href="<?= $link->link ?? $link->url; ?>">
+          <?= $link->title; ?>
+        </a>
+      </li>
     <?php endforeach; ?>
   </ul>
 </nav>

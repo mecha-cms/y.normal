@@ -1,11 +1,12 @@
 <?php
 
+$content = "";
+
 if ($c = $state->x->comment ?? 0) {
     $chunk = $widget->comment['chunk'];
     $excerpt = $widget->comment['excerpt'];
-    $content = "";
     $comments = [];
-    foreach (g(LOT . DS . 'comment', 'page', true) as $k => $v) {
+    foreach (g(LOT . DS . 'comment' . $state->patBlog, 'page', true) as $k => $v) {
         $comments[$k] = basename($k);
     }
     arsort($comments);
@@ -31,9 +32,12 @@ if ($c = $state->x->comment ?? 0) {
         $content .= '</li>';
     }
     $content = $content ? '<ul class="recent-comments">' . $content . '</ul>' : '<p>' . i('No %s yet.', ['comments']) . '</p>';
-    echo self::widget([
-        'id' => 'comment-recent',
-        'title' => i('Recent %s', ['Comments']),
-        'content' => $content
-    ]);
+} else {
+    $content .= '<p>' . i('Missing %s extension.', ['<a href="https://mecha-cms.com/store/extension/comment" target="_blank">comment</a>']) . '</p>';
 }
+
+echo self::widget([
+    'id' => 'comment-recent',
+    'title' => $title ?? i('Recent %s', ['Comments']),
+    'content' => $content
+]);

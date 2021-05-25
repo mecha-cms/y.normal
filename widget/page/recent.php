@@ -1,10 +1,9 @@
 <?php
 
-$path = $widget->page['path'];
 $chunk = $widget->page['chunk'];
 $content = "";
 $c = $page ?? 0; // Store current page instance if any
-$pages = Pages::from(LOT . DS . 'page' . $path)->sort([-1, 'time']);
+$pages = Pages::from(LOT . DS . 'page' . $state->pathBlog)->sort([-1, 'time']);
 
 if ($pages->count) {
     $content .= '<ul>';
@@ -20,6 +19,6 @@ if ($pages->count) {
 
 echo self::widget([
     'id' => 'page-recent',
-    'title' => i('Recent %s', ['Posts']),
+    'title' => $title ?? i('Recent %s', ['Posts']),
     'content' => $content
 ]);

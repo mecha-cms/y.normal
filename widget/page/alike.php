@@ -1,6 +1,6 @@
 <?php
 
-$path = DS . trim(strtr(Path::D($url->path ?? "") ?? $widget->page['path'], '/', DS), DS);
+$path = $url->path ? dirname($url->path) : $state->pathBlog;
 $chunk = $widget->page['chunk'];
 $content = "";
 $c = $page ?? 0; // Store current page instance if any
@@ -12,7 +12,7 @@ foreach (g(LOT . DS . 'page' . $path, 'page') as $k => $v) {
         if ("" === $q || $c && $c->path === $k) {
             continue; // Skip current page path
         }
-        if (false !== strpos(Path::N($k), $q)) {
+        if (false !== strpos(basename($k, '.page'), $q)) {
             $alikes[$k] = 1;
         }
     }
@@ -27,7 +27,7 @@ if ($alike = count($alikes) > 1) {
         $content .= '</li>';
     }
     $content .= '</ul>';
-    $title = i('Related %s', ['Posts']);
+    $title_default = i('Related %s', ['Posts']);
 } else {
     // Random post(s)
     $pages = Pages::from(LOT . DS . 'page' . $path);
@@ -42,11 +42,11 @@ if ($alike = count($alikes) > 1) {
     } else {
         $content .= '<p>' . i('No %s yet.', ['posts']) . '</p>';
     }
-    $title = i('Random %s', ['Posts']);
+    $title_default = i('Random %s', ['Posts']);
 }
 
 echo self::widget([
     'id' => 'page-' . ($alike ? 'alike' : 'random'),
-    'title' => $title,
+    'title' => $title ?? $title_default,
     'content' => $content
 ]);

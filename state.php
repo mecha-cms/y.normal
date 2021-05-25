@@ -1,8 +1,10 @@
 <?php
 
 return [
-    'path' => '/article', // Your home page path
     'x' => [
+        'comment' => [
+            'page' => ['type' => 'Markdown'] // Default comment type
+        ],
         'page' => [
             'page' => [
                 'chunk' => 14, // Post(s) per page

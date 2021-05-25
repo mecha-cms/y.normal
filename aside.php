@@ -7,7 +7,8 @@
   <?php if (!$site->is('home')): ?>
     <?= self::widget('page/recent'); ?>
     <?= self::widget('page/alike'); ?>
-    <?php else: ?>
+  <?php else: ?>
     <?= self::widget('comment/recent'); ?>
   <?php endif; ?>
+  <?= self::widget('archive'); ?>
 </aside>

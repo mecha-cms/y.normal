@@ -13,30 +13,30 @@ $view = !empty($state->x->view);
   </p>
   <h4 class="page-title">
     <?php if ($page->link): ?>
-    <a class="page-link" href="<?= $page->link; ?>" target="_blank">
-      <?= $page->title; ?>
-    </a>
+      <a class="page-link" href="<?= $page->link; ?>" target="_blank">
+        <?= $page->title; ?>
+      </a>
     <?php elseif ($page->url): ?>
-    <a class="page-url" href="<?= $page->url; ?>">
-      <?= $page->title; ?>
-    </a>
+      <a class="page-url" href="<?= $page->url; ?>">
+        <?= $page->title; ?>
+      </a>
     <?php else: ?>
-    <span class="a">
-      <?= $page->title; ?>
-    </span>
+      <span class="a">
+        <?= $page->title; ?>
+      </span>
     <?php endif; ?>
   </h4>
 </header>
 <div class="page-body">
   <?php if ($excerpt = $page->excerpt): ?>
-  <div class="page-excerpt">
-    <?= $excerpt; ?>
-    <p>
-      <a href="<?= $page->url; ?>#next:<?= $page->id; ?>">
-        <?= i('Read More'); ?>
-      </a>
-    </p>
-  </div>
+    <div class="page-excerpt">
+      <?= $excerpt; ?>
+      <p>
+        <a href="<?= $page->url; ?>#next:<?= $page->id; ?>">
+          <?= i('Read More'); ?>
+        </a>
+      </p>
+    </div>
   <?php else: ?>
   <div class="page-description">
     <p>

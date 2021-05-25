@@ -7,7 +7,6 @@ return [
         'excerpt' => [25, '&#x2026;']
     ],
     'page' => [
-        'path' => '/article', // Your article’s folder relative to `.\lot\page`
         'chunk' => 7
     ]
 ];

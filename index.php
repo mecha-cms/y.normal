@@ -12,7 +12,7 @@ $GLOBALS['links'] = new Anemon((static function($links, $state, $url) {
             continue;
         }
         $v = new Page($k);
-        // Add active state
+        // Add current state
         $v->current = 0 === strpos($url->path . '/', '/' . $v->name . '/');
         $links[$k] = $v;
     }

@@ -11,7 +11,7 @@ foreach (Pages::from(LOT . DS . 'page', 'archive,page')->sort([1, 'title']) as $
 if ('.state' === $_['path']) {
     $_['lot']['desk']['lot']['form']['lot'][1]['lot']['tabs']['lot']['file']['lot']['fields']['lot']['path-blog'] = [
         'title' => 'Blog',
-        'type' => 'combo',
+        'type' => 'option',
         'name' => 'state[path-blog]',
         'description' => 'Determine the default blog path.',
         'lot' => $lot,

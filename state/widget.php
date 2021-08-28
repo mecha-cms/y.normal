@@ -9,4 +9,4 @@ return [
     'page' => [
         'chunk' => 7
     ]
-];
+];

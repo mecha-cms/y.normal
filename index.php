@@ -4,7 +4,7 @@
 $GLOBALS['widget'] = (object) require __DIR__ . DS . 'state' . DS . 'widget.php';
 
 // Create site link data to be used in navigation
-$GLOBALS['links'] = new Anemon((function($links, $state, $url) {
+$GLOBALS['links'] = new Anemon((static function($links, $state, $url) {
     $index = LOT . DS . 'page' . strtr($state->path, '/', DS) . '.page';
     foreach (g(LOT . DS . 'page', 'page') as $k => $v) {
         // Exclude home page

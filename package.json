@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "@taufik-nurrohman/factory": "^0.1.19"
+  },
+  "private": true,
+  "scripts": {
+    "pack": "pack --clean=false --from=.github/source --to=."
+  }
+}

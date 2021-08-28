@@ -6,10 +6,10 @@ Normal Layout for [Mecha](https://github.com/mecha-cms/mecha)
 Release Notes
 -------------
 
-### main
+### 2.11.0
 
- - [ ] Updated for Mecha 2.6.0.
- - [x] Added archive widget.
+ - Added archive widget.
+ - Updated for Mecha 2.6.0.
 
 ### 2.10.4
 
@@ -30,5 +30,5 @@ Release Notes
 ### 2.10.0
 
  - Refactor for Mecha 2.2.0.
- - Removed page format features temporarily until `type` extension is ready.
  - Removed breadcrumb navigation and replaced it with a log-in link.
+ - Removed page format features temporarily until `type` extension is ready.

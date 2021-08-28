@@ -1,5 +1,5 @@
-html {
-  font: normal normal $z/$h $sans;
+:root {
+  font: normal normal $z#{'/'}$h $sans;
 }
 
 blockquote {
@@ -21,7 +21,30 @@ pre,
 
 details {
   summary {
+    display: block;
+    position: relative;
+    padding-left: $x;
     cursor: pointer;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-top: ($z / 2) solid transparent;
+      border-right: 0 solid transparent;
+      border-bottom: ($z / 2) solid transparent;
+      border-left: (($z / 2) + 2) solid;
+      margin-top: (-($z / 2));
+    }
+  }
+  &[open] {
+    summary {
+      &::before {
+        transform: rotate(90deg);
+      }
+    }
   }
 }
 
@@ -101,6 +124,7 @@ dt {
 
 dd {
   margin-left: $x;
+  margin-top: ($y / 2);
 }
 
 figcaption {

@@ -2,20 +2,10 @@
   @include placeholder;
 }
 
-::-webkit-input-placeholder {
-  @include placeholder;
-}
-
-::-moz-input-placeholder {
-  @include placeholder;
-}
-
-:-moz-placeholder {
-  @include placeholder;
-}
-
-:-ms-input-placeholder {
-  @include placeholder;
+:focus {
+  &::placeholder {
+    color: lighten($color, 20%);
+  }
 }
 
 .button,

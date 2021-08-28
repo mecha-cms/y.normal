@@ -1,8 +1,7 @@
 $color-back-alert: (
   'error': #cf3030,
   'info': #00a2d1,
-  'success': #8eab1a,
-  'warning': #ffde76
+  'success': #8eab1a
 );
 
 .alert {
@@ -15,12 +14,6 @@ $color-back-alert: (
     @each $k, $v in $color-back-alert {
       &.#{$k} {
         background: $v;
-      }
-    }
-    &.warning {
-      color: $color;
-      a {
-        @extend a;
       }
     }
     a {

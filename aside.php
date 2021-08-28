@@ -9,6 +9,6 @@
     <?= self::widget('page/alike'); ?>
   <?php else: ?>
     <?= self::widget('comment/recent'); ?>
+    <?= self::widget('archive'); ?>
   <?php endif; ?>
-  <?= self::widget('archive'); ?>
 </aside>

@@ -32,7 +32,7 @@
       <?= i('Posted by %s at %s', [self::get('author.page', $lot), '<time datetime="' . $page->time->ISO8601 . '">' . $page->time('%r') . '</time>']); ?>
     </div>
     <div>
-      <?= self::get('tags.page', $lot); ?>
+      <?= self::get('page.tags', $lot); ?>
     </div>
   </footer>
 <?php endif; ?>

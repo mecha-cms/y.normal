@@ -1,6 +1,6 @@
 <?php
 
-$path = $url->path ? dirname($url->path) : $state->pathBlog;
+$path = $state->pathBlog;
 $chunk = $widget->page['chunk'];
 $content = "";
 $c = $page ?? 0; // Store current page instance if any

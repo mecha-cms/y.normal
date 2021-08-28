@@ -1,10 +1,10 @@
-@import 'r/$';
-@import 'r/reset';
-@import 'r/h';
-@import 'r/t';
-@import 'r/form';
-@import 'r/grid';
-@import 'r/alert';
+@import '_/var';
+@import '_/reset';
+@import '_/h';
+@import '_/t';
+@import '_/form';
+@import '_/grid';
+@import '_/alert';
 
 ::selection {
   background: lighten($color-back-marker, 20%);
@@ -12,7 +12,7 @@
   text-shadow: none;
 }
 
-html {
+:root {
   background: $color-back;
   color: $color;
   border-top: 5px solid;
@@ -59,7 +59,7 @@ pre {
   }
 }
 
-.outer {
+.body {
   width: ($x * 50);
   margin: 0 auto;
 }
@@ -79,7 +79,6 @@ pre {
   width: 25%;
   float: left;
   clear: both;
-  overflow: hidden;
   .widget {
     &-title {
       margin: 0;
@@ -88,7 +87,6 @@ pre {
   + .main {
     float: right;
     width: 70%;
-    overflow: hidden;
   }
 }
 
@@ -234,10 +232,9 @@ pre {
   }
 }
 
-@import 'r/widget';
-@import 'r/comment';
-@import 'r/user';
-@import 'r/pager';
-@import 'r/icon';
+@import '_/widget';
+@import '_/comment';
+@import '_/pager';
+@import '_/icon';
 
-@import 'r/@media';
+@import '_/media';

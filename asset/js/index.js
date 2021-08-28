@@ -1,15 +1,15 @@
-/* Toggle Mobile Navigation */
-
-(function(doc) {
-    var base = doc.documentElement,
+(function() {
+    'use strict';
+    let doc = document,
+        base = doc.documentElement,
         toggle = doc.querySelector('.toggle');
-    if (!toggle) return;
-    function click(e) {
+
+    function onClick(e) {
         this.classList.toggle('active');
         base.classList.toggle('is:aside-visible');
         base.scrollTop = 0;
         base.parentNode.scrollTop = 0;
         e.preventDefault();
     }
-    toggle.addEventListener('click', click, false);
-})(document);
+    toggle && toggle.addEventListener('click', onClick, false);
+})();

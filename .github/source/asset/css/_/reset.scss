@@ -105,8 +105,9 @@ iframe {
 }
 
 button,
-label {
-  @include user-select(none);
+label,
+summary {
+  @include user-select-none;
   cursor: pointer;
 }
 

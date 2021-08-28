@@ -4,6 +4,17 @@
   }
 }
 
+.widget .archive ul {
+}
+
+.widget .archive ul li {
+  border: 0;
+}
+
+.widget .archive + .archive {
+  margin-top: 4.5px;
+}
+
 .widget {
   li,
   ol,
@@ -21,6 +32,20 @@
   ul {
     border: 0 solid $color-gray;
     border-width: 1px 0 0;
+  }
+  .archive {
+    ol,
+    ul {
+      border: 0;
+      margin-top: ($y / 4);
+      margin-left: $x;
+      li {
+        border: 0;
+      }
+    }
+    + .archive {
+      margin-top: ($y / 4);
+    }
   }
   .count {
     &::before {

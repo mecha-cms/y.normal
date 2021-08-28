@@ -22,11 +22,9 @@ $GLOBALS['links'] = new Anemon((static function($links, $state, $url) {
 
 // Load asset(s)
 Asset::set($url->protocol . 'maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', 20);
-if (null !== State::get('x.scss')) {
-    Asset::set('scss/normal.scss', 20);
-} else {
-    Asset::set('css/normal.min.css', 20);
-}
-Asset::set('js/normal.min.js', 20);
+
+$z = defined('DEBUG') && DEBUG ? '.' : '.min.';
+Asset::set('css/index' . $z . 'css', 20);
+Asset::set('js/index' . $z . 'js', 20);
 
 !State::get('path-blog') && State::set('path-blog', '/article');

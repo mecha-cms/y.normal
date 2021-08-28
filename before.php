@@ -17,9 +17,10 @@
     <link href="<?= $url->clean; ?>" rel="canonical">
   </head>
   <body>
-    <div class="outer">
+    <div class="body">
       <?= self::header(); ?>
       <?= self::nav(); ?>
       <div class="content">
         <?= self::aside(); ?>
         <main class="main">
+          <?= $alert; ?>

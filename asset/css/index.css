@@ -1271,7 +1271,7 @@ pre code {
 }
 
 .is\:pages .page-time::before {
-  margin-top: 0.45em;
+  margin-top: 0.25em;
   /* Magic :( */
 }
 

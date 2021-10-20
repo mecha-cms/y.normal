@@ -172,18 +172,20 @@
 }
 
 .pager {
+  &-next {
+    a {
+      &::after {
+        content: '\f105'; /* angle-right */
+        margin-left: .5em;
+      }
+    }
+  }
   &-prev {
     a {
       &::before {
         content: '\f104'; /* angle-left */
         margin-right: .5em;
       }
-    }
-  }
-  &-next {
-    a {
-      content: '\f105'; /* angle-right */
-      margin-left: .5em;
     }
   }
 }

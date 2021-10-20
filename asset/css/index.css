@@ -1290,17 +1290,17 @@ pre code {
   /* Magic :( */
 }
 
+.pager-next a::after,
+.pager-next .button.link::after {
+  content: "\f105";
+  /* angle-right */
+  margin-left: 0.5em;
+}
 .pager-prev a::before,
 .pager-prev .button.link::before {
   content: "\f104";
   /* angle-left */
   margin-right: 0.5em;
-}
-.pager-next a,
-.pager-next .button.link {
-  content: "\f105";
-  /* angle-right */
-  margin-left: 0.5em;
 }
 
 .toggle::before {

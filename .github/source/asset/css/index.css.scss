@@ -1,27 +1,27 @@
 @import '_/var';
 @import '_/reset';
-@import '_/h';
-@import '_/t';
+@import '_/type';
+@import '_/base';
 @import '_/form';
 @import '_/grid';
 @import '_/alert';
 
 ::selection {
-  background: lighten($color-back-marker, 20%);
+  background: lighten($fill-mark, 20%);
   color: $color;
   text-shadow: none;
 }
 
 :root {
-  background: $color-back;
-  color: $color;
+  background: $fill;
   border-top: 5px solid;
+  color: $color;
 }
 
 a {
   color: $color-link;
-  &:focus,
-  &:hover {
+  &:hover,
+  &:focus {
     color: lighten($color-link, 10%);
   }
   &:active {
@@ -40,13 +40,13 @@ dfn {
 }
 
 hr {
-  margin: $w 0;
+  margin: $gap 0;
 }
 
 mark {
   &,
   &::selection {
-    background: $color-back-marker;
+    background: $fill-mark;
     color: $color;
   }
 }
@@ -54,37 +54,36 @@ mark {
 pre {
   code {
     background: $color;
-    color: $color-back;
     border-radius: 3px;
+    color: $fill;
   }
 }
 
 .body {
-  width: ($x * 50);
   margin: 0 auto;
+  width: ($x * 50);
 }
 
 .header {
-  margin: $w 0;
+  margin: $gap 0;
 }
 
 .content {
-  margin-top: $w;
-  &::after {
-    @extend .cf::after;
-  }
+  @extend .cf;
+  margin-top: $gap;
 }
 
 .aside {
-  width: 25%;
+  @extend .cf;
   float: left;
-  clear: both;
+  width: 25%;
   .widget {
     &-title {
       margin: 0;
     }
   }
   + .main {
+    @extend .cf;
     float: right;
     width: 70%;
   }
@@ -93,17 +92,17 @@ pre {
 .nav {
   a {
     display: block;
-    font-weight: bolder;
-    padding: 0 ($x * 2);
-    white-space: nowrap;
+    font-weight: bold;
     overflow: hidden;
+    padding: 0 ($x * 2);
     text-overflow: ellipsis;
+    white-space: nowrap;
   }
   li,
   ul {
+    list-style: none;
     margin: 0;
     padding: 0;
-    list-style: none;
   }
   li {
     float: left;
@@ -115,63 +114,63 @@ pre {
       float: none;
     }
     ul {
-      line-height: ($y * 2);
-      position: absolute;
-      top: 100%;
-      left: 0;
-      z-index: 9999;
-      max-width: ($x * 10);
-      min-width: ($x * 8);
-      background: $color-back;
+      background: $fill;
       border: 1px solid;
       box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+      left: 0;
+      line-height: ($y * 2);
+      max-width: ($x * 10);
+      min-width: ($x * 8);
+      position: absolute;
+      top: 100%;
       visibility: hidden;
+      z-index: 9999;
       ul {
-        top: -1px;
         left: 100%;
+        top: -1px;
       }
     }
-    &:hover > ul {
-      visibility: visible;
+    &:hover {
+      > ul {
+        visibility: visible;
+      }
     }
   }
   ul {
+    @extend .cf;
     line-height: ($y * 2.25);
-    &::after {
-      @extend .cf::after;
-    }
   }
   .current {
     > a {
-      background: map-get($color-back-button, 'primary');
-      color: $color-back;
-      &:focus,
-      &:hover {
-        background: lighten(map-get($color-back-button, 'primary'), 2%);
+      background: $fill-button--primary;
+      color: $fill;
+      &:hover,
+      &:focus {
+        background: lighten($fill-button--primary, 2%);
       }
       &:active {
-        background: darken(map-get($color-back-button, 'primary'), 2%);
+        background: darken($fill-button--primary, 2%);
       }
     }
   }
 }
 
 .toggle {
-  position: absolute;
-  top: 5px; /* border-top-width */
-  left: 0;
-  width: 44px;
-  height: 44px;
-  font-size: 26px;
-  line-height: 44px;
-  text-align: center;
   display: none;
+  font-size: 26px;
+  height: 44px;
+  left: 0;
+  line-height: 44px;
+  position: absolute;
+  text-align: center;
+  top: 5px; /* border-top-width */
+  width: 44px;
   &::before {
     display: block;
-    width: inherit;
-    height: inherit;
     font-size: 100%;
+    height: inherit;
     line-height: inherit;
+    width: inherit;
   }
 }
 
@@ -185,15 +184,15 @@ pre {
 
 .page {
   &-footer {
-    margin: $w 0 0;
+    margin: $gap 0 0;
   }
   &-meta {
-    text-transform: uppercase;
+    color: $stroke;
     letter-spacing: 3px;
-    color: $color-gray;
+    text-transform: uppercase;
   }
   + .page {
-    margin-top: $w;
+    margin-top: $gap;
   }
 }
 
@@ -201,7 +200,7 @@ pre {
   &\:error {
     .page {
       &-body {
-        padding: ($w * 4) 0;
+        padding: ($gap * 4) 0;
         text-align: center;
       }
     }
@@ -212,23 +211,19 @@ pre {
         font-size: ($z * .8);
         letter-spacing: 2px;
       }
-      &-time {
-      }
+      &-time {}
     }
   }
 }
 
 .footer {
-  margin: $w 0;
-  clear: both;
-  &-right {
-    float: right;
-  }
+  @extend .cf;
+  margin: $gap 0;
   &-left {
     float: left;
   }
-  &::after {
-    @extend .cf::after;
+  &-right {
+    float: right;
   }
 }
 

@@ -1,7 +1,7 @@
 @media (max-width: 960px) {
   .body {
+    margin: 0 $gap;
     width: auto;
-    margin: 0 $w;
   }
 }
 
@@ -16,22 +16,22 @@
     display: none;
     height: auto;
     li {
-      float: none;
       display: block;
+      float: none;
       ul {
-        visibility: visible;
-        opacity: 1;
+        background: none;
         border: 0;
+        box-shadow: none;
         margin-top: 0;
-        position: static;
-        width: auto;
         max-width: 100%;
         min-width: 0;
-        background: none;
-        box-shadow: none;
+        opacity: 1;
+        position: static;
+        visibility: visible;
+        width: auto;
         a {
-          font-weight: normal;
           font-size: ($z * .8);
+          font-weight: normal;
         }
         ul {
           margin-left: ($x / 2);
@@ -42,15 +42,15 @@
   .aside,
   .main,
   .aside + .main {
-    float: none;
-    display: block;
     clear: both;
-    width: auto;
+    display: block;
+    float: none;
     padding: 0;
+    width: auto;
   }
   .aside {
-    padding-bottom: $w;
     display: none;
+    padding-bottom: $gap;
   }
   .toggle,
   .is\:aside-visible .aside,
@@ -61,21 +61,21 @@
     padding-top: 0;
   }
   .is\:aside-visible .toggle {
-    position: static;
     float: left;
-    margin: 0 0 $w;
+    margin: 0 0 $gap;
+    position: static;
   }
   .footer {
     text-align: center;
     &-right,
     &-left {
-      float: none;
       display: inline;
+      float: none;
     }
     &-right {
       &::before {
+        color: $stroke;
         content: '\2013';
-        color: $color-gray;
         margin: 0 $z;
       }
     }
@@ -83,10 +83,10 @@
   .align {
     &-right,
     &-left {
-      float: none;
       display: block;
-      margin-right: auto;
+      float: none;
       margin-left: auto;
+      margin-right: auto;
       * + & {
         margin-top: $y;
       }
@@ -96,14 +96,14 @@
 
 @media (max-width: 580px) {
   .grids {
-    margin-right: 0;
     margin-left: 0;
+    margin-right: 0;
     .grid {
-      float: none;
       display: block;
-      width: auto;
+      float: none;
       margin: 0;
       padding: 0;
+      width: auto;
     }
   }
 }

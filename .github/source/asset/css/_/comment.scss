@@ -1,16 +1,16 @@
 .comments {
-  margin: $w 0 0;
+  margin: $gap 0 0;
 }
 
 .comment {
   &-author {
-    font-weight: bolder;
+    font-weight: bold;
   }
   &-meta {
+    color: $stroke;
     font-size: ($z * .8);
-    text-transform: uppercase;
     letter-spacing: 2px;
-    color: $color-gray;
+    text-transform: uppercase;
   }
 }
 

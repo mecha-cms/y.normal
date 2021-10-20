@@ -6,7 +6,7 @@ Normal Layout for [Mecha](https://github.com/mecha-cms/mecha)
 Release Notes
 -------------
 
-### 2.11.0
+### 2.11.1
 
  - Added archive widget.
  - Updated for Mecha 2.6.0.

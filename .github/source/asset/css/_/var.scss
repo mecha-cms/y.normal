@@ -4,25 +4,23 @@ $y: 18px;
 $z: 13px;
 $h: 18px;
 
-$w: 5%;
+$gap: 5%;
 
-$color: #333;
-$color-back: #fff;
-$color-back-2: #ffa;
-$color-back-button: (
-  'primary': #365d98,
-  'error': #933,
-  'info': #6aaac2,
-  'success': #4b9343
-);
-$color-back-marker: #f9dc62;
-$color-gray: #999;
-$color-input-error: #faa;
+$color-button: #ffa;
+$color-input--invalid: #faa;
 $color-link: #365d98;
+$color: #333;
+$fill-button--error: #933;
+$fill-button--info: #6aaac2;
+$fill-button--primary: #365d98;
+$fill-button--success: #4b9343;
+$fill-mark: #f9dc62;
+$fill: #fff;
+$stroke: #999;
 
-$mono: monospace;
-$sans: sans-serif;
-$serif: serif;
+$font-mono: monospace;
+$font-sans: sans-serif;
+$font-serif: serif;
 
 @mixin placeholder {
   color: lighten($color, 30%);

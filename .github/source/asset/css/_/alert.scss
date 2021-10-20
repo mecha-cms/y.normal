@@ -1,23 +1,17 @@
-$color-back-alert: (
-  'error': #cf3030,
-  'info': #00a2d1,
-  'success': #8eab1a
-);
-
 .alert {
   p {
-    margin: 0;
-    padding: ($y / 2) ($x / 1.5);
     background: $color;
-    color: $color-back;
+    color: $fill;
+    margin: 0;
     overflow: hidden;
-    @each $k, $v in $color-back-alert {
+    padding: ($y / 2) ($x / 1.5);
+    @each $k, $v in (error #cf3030, info #00a2d1, success #8eab1a) {
       &.#{$k} {
         background: $v;
       }
     }
     a {
-      color: $color-back-2;
+      color: $color-button;
     }
     code {
       opacity: .7;

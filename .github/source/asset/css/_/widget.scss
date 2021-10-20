@@ -1,38 +1,34 @@
 .t-o-c {
   summary {
+    padding-left: 0;
     text-transform: uppercase;
+    &::before {
+      display: none;
+    }
   }
-}
-
-.widget .archive ul {
-}
-
-.widget .archive ul li {
-  border: 0;
-}
-
-.widget .archive + .archive {
-  margin-top: 4.5px;
 }
 
 .widget {
   li,
   ol,
   ul {
+    list-style: none;
     margin: 0;
     padding: 0;
-    list-style: none;
   }
   li {
-    padding: ($y / 4) 0;
     border: inherit;
     border-width: 0 0 1px;
+    padding: ($y / 4) 0;
   }
   ol,
   ul {
-    border: 0 solid $color-gray;
+    border: 0 solid $stroke;
     border-width: 1px 0 0;
   }
+}
+
+.widget {
   .archive {
     ol,
     ul {
@@ -62,31 +58,31 @@
   }
   .form {
     &-search {
-      position: relative;
       background: $color;
-      color: $color-back;
+      color: $fill;
       overflow: hidden;
+      position: relative;
       p {
         margin: 0;
       }
       .button,
       .input {
-        display: block;
-        width: 100%;
         background: none;
         border-radius: 0;
+        display: block;
+        width: 100%;
       }
       .button {
-        padding-right: 0;
-        padding-left: 0;
-        width: ($x * 2);
-        position: absolute;
-        top: 0;
-        right: 0;
         bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: ($x * 2);
         &,
-        &:focus,
         &:hover,
+        &:focus,
         &:active {
           background: none;
           box-shadow: none;
@@ -98,18 +94,13 @@
     }
   }
   .recent {
-    &-comments,
-    &-comment {
-      margin-right: 0;
-      margin-left: 0;
-      padding: 0;
+    &-comment,
+    &-comments {
       border-width: 0;
       list-style: none;
-    }
-    &-comments {
-      li + li {
-        margin-top: ($y / 2);
-      }
+      margin-left: 0;
+      margin-right: 0;
+      padding: 0;
     }
     &-comment {
       p {
@@ -117,43 +108,50 @@
       }
       &-author {
         font: inherit;
-        font-weight: bolder;
+        font-weight: bold;
         margin: 0;
-        white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        white-space: nowrap;
       }
       &-avatar {
         display: block;
-        width: 50px;
         height: 50px;
+        width: 50px;
       }
       &-body,
       &-footer {
         margin-top: ($z / 4);
       }
       &-figure {
-        width: (($y / 2) + 50);
         float: left;
+        width: (($y / 2) + 50);
       }
       &-time {
+        @extend .cf;
+        color: $stroke;
         font-size: ($z * .8);
-        text-transform: uppercase;
         letter-spacing: 1px;
-        color: $color-gray;
-        white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        text-transform: uppercase;
+        white-space: nowrap;
       }
-      &::after {
-        @extend .cf::after;
+    }
+    &-comments {
+      li {
+        + li {
+          margin-top: ($y / 2);
+        }
       }
     }
   }
 }
 
 .aside {
-  .widget-header + .widget-body {
-    margin-top: ($y / 2);
+  .widget-header {
+    .widget-body {
+      margin-top: ($y / 2);
+    }
   }
 }

@@ -1,23 +1,23 @@
 .pager {
-  margin-top: $w;
+  margin-top: $gap;
   overflow: hidden;
   &-normal {
     a,
     b,
     span {
       &,
-      &:focus,
       &:hover,
+      &:focus,
       &:active {
-        padding: 0;
         background: none;
         color: inherit;
+        padding: 0;
       }
     }
     a {
       color: $color-link;
-      &:focus,
-      &:hover {
+      &:hover,
+      &:focus {
         color: lighten($color-link, 10%);
       }
       &:active {

@@ -1,15 +1,15 @@
 * {
-  margin: 0;
-  padding: 0;
   border: 0;
-  outline: none;
-  font: inherit;
-  font-size: 100%;
   box-sizing: border-box;
+  font-size: 100%;
+  font: inherit;
+  margin: 0;
+  outline: none;
+  padding: 0;
 }
 
-:focus {
-  outline: none;
+:focus:not(:focus-visible) {
+  outline: 0;
 }
 
 a {
@@ -21,14 +21,14 @@ a {
 
 abbr,
 dfn {
-  text-decoration: none;
   cursor: help;
+  text-decoration: none;
 }
 b,
 kbd,
 strong,
 th {
-  font-weight: bolder;
+  font-weight: bold;
 }
 
 caption,
@@ -55,6 +55,8 @@ code {
   font-family: monospace;
 }
 
+sub,
+sup,
 small {
   font-size: smaller;
 }
@@ -63,8 +65,8 @@ sub,
 sup {
   position: relative;
   top: -.5em;
-  font-size: smaller;
 }
+
 sub {
   top: .5em;
 }
@@ -94,14 +96,14 @@ time {
 }
 
 img {
-  max-width: 100%;
   height: auto;
+  max-width: 100%;
 }
 
 iframe {
-  display: inline-block;
   background: none;
   border: 0;
+  display: inline-block;
 }
 
 button,
@@ -114,10 +116,10 @@ summary {
 button,
 input {
   &::-moz-focus-inner {
-    margin: 0;
-    padding: 0;
     border: 0;
+    margin: 0;
     outline: 0;
+    padding: 0;
   }
 }
 
@@ -138,10 +140,10 @@ select {
 
 pre {
   overflow: auto;
-  word-wrap: break-word;
-  white-space: pre;
   white-space: -moz-pre-wrap;
   white-space: pre-wrap;
+  white-space: pre;
+  word-wrap: break-word;
   code {
     display: block;
   }

@@ -25,7 +25,7 @@ dfn {
   text-decoration: none;
 }
 b,
-kbd,
+dt,
 strong,
 th {
   font-weight: bold;
@@ -51,7 +51,8 @@ strike {
   text-decoration: line-through;
 }
 
-code {
+code,
+kbd {
   font-family: monospace;
 }
 
@@ -63,6 +64,7 @@ small {
 
 sub,
 sup {
+  line-height: 0;
   position: relative;
   top: -.5em;
 }

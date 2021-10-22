@@ -4,9 +4,11 @@
 
 blockquote {
   font-size: ($z * 1.1);
+  line-height: ($h * 1.1);
 }
 
 code,
+kbd,
 .code {
   font: inherit;
   font-family: $font-mono;
@@ -20,14 +22,14 @@ details {
     padding-left: $x;
     position: relative;
     &::before {
-      border-bottom: ($z / 2) solid transparent;
-      border-left: (($z / 2) + 2) solid;
+      border-bottom: math.div($z, 2) solid transparent;
+      border-left: (math.div($z, 2) + 2px) solid;
       border-right: 0 solid transparent;
-      border-top: ($z / 2) solid transparent;
+      border-top: math.div($z, 2) solid transparent;
       content: "";
       height: 0;
       left: 0;
-      margin-top: ($z / -2);
+      margin-top: math.div($z, -2);
       position: absolute;
       top: 50%;
       width: 0;
@@ -68,7 +70,7 @@ h6,
 
 hr {
   @extend .p;
-  border-top: 1px dashed $stroke;
+  border-top: 1px solid;
   color: inherit;
 }
 
@@ -87,10 +89,13 @@ ul {
   @extend .p;
 }
 
-dl,
+dl {
+  margin-left: $x;
+}
+
 ol,
 ul {
-  margin-left: ($x * 2);
+  margin-left: ($x * 1.5);
 }
 
 ol {
@@ -100,7 +105,7 @@ ol {
 pre {
   code {
     font-size: 100%;
-    padding: ($y / 2) ($x / 1.5);
+    padding: math.div($y, 2) math.div($x, 1.5);
   }
 }
 
@@ -112,38 +117,34 @@ ol,
 ul {
   ol,
   ul {
-    margin-left: $x;
     margin-top: 0;
   }
 }
 
-dt {
-  @extend .h5;
-}
-
 figcaption {
-  margin-top: ($y / 2);
+  margin-top: math.div($y, 2);
   text-align: center;
 }
 
 fieldset {
-  border: 1px solid $stroke;
+  border: 1px solid;
   padding: $y $x;
   legend {
     + * {
+      clear: left;
       margin-top: 0;
     }
   }
 }
 
 legend {
+  background: $fill;
+  float: left;
   font-size: ($z * .86);
   font-weight: bold;
-  margin: 0;
-  overflow: visible;
-  padding: 0 ($x / 2);
+  margin: ($y * -1.5) 0 0;
+  padding: 0 math.div($x, 2);
   text-transform: uppercase;
-  white-space: nowrap;
 }
 
 optgroup {
@@ -167,31 +168,30 @@ iframe {
 .table {
   caption {
     caption-side: bottom;
-    margin: ($y / 2) 0 0;
+    margin: math.div($y, 2) 0 0;
     text-align: center;
   }
   th,
   td {
-    padding: (($y - (($h - $z) / 2)) / 2) ($x / 2);
+    padding: math.div(($y - math.div(($h - $z), 2)), 2) math.div($x, 2);
   }
 }
 
 .align {
   &-right {
     margin-left: $x;
-    padding-bottom: (($h - $z) / 2);
-    padding-top: (($h - $z) / 2);
+    padding-bottom: math.div(($h - $z), 2);
+    padding-top: math.div(($h - $z), 2);
   }
   &-left {
     margin-right: $x;
-    padding-bottom: (($h - $z) / 2);
-    padding-top: (($h - $z) / 2);
+    padding-bottom: math.div(($h - $z), 2);
+    padding-top: math.div(($h - $z), 2);
   }
 }
 
 .notes {
   hr {
-    border-style: solid;
     width: ($z * 7);
   }
   ol {

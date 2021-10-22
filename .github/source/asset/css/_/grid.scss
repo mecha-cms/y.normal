@@ -1,7 +1,7 @@
 .grids {
   @extend .cf, .p;
-  margin-left: ($x / -2);
-  margin-right: ($x / -2);
+  margin-left: math.div($x, -2);
+  margin-right: math.div($x, -2);
   &.no-gap {
     margin-left: 0;
     margin-right: 0;
@@ -14,11 +14,11 @@
     background-clip: content-box;
     float: left;
     min-height: 1px;
-    padding: 0 ($x / 2);
+    padding: 0 math.div($x, 2);
     &.span {
       @for $i from 1 through 6 {
         &-#{$i} {
-          width: (100% * ($i / 6));
+          width: (100% * math.div($i, 6));
         }
       }
     }

@@ -1,7 +1,10 @@
+@use 'sass:math';
+
 @import '_/var';
 @import '_/reset';
 @import '_/type';
 @import '_/base';
+@import '_/icon';
 @import '_/form';
 @import '_/grid';
 @import '_/alert';
@@ -157,21 +160,10 @@ pre {
 
 .toggle {
   display: none;
-  font-size: 26px;
-  height: 44px;
   left: 0;
-  line-height: 44px;
   position: absolute;
   text-align: center;
   top: 5px; /* border-top-width */
-  width: 44px;
-  &::before {
-    display: block;
-    font-size: 100%;
-    height: inherit;
-    line-height: inherit;
-    width: inherit;
-  }
 }
 
 .page,
@@ -187,7 +179,7 @@ pre {
     margin: $gap 0 0;
   }
   &-meta {
-    color: $stroke;
+    color: $color-secondary;
     letter-spacing: 3px;
     text-transform: uppercase;
   }
@@ -230,6 +222,5 @@ pre {
 @import '_/widget';
 @import '_/comment';
 @import '_/pager';
-@import '_/icon';
 
 @import '_/media';

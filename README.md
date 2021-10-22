@@ -6,6 +6,12 @@ Normal Layout for [Mecha](https://github.com/mecha-cms/mecha)
 Release Notes
 -------------
 
+### 2.12.0
+
+ - Added decoration to the `<blockquote>` element.
+ - Removed [Font Awesome](https://fontawesome.com) dependency.
+ - Reverted border color to black again.
+
 ### 2.11.1
 
  - Added archive widget.

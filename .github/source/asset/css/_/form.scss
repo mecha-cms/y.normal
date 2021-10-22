@@ -13,28 +13,27 @@
 .output,
 .select,
 .textarea {
+  accent-color: $fill-button--primary;
   background: $color;
   border: 0;
   color: $fill;
   display: inline-block;
   height: ($y * 2);
-  padding: ((($y * 2) - $h) / 2) ($x * .65);
+  padding: math.div((($y * 2) - $h), 2) ($x * .65);
   text-align: left;
   vertical-align: middle;
   width: ($x * 10);
   &.small {
     font-size: ($z * .8);
     height: ($y * 1.5);
-    padding: ((($y * 1.5) - $h) / 2) ($x * .5);
+    padding: math.div((($y * 1.5) - $h), 2) ($x * .5);
   }
   &.width {
     display: block;
     width: 100%;
   }
   &:disabled,
-  &:read-only,
-  &.disabled,
-  &.read-only {
+  &.disabled {
     cursor: not-allowed;
     opacity: .9;
   }
@@ -46,9 +45,9 @@
 .button {
   border-radius: 2px;
   color: $color-button;
+  overflow: hidden;
   padding-left: ($x * .75);
   padding-right: ($x * .75);
-  text-align: center;
   width: auto;
   &:hover,
   &:focus {
@@ -78,10 +77,13 @@
     box-shadow: none;
   }
   &:any-link {
-    @extend .button, .primary;
+    @extend .primary;
+    &[href$='#comment'] {
+      @extend .error;
+    }
   }
   &[type='submit'] {
-    @extend .button, .success;
+    @extend .success;
   }
 }
 
@@ -111,6 +113,15 @@
   &[type='color'] {
     height: ($y * 2);
     width: ($x * 2);
+    &::-moz-color-swatch {
+      border: 0;
+    }
+    &::-webkit-color-swatch {
+      border: 0;
+    }
+    &::-webkit-color-swatch-wrapper {
+      padding: 0;
+    }
   }
   &[type='checkbox'],
   &[type='image'],

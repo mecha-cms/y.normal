@@ -1,13 +1,28 @@
-let doc = document,
-    base = doc.documentElement,
-    toggle = doc.querySelector('.toggle');
+import {
+    D,
+    R,
+    getElements,
+    getParent,
+    toggleClass
+} from '@taufik-nurrohman/document';
 
-function onClick(e) {
-    this.classList.toggle('active');
-    base.classList.toggle('is:aside-visible');
-    base.scrollTop = 0;
-    base.parentNode.scrollTop = 0;
-    e.preventDefault();
-}
+import {
+    offEventDefault,
+    onEvent
+} from '@taufik-nurrohman/event';
 
-toggle && toggle.addEventListener('click', onClick, false);
+import {
+    toCount
+} from '@taufik-nurrohman/to';
+
+const toggles = getElements('.toggle');
+
+toCount(toggles) && toggles.forEach(toggle => {
+    onEvent('click', toggle, function(e) {
+        toggleClass(this, 'active');
+        toggleClass(R, 'is:aside-visible');
+        R.scrollTop = 0;
+        getParent(R).scrollTop = 0;
+        offEventDefault(e);
+    });
+});

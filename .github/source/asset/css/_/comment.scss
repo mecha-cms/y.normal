@@ -7,7 +7,7 @@
     font-weight: bold;
   }
   &-meta {
-    color: $stroke;
+    color: $color-secondary;
     font-size: ($z * .8);
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -16,10 +16,6 @@
 
 .form-comment {
   label {
-    padding-top: ((($y * 2) - $h) / 2);
+    padding-top: math.div((($y * 2) - $h), 2);
   }
 }
-
-// .form-comment .button.comment-reply\:x {
-//   @extend .button.error;
-// }

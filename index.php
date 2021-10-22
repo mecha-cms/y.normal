@@ -20,9 +20,6 @@ $GLOBALS['links'] = new Anemon((static function($links, $state, $url) {
     return $links;
 })([], $state, $url));
 
-// Load asset(s)
-Asset::set($url->protocol . 'maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', 20);
-
 $z = defined('DEBUG') && DEBUG ? '.' : '.min.';
 Asset::set('css/index' . $z . 'css', 20);
 Asset::set('js/index' . $z . 'js', 20);

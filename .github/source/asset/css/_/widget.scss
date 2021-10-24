@@ -150,7 +150,7 @@
 
 .aside {
   .widget-header {
-    .widget-body {
+    + .widget-body {
       margin-top: math.div($y, 2);
     }
   }

@@ -8,7 +8,7 @@ Normal Layout for [Mecha](https://github.com/mecha-cms/mecha)
 Release Notes
 -------------
 
-### 2.12.0
+### 2.12.1
 
  - Added decoration to the `<blockquote>` element.
  - Removed [Font Awesome](https://fontawesome.com) dependency.

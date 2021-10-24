@@ -3,7 +3,8 @@ title: Normal
 description: Port of the default layout in Mecha version `1.x.x`.
 author: Taufik Nurrohman
 type: Markdown
-version: 2.12.0
+version: 2.12.1
+
 git: mecha-cms/layout.normal
 ...
 

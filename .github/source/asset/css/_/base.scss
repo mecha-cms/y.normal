@@ -98,6 +98,13 @@ ul {
   margin-left: ($x * 1.5);
 }
 
+ol,
+ul {
+  & & {
+    margin-left: $x;
+  }
+}
+
 ol {
   list-style-type: decimal;
 }

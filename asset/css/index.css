@@ -438,6 +438,13 @@ ul {
   margin-left: 27px;
 }
 
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+  margin-left: 18px;
+}
+
 ol {
   list-style-type: decimal;
 }
@@ -1240,7 +1247,7 @@ pre code {
   margin-top: 9px;
 }
 
-.aside .widget-header .widget-body {
+.aside .widget-header + .widget-body {
   margin-top: 9px;
 }
 

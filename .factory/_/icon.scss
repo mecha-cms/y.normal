@@ -69,7 +69,7 @@ blockquote::before {
       &::before {
         content: '\f086';
         float: left;
-        margin-right: .25em;
+        margin-right: 0.25em;
       }
     }
   }
@@ -82,7 +82,7 @@ blockquote::before {
         &::after {
           content: '\f2be';
           float: right;
-          margin-left: .5em;
+          margin-left: 0.5em;
         }
       }
     }
@@ -96,14 +96,14 @@ blockquote::before {
         &::before {
           content: '\f057';
           float: left;
-          margin-right: .5em;
+          margin-right: 0.5em;
         }
       }
       &[type='submit'] {
         &::before {
           content: '\f058';
           float: left;
-          margin-right: .5em;
+          margin-right: 0.5em;
         }
       }
     }
@@ -123,7 +123,7 @@ blockquote::before {
           &::before {
             content: '\f084';
             float: left;
-            margin-right: .5em;
+            margin-right: 0.5em;
           }
         }
       }
@@ -134,7 +134,7 @@ blockquote::before {
           &::before {
             content: '\f007';
             float: left;
-            margin-right: .5em;
+            margin-right: 0.5em;
           }
           &[href*='exit='] {
             &::before {
@@ -151,7 +151,7 @@ blockquote::before {
   &::before {
     content: '\f14c';
     float: left;
-    margin-right: .5em;
+    margin-right: 0.5em;
   }
 }
 
@@ -159,7 +159,7 @@ blockquote::before {
   &::before {
     content: '\f073';
     float: left;
-    margin: 0 .5em 0 0; /* Magic :( */
+    margin: 0 0.5em 0 0; /* Magic :( */
   }
 }
 
@@ -169,7 +169,7 @@ blockquote::before {
       &::after {
         content: '\f105';
         float: right;
-        margin-left: .5em;
+        margin-left: 0.5em;
       }
     }
   }
@@ -178,7 +178,7 @@ blockquote::before {
       &::before {
         content: '\f104';
         float: left;
-        margin-right: .5em;
+        margin-right: 0.5em;
       }
     }
   }

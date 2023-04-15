@@ -4,7 +4,7 @@ $route = $route ?? $state->routeBlog;
 $chunk = $state->widget->page->chunk;
 $content = "";
 $c = $page ?? 0; // Store current page instance if any
-$query = explode('-', $c ? $c->name : "");
+$query = explode('-', (string) ($c ? $c->name : ""));
 
 $relates = [];
 foreach (g(LOT . D . 'page' . $route, 'page') as $k => $v) {

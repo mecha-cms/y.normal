@@ -1,3 +1,9 @@
+.code {
+  font: inherit;
+  font-family: $font-mono;
+  font-size: ($z * 0.86);
+}
+
 .hidden {
   display: none;
   &-visually {
@@ -10,6 +16,15 @@
     padding: 0;
     position: absolute !important;
     width: 1px;
+  }
+}
+
+.notes {
+  hr {
+    width: ($z * 7);
+  }
+  ol {
+    font-size: ($z * 0.8);
   }
 }
 

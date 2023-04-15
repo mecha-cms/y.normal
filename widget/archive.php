@@ -5,8 +5,8 @@ if (isset($state->x->archive)) {
     $archive_route = $state->x->archive->route ?? '/archive';
     $page_route = $route ?? $state->routeBlog;
     foreach (g(LOT . D . 'page' . $page_route, 'page') as $k => $v) {
-        $page = new Page($k);
-        $v = $page->time;
+        $p = new Page($k);
+        $v = $p->time;
         if ($v) {
             $v = explode('-', $v);
             $archives[$v[0]][$v[1]][] = 1;

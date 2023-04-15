@@ -8,11 +8,8 @@ blockquote {
 }
 
 code,
-kbd,
-.code {
-  font: inherit;
-  font-family: $font-mono;
-  font-size: ($z * 0.86);
+kbd {
+  @extend .code;
 }
 
 details {
@@ -172,10 +169,5 @@ table {
 }
 
 [role='doc-endnotes'] {
-  hr {
-    width: ($z * 7);
-  }
-  ol {
-    font-size: ($z * 0.8);
-  }
+  @extend .notes;
 }

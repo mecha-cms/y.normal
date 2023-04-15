@@ -198,6 +198,14 @@ video {
   width: 100%;
 }
 
+.code,
+code,
+kbd {
+  font: inherit;
+  font-family: monospace;
+  font-size: 11.18px;
+}
+
 .hidden {
   display: none;
 }
@@ -212,6 +220,15 @@ video {
   padding: 0;
   position: absolute !important;
   width: 1px;
+}
+
+.notes hr,
+[role=doc-endnotes] hr {
+  width: 91px;
+}
+.notes ol,
+[role=doc-endnotes] ol {
+  font-size: 10.4px;
 }
 
 .cl,
@@ -394,14 +411,6 @@ blockquote {
   line-height: 19.8px;
 }
 
-code,
-kbd,
-.code {
-  font: inherit;
-  font-family: monospace;
-  font-size: 11.18px;
-}
-
 details summary {
   cursor: pointer;
   display: block;
@@ -556,13 +565,6 @@ table caption {
 table th,
 table td {
   padding: 7.75px 9px;
-}
-
-[role=doc-endnotes] hr {
-  width: 91px;
-}
-[role=doc-endnotes] ol {
-  font-size: 10.4px;
 }
 
 @font-face {
@@ -1508,7 +1510,10 @@ pre code {
 }
 
 .page-footer {
+  font-size: 10.4px;
+  letter-spacing: 2px;
   margin: 5% 0 0;
+  text-transform: uppercase;
 }
 .page-meta {
   color: #999;
@@ -1780,7 +1785,6 @@ pre code {
 
 [role=doc-toc] summary {
   padding-left: 0;
-  text-transform: uppercase;
 }
 [role=doc-toc] summary::before {
   display: none;

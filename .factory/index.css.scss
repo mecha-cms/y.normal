@@ -176,7 +176,10 @@ pre {
 
 .page {
   &-footer {
+    font-size: ($z * 0.8);
+    letter-spacing: 2px;
     margin: $gap 0 0;
+    text-transform: uppercase;
   }
   &-meta {
     color: $color-secondary;
@@ -200,7 +203,7 @@ pre {
   &\:pages {
     .page {
       &-meta {
-        font-size: ($z * .8);
+        font-size: ($z * 0.8);
         letter-spacing: 2px;
       }
       &-time {}

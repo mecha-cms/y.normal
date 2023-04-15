@@ -1,6 +1,10 @@
 ---
 title: Normal
 description: Port of the default layout from Mecha version `1.x.x`.
+image: /lot/y/normal/index.png
+images:
+- /lot/y/normal/index.png
+- /lot/y/normal/index/1.png
 author: Taufik Nurrohman
 type: Markdown
 version: 2.13.0

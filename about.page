@@ -1,14 +1,10 @@
 ---
 title: Normal
-description: Port of the default layout in Mecha version `1.x.x`.
+description: Port of the default layout from Mecha version `1.x.x`.
 author: Taufik Nurrohman
 type: Markdown
-version: 2.12.1
-
-git: mecha-cms/layout.normal
+version: 2.13.0
 ...
-
-![Normal Layout](https://user-images.githubusercontent.com/1669261/72040434-19c83800-32db-11ea-92e1-fce19cdc0630.png)
 
 This is the default layout used by Mecha version `1.x.x`.
 
@@ -138,24 +134,6 @@ Embedding an audio:
 <div class="audio">
   <!-- Audio embed code goes here… -->
 </div>
-~~~
-
-Embedding an image with caption:
-
-~~~ .html
-<figure class="image">
-  <img alt="" src="/path/to/image.jpg">
-  <figcaption>Image caption goes here.</figcaption>
-</figure>
-~~~
-
-Embedding a table with borders:
-
-~~~ .html
-<table class="table">
-  <caption>Table caption goes here.</caption>
-  <!-- Table data goes here… -->
-</table>
 ~~~
 
 ### Image Alignments

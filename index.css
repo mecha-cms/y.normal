@@ -14,11 +14,31 @@
 }
 
 a,
-.button.link {
+.button.link,
+input.link[type=button],
+input.link[type=reset],
+input.link[type=submit],
+button.button[role=link],
+button.link[role=link],
+button[role=link],
+.link[role=button],
+[role=button][role=link],
+button.link,
+button[role=link] {
   text-decoration: none;
 }
 a img,
-.button.link img {
+.button.link img,
+input.link[type=button] img,
+input.link[type=reset] img,
+input.link[type=submit] img,
+button.button[role=link] img,
+button.link[role=link] img,
+button[role=link] img,
+.link[role=button] img,
+[role=button][role=link] img,
+button.link img,
+button[role=link] img {
   border: 0;
 }
 
@@ -100,6 +120,11 @@ time {
   display: inline;
 }
 
+audio {
+  display: block;
+  width: 100%;
+}
+
 img {
   height: auto;
   max-width: 100%;
@@ -126,12 +151,19 @@ input::-moz-focus-inner {
   padding: 0;
 }
 
+input[type=button],
 input[type=checkbox],
 input[type=color],
 input[type=file],
 input[type=image],
 input[type=radio],
-input[type=range] {
+input[type=range],
+input[type=reset],
+input[type=submit] {
+  cursor: pointer;
+}
+
+[role=button] {
   cursor: pointer;
 }
 
@@ -160,20 +192,26 @@ th {
   vertical-align: top;
 }
 
+video {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
 .hidden {
   display: none;
 }
 .hidden-visually,
 .sr {
-  position: absolute !important;
+  border: 0;
   clip: rect(0 0 0 0);
   clip: rect(0px, 0px, 0px, 0px);
-  width: 1px;
   height: 1px;
   margin: -1px 0 0;
-  padding: 0;
-  border: 0;
   overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
 }
 
 .cl,
@@ -185,8 +223,8 @@ th {
 .aside::after,
 .content::after,
 .grids::after {
-  display: table;
   clear: both;
+  display: table;
 }
 
 .cf,
@@ -213,6 +251,9 @@ th {
 .align-right {
   display: block;
   float: right;
+  margin-left: 18px;
+  padding-bottom: 2.5px;
+  padding-top: 2.5px;
 }
 .align-right img {
   display: inline-block;
@@ -220,42 +261,45 @@ th {
 .align-left {
   display: block;
   float: left;
+  margin-right: 18px;
+  padding-bottom: 2.5px;
+  padding-top: 2.5px;
 }
 .align-left img {
   display: inline-block;
 }
+.align-bottom {
+  vertical-align: bottom;
+}
 .align-center {
   display: inline-block;
-  margin-right: auto;
   margin-left: auto;
+  margin-right: auto;
   text-align: center;
 }
 .align-center img {
   display: block;
-  margin-right: auto;
   margin-left: auto;
-}
-.align-top {
-  vertical-align: top;
-}
-.align-bottom {
-  vertical-align: bottom;
+  margin-right: auto;
 }
 .align-middle {
   vertical-align: middle;
 }
+.align-top {
+  vertical-align: top;
+}
 
-.text-right {
-  text-align: right;
-}
-.text-left {
-  text-align: left;
-}
 .text-center {
   text-align: center;
 }
 .text-justify {
   text-align: justify;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
 }
 
 /* `<div class="p">` */
@@ -274,18 +318,18 @@ th {
 * + table,
 * + ul,
 * + hr,
-* + h1,
-* + h2,
-* + h3,
-* + h4,
-* + h5,
 * + h6,
-* + .h1,
-* + .h2,
-* + .h3,
-* + .h4,
-* + .h5,
 * + .h6,
+* + h5,
+* + .h5,
+* + h4,
+* + .h4,
+* + h3,
+* + .h3,
+* + h2,
+* + .h2,
+* + h1,
+* + .h1,
 * + .video,
 * + .image,
 * + .audio {
@@ -312,11 +356,14 @@ th {
 }
 
 /* `<table class="table">` */
-.table {
+.table,
+table {
   width: 100%;
 }
+.table td,
+table td,
 .table th,
-.table td {
+table th {
   border: 1px solid;
 }
 
@@ -379,49 +426,45 @@ details[open] summary::before {
 }
 
 h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-  line-height: 1.25;
-  word-wrap: break-word;
-}
-
-h1,
 .h1 {
   font-size: 26px;
+  line-height: 1.25;
+  word-wrap: break-word;
 }
 
 h2,
 .h2 {
   font-size: 23.4px;
+  line-height: 1.25;
+  word-wrap: break-word;
 }
 
 h3,
 .h3 {
   font-size: 20.8px;
+  line-height: 1.25;
+  word-wrap: break-word;
 }
 
 h4,
 .h4 {
   font-size: 18.2px;
+  line-height: 1.25;
+  word-wrap: break-word;
 }
 
 h5,
 .h5 {
   font-size: 15.6px;
+  line-height: 1.25;
+  word-wrap: break-word;
 }
 
 h6,
 .h6 {
   font-size: 13px;
+  line-height: 1.25;
+  word-wrap: break-word;
 }
 
 hr {
@@ -505,31 +548,20 @@ iframe:not([height]) {
   height: 90px;
 }
 
-.table caption {
+table caption {
   caption-side: bottom;
   margin: 9px 0 0;
   text-align: center;
 }
-.table th,
-.table td {
+table th,
+table td {
   padding: 7.75px 9px;
 }
 
-.align-right {
-  margin-left: 18px;
-  padding-bottom: 2.5px;
-  padding-top: 2.5px;
-}
-.align-left {
-  margin-right: 18px;
-  padding-bottom: 2.5px;
-  padding-top: 2.5px;
-}
-
-.notes hr {
+[role=doc-endnotes] hr {
   width: 91px;
 }
-.notes ol {
+[role=doc-endnotes] ol {
   font-size: 10.4px;
 }
 
@@ -541,25 +573,82 @@ iframe:not([height]) {
 }
 .alert .error::before,
 .alert .button[href$="#comment"]:any-link::before,
+.alert input[href$="#comment"][type=button]:any-link::before,
+.alert input[href$="#comment"][type=reset]:any-link::before,
+.alert input[href$="#comment"][type=submit]:any-link::before,
+.alert [href$="#comment"][role=button]:any-link::before,
+.alert button[href$="#comment"]:any-link::before,
 .alert .info::before,
 .alert .success::before,
 .alert .button[type=submit]::before,
+.alert input[type=submit]::before,
+.alert [type=submit][role=button]::before,
+.alert button[type=submit]::before,
 .comment-status\:1 > .comment-header > .comment-author::after,
 .comments-header h3::before,
 .form-comment .button[href$="#comment"]::before,
+.form-comment input[href$="#comment"][type=button]::before,
+.form-comment input[href$="#comment"][type=reset]::before,
+.form-comment [href$="#comment"][role=button]::before,
+.form-comment button[href$="#comment"]::before,
 .form-comment .button[type=submit]::before,
+.form-comment input[type=submit]::before,
+.form-comment [type=submit][role=button]::before,
+.form-comment button[type=submit]::before,
 .form-pass\:enter .button::before,
+.form-pass\:enter input[type=button]::before,
+.form-pass\:enter input[type=reset]::before,
+.form-pass\:enter input[type=submit]::before,
+.form-pass\:enter button[role=link]::before,
+.form-pass\:enter [role=button]::before,
+.form-pass\:enter button::before,
 .form-search .button::before,
+.form-search input[type=button]::before,
+.form-search input[type=reset]::before,
+.form-search input[type=submit]::before,
+.form-search button[role=link]::before,
+.form-search [role=button]::before,
+.form-search button::before,
 .form-user\:enter .button::before,
+.form-user\:enter input[type=button]::before,
+.form-user\:enter input[type=reset]::before,
+.form-user\:enter input[type=submit]::before,
+.form-user\:enter button[role=link]::before,
+.form-user\:enter [role=button]::before,
+.form-user\:enter button::before,
 .form-user\:exit .button[href*="exit="]::before,
+.form-user\:exit input[href*="exit="][type=button]::before,
+.form-user\:exit input[href*="exit="][type=reset]::before,
+.form-user\:exit input[href*="exit="][type=submit]::before,
+.form-user\:exit [href*="exit="][role=button]::before,
+.form-user\:exit button[href*="exit="]::before,
 .form-user\:exit .button[href]::before,
+.form-user\:exit input[href][type=button]::before,
+.form-user\:exit input[href][type=reset]::before,
+.form-user\:exit input[href][type=submit]::before,
+.form-user\:exit [href][role=button]::before,
+.form-user\:exit button[href]::before,
 .is\:pages .page-time::before,
 .page-link::before,
 .page-time::before,
 .pager-next a::after,
 .pager-next .button.link::after,
+.pager-next input.link[type=button]::after,
+.pager-next input.link[type=reset]::after,
+.pager-next input.link[type=submit]::after,
+.pager-next .link[role=button]::after,
+.pager-next [role=button][role=link]::after,
+.pager-next button.link::after,
+.pager-next button[role=link]::after,
 .pager-prev a::before,
 .pager-prev .button.link::before,
+.pager-prev input.link[type=button]::before,
+.pager-prev input.link[type=reset]::before,
+.pager-prev input.link[type=submit]::before,
+.pager-prev .link[role=button]::before,
+.pager-prev [role=button][role=link]::before,
+.pager-prev button.link::before,
+.pager-prev button[role=link]::before,
 .toggle::before,
 blockquote::before {
   -moz-osx-font-smoothing: grayscale;
@@ -582,14 +671,22 @@ blockquote::before {
   width: 18px;
 }
 .alert .error::before,
-.alert .button[href$="#comment"]:any-link::before {
+.alert .button[href$="#comment"]:any-link::before,
+.alert input[href$="#comment"][type=button]:any-link::before,
+.alert input[href$="#comment"][type=reset]:any-link::before,
+.alert input[href$="#comment"][type=submit]:any-link::before,
+.alert [href$="#comment"][role=button]:any-link::before,
+.alert button[href$="#comment"]:any-link::before {
   content: "\f00d";
 }
 .alert .info::before {
   content: "\f129";
 }
 .alert .success::before,
-.alert .button[type=submit]::before {
+.alert .button[type=submit]::before,
+.alert input[type=submit]::before,
+.alert [type=submit][role=button]::before,
+.alert button[type=submit]::before {
   content: "\f00c";
 }
 
@@ -605,33 +702,73 @@ blockquote::before {
   margin-left: 0.5em;
 }
 
-.form-comment .button[href$="#comment"]::before {
+.form-comment .button[href$="#comment"]::before,
+.form-comment input[href$="#comment"][type=button]::before,
+.form-comment input[href$="#comment"][type=reset]::before,
+.form-comment input[href$="#comment"][type=submit]::before,
+.form-comment [href$="#comment"][role=button]::before,
+.form-comment button[href$="#comment"]::before {
   content: "\f057";
   float: left;
   margin-right: 0.5em;
 }
-.form-comment .button[type=submit]::before {
+.form-comment .button[type=submit]::before,
+.form-comment input[type=submit]::before,
+.form-comment [type=submit][role=button]::before,
+.form-comment button[type=submit]::before {
   content: "\f058";
   float: left;
   margin-right: 0.5em;
 }
-.form-search .button::before {
+.form-search .button::before,
+.form-search input[type=button]::before,
+.form-search input[type=reset]::before,
+.form-search input[type=submit]::before,
+.form-search button[role=link]::before,
+.form-search [role=button]::before,
+.form-search button::before {
   content: "\f002";
 }
 .form-pass\:enter .button[type=submit]::before,
-.form-user\:enter .button[type=submit]::before {
+.form-pass\:enter input[type=submit]::before,
+.form-pass\:enter [type=submit][role=button]::before,
+.form-pass\:enter button[type=submit]::before,
+.form-user\:enter .button[type=submit]::before,
+.form-user\:enter input[type=submit]::before,
+.form-user\:enter [type=submit][role=button]::before,
+.form-user\:enter button[type=submit]::before {
   content: "\f084";
   float: left;
   margin-right: 0.5em;
 }
 .form-pass\:exit .button:any-link::before,
-.form-user\:exit .button:any-link::before {
+.form-pass\:exit input[type=button]:any-link::before,
+.form-pass\:exit input[type=reset]:any-link::before,
+.form-pass\:exit input[type=submit]:any-link::before,
+.form-pass\:exit [role=button]:any-link::before,
+.form-pass\:exit button:any-link::before,
+.form-user\:exit .button:any-link::before,
+.form-user\:exit input[type=button]:any-link::before,
+.form-user\:exit input[type=reset]:any-link::before,
+.form-user\:exit input[type=submit]:any-link::before,
+.form-user\:exit [role=button]:any-link::before,
+.form-user\:exit button:any-link::before {
   content: "\f007";
   float: left;
   margin-right: 0.5em;
 }
 .form-pass\:exit .button:any-link[href*="exit="]::before,
-.form-user\:exit .button:any-link[href*="exit="]::before {
+.form-pass\:exit input[type=button]:any-link[href*="exit="]::before,
+.form-pass\:exit input[type=reset]:any-link[href*="exit="]::before,
+.form-pass\:exit input[type=submit]:any-link[href*="exit="]::before,
+.form-pass\:exit [role=button]:any-link[href*="exit="]::before,
+.form-pass\:exit button:any-link[href*="exit="]::before,
+.form-user\:exit .button:any-link[href*="exit="]::before,
+.form-user\:exit input[type=button]:any-link[href*="exit="]::before,
+.form-user\:exit input[type=reset]:any-link[href*="exit="]::before,
+.form-user\:exit input[type=submit]:any-link[href*="exit="]::before,
+.form-user\:exit [role=button]:any-link[href*="exit="]::before,
+.form-user\:exit button:any-link[href*="exit="]::before {
   content: "\f235";
 }
 
@@ -649,13 +786,27 @@ blockquote::before {
 }
 
 .pager-next a::after,
-.pager-next .button.link::after {
+.pager-next .button.link::after,
+.pager-next input.link[type=button]::after,
+.pager-next input.link[type=reset]::after,
+.pager-next input.link[type=submit]::after,
+.pager-next .link[role=button]::after,
+.pager-next [role=button][role=link]::after,
+.pager-next button.link::after,
+.pager-next button[role=link]::after {
   content: "\f105";
   float: right;
   margin-left: 0.5em;
 }
 .pager-prev a::before,
-.pager-prev .button.link::before {
+.pager-prev .button.link::before,
+.pager-prev input.link[type=button]::before,
+.pager-prev input.link[type=reset]::before,
+.pager-prev input.link[type=submit]::before,
+.pager-prev .link[role=button]::before,
+.pager-prev [role=button][role=link]::before,
+.pager-prev button.link::before,
+.pager-prev button[role=link]::before {
   content: "\f104";
   float: left;
   margin-right: 0.5em;
@@ -691,10 +842,20 @@ blockquote::before {
 }
 
 .button,
+input[type=button],
+input[type=reset],
+input[type=submit],
+[role=button][role=link],
+button[role=link],
+[role=button],
+button,
 .input,
+input,
 .output,
 .select,
-.textarea {
+select,
+.textarea,
+textarea {
   accent-color: #365d98;
   background: #333;
   border: 0;
@@ -706,45 +867,42 @@ blockquote::before {
   vertical-align: middle;
   width: 180px;
 }
-.button.small,
-.input.small,
-.output.small,
-.select.small,
-.textarea.small {
-  font-size: 10.4px;
-  height: 27px;
-  padding: 4.5px 9px;
-}
-.button.width,
-.input.width,
-.output.width,
-.select.width,
-.textarea.width {
-  display: block;
-  width: 100%;
-}
 .button:disabled,
-.button.disabled,
+button[role=link]:disabled,
+[role=button]:disabled,
+button:disabled,
 .input:disabled,
-.input.disabled,
+input:disabled,
 .output:disabled,
-.output.disabled,
 .select:disabled,
-.select.disabled,
+select:disabled,
 .textarea:disabled,
-.textarea.disabled {
+textarea:disabled {
   cursor: not-allowed;
   opacity: 0.9;
 }
 .button:invalid,
+button[role=link]:invalid,
+[role=button]:invalid,
+button:invalid,
 .input:invalid,
+input:invalid,
 .output:invalid,
 .select:invalid,
-.textarea:invalid {
+select:invalid,
+.textarea:invalid,
+textarea:invalid {
   color: #faa;
 }
 
-.button {
+.button,
+input[type=button],
+input[type=reset],
+input[type=submit],
+[role=button][role=link],
+button[role=link],
+[role=button],
+button {
   border-radius: 2px;
   color: #ffa;
   overflow: hidden;
@@ -753,114 +911,288 @@ blockquote::before {
   width: auto;
 }
 .button:hover,
-.button:focus {
+input[type=button]:hover,
+input[type=reset]:hover,
+input[type=submit]:hover,
+button[role=link]:hover,
+[role=button]:hover,
+button:hover,
+.button:focus,
+input[type=button]:focus,
+input[type=reset]:focus,
+input[type=submit]:focus,
+button[role=link]:focus,
+[role=button]:focus,
+button:focus {
   background: #383838;
   color: #ffa;
 }
-.button:active {
+.button:active,
+input[type=button]:active,
+input[type=reset]:active,
+input[type=submit]:active,
+button[role=link]:active,
+[role=button]:active,
+button:active {
   background: #2e2e2e;
   box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.1);
   color: #ffa;
 }
 .button.error,
-.button[href$="#comment"]:any-link {
+input.error[type=button],
+input.error[type=reset],
+input.error[type=submit],
+button.error[role=link],
+.error[role=button],
+button.error,
+.button[href$="#comment"]:any-link,
+input[href$="#comment"][type=button]:any-link,
+input[href$="#comment"][type=reset]:any-link,
+input[href$="#comment"][type=submit]:any-link,
+button[href$="#comment"][role=link]:any-link,
+[href$="#comment"][role=button]:any-link,
+button[href$="#comment"]:any-link {
   background: #933;
 }
 .button.error:hover,
+input.error[type=button]:hover,
+input.error[type=reset]:hover,
+input.error[type=submit]:hover,
+.error[role=button]:hover,
+button.error:hover,
 .button[href$="#comment"]:hover:any-link,
+input[href$="#comment"][type=button]:hover:any-link,
+input[href$="#comment"][type=reset]:hover:any-link,
+input[href$="#comment"][type=submit]:hover:any-link,
+[href$="#comment"][role=button]:hover:any-link,
+button[href$="#comment"]:hover:any-link,
 .button.error:focus,
-.button[href$="#comment"]:focus:any-link {
+input.error[type=button]:focus,
+input.error[type=reset]:focus,
+input.error[type=submit]:focus,
+.error[role=button]:focus,
+button.error:focus,
+.button[href$="#comment"]:focus:any-link,
+input[href$="#comment"][type=button]:focus:any-link,
+input[href$="#comment"][type=reset]:focus:any-link,
+input[href$="#comment"][type=submit]:focus:any-link,
+[href$="#comment"][role=button]:focus:any-link,
+button[href$="#comment"]:focus:any-link {
   background: #a13636;
 }
 .button.error:active,
-.button[href$="#comment"]:active:any-link {
+input.error[type=button]:active,
+input.error[type=reset]:active,
+input.error[type=submit]:active,
+.error[role=button]:active,
+button.error:active,
+.button[href$="#comment"]:active:any-link,
+input[href$="#comment"][type=button]:active:any-link,
+input[href$="#comment"][type=reset]:active:any-link,
+input[href$="#comment"][type=submit]:active:any-link,
+[href$="#comment"][role=button]:active:any-link,
+button[href$="#comment"]:active:any-link {
   background: #913030;
 }
-.button.info {
+.button.info,
+input.info[type=button],
+input.info[type=reset],
+input.info[type=submit],
+button.info[role=link],
+.info[role=button],
+button.info {
   background: #6aaac2;
 }
 .button.info:hover,
-.button.info:focus {
+input.info[type=button]:hover,
+input.info[type=reset]:hover,
+input.info[type=submit]:hover,
+.info[role=button]:hover,
+button.info:hover,
+.button.info:focus,
+input.info[type=button]:focus,
+input.info[type=reset]:focus,
+input.info[type=submit]:focus,
+.info[role=button]:focus,
+button.info:focus {
   background: #71aec5;
 }
-.button.info:active {
+.button.info:active,
+input.info[type=button]:active,
+input.info[type=reset]:active,
+input.info[type=submit]:active,
+.info[role=button]:active,
+button.info:active {
   background: #63a6bf;
 }
 .button.primary,
-.button:any-link {
+input.primary[type=button],
+input.primary[type=reset],
+input.primary[type=submit],
+button.primary[role=link],
+.primary[role=button],
+button.primary,
+.button:any-link,
+input[type=button]:any-link,
+input[type=reset]:any-link,
+input[type=submit]:any-link,
+button[role=link]:any-link,
+[role=button]:any-link,
+button:any-link {
   background: #365d98;
 }
 .button.primary:hover,
+input.primary[type=button]:hover,
+input.primary[type=reset]:hover,
+input.primary[type=submit]:hover,
+.primary[role=button]:hover,
+button.primary:hover,
 .button:hover:any-link,
+input[type=button]:hover:any-link,
+input[type=reset]:hover:any-link,
+input[type=submit]:hover:any-link,
+[role=button]:hover:any-link,
+button:hover:any-link,
 .button.primary:focus,
-.button:focus:any-link {
+input.primary[type=button]:focus,
+input.primary[type=reset]:focus,
+input.primary[type=submit]:focus,
+.primary[role=button]:focus,
+button.primary:focus,
+.button:focus:any-link,
+input[type=button]:focus:any-link,
+input[type=reset]:focus:any-link,
+input[type=submit]:focus:any-link,
+[role=button]:focus:any-link,
+button:focus:any-link {
   background: #3962a0;
 }
 .button.primary:active,
-.button:active:any-link {
+input.primary[type=button]:active,
+input.primary[type=reset]:active,
+input.primary[type=submit]:active,
+.primary[role=button]:active,
+button.primary:active,
+.button:active:any-link,
+input[type=button]:active:any-link,
+input[type=reset]:active:any-link,
+input[type=submit]:active:any-link,
+[role=button]:active:any-link,
+button:active:any-link {
   background: #335890;
 }
 .button.success,
-.button[type=submit] {
+input.success[type=button],
+input.success[type=reset],
+button.success[role=link],
+.success[role=button],
+button.success,
+.button[type=submit],
+input[type=submit][type=button],
+input[type=submit][type=reset],
+input[type=submit],
+button[type=submit][role=link],
+[type=submit][role=button],
+button[type=submit] {
   background: #4b9343;
 }
 .button.success:hover,
+input.success[type=button]:hover,
+input.success[type=reset]:hover,
+.success[role=button]:hover,
+button.success:hover,
 .button[type=submit]:hover,
+input[type=submit]:hover,
+[type=submit][role=button]:hover,
+button[type=submit]:hover,
 .button.success:focus,
-.button[type=submit]:focus {
+input.success[type=button]:focus,
+input.success[type=reset]:focus,
+.success[role=button]:focus,
+button.success:focus,
+.button[type=submit]:focus,
+input[type=submit]:focus,
+[type=submit][role=button]:focus,
+button[type=submit]:focus {
   background: #4f9a46;
 }
 .button.success:active,
-.button[type=submit]:active {
+input.success[type=button]:active,
+input.success[type=reset]:active,
+.success[role=button]:active,
+button.success:active,
+.button[type=submit]:active,
+input[type=submit]:active,
+[type=submit][role=button]:active,
+button[type=submit]:active {
   background: #478c40;
 }
-.button.link {
+.button.link,
+input.link[type=button],
+input.link[type=reset],
+input.link[type=submit],
+button.button[role=link],
+button.link[role=link],
+button[role=link],
+.link[role=button],
+[role=button][role=link],
+button.link,
+button[role=link] {
   background: none;
   box-shadow: none;
 }
-.textarea {
+
+.textarea,
+textarea {
   height: auto;
   min-height: 90px;
   overflow: auto;
   resize: vertical;
 }
-.textarea.small {
-  min-height: 45px;
-}
-.textarea.height {
-  height: 288px;
-}
 
 .input[type=checkbox],
+input[type=checkbox],
 .input[type=color],
+input[type=color],
 .input[type=file],
+input[type=file],
 .input[type=image],
-.input[type=range] {
+input[type=image],
+.input[type=range],
+input[type=range] {
   background: none;
   color: inherit;
   padding: 0;
 }
-.input[type=color] {
+.input[type=color],
+input[type=color] {
   height: 36px;
   width: 36px;
 }
-.input[type=color]::-moz-color-swatch {
+.input[type=color]::-moz-color-swatch,
+input[type=color]::-moz-color-swatch {
   border: 0;
 }
-.input[type=color]::-webkit-color-swatch {
+.input[type=color]::-webkit-color-swatch,
+input[type=color]::-webkit-color-swatch {
   border: 0;
 }
-.input[type=color]::-webkit-color-swatch-wrapper {
+.input[type=color]::-webkit-color-swatch-wrapper,
+input[type=color]::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 .input[type=checkbox],
+input[type=checkbox],
 .input[type=image],
-.input[type=radio] {
+input[type=image],
+.input[type=radio],
+input[type=radio] {
   height: auto;
   width: auto;
 }
 
-label .input:checked + span {
+label .input:checked + span,
+label input:checked + span {
   opacity: 0.6;
 }
 
@@ -901,32 +1233,47 @@ label .input:checked + span {
   width: 100%;
 }
 
-.alert p {
+[role=alert] {
   background: #333;
   color: #fff;
   margin: 0;
   overflow: hidden;
   padding: 9px 12px;
 }
-.alert p.error,
-.alert p.button[href$="#comment"]:any-link {
+[role=alert].error,
+[role=alert].button[href$="#comment"]:any-link,
+[role=alert][role=button][href$="#comment"]:any-link,
+button[role=alert][href$="#comment"]:any-link,
+input[role=alert][type=button][href$="#comment"]:any-link,
+input[role=alert][type=reset][href$="#comment"]:any-link,
+input[role=alert][type=submit][href$="#comment"]:any-link {
   background: #cf3030;
 }
-.alert p.info {
+[role=alert].info {
   background: #00a2d1;
 }
-.alert p.success,
-.alert p.button[type=submit] {
+[role=alert].success,
+[role=alert].button[type=submit],
+[role=alert][type=submit][role=button],
+button[role=alert][type=submit],
+input[role=alert][type=submit] {
   background: #8eab1a;
 }
-.alert p a,
-.alert p .button.link {
+[role=alert] a,
+[role=alert] .button.link,
+[role=alert] .link[role=button],
+[role=alert] button.link,
+[role=alert] [role=button][role=link],
+[role=alert] button[role=link],
+[role=alert] input.link[type=button],
+[role=alert] input.link[type=reset],
+[role=alert] input.link[type=submit] {
   color: #ffa;
 }
-.alert p code {
+[role=alert] code {
   opacity: 0.7;
 }
-.alert p + p {
+[role=alert] + [role=alert] {
   margin-top: 2px;
 }
 
@@ -943,17 +1290,47 @@ label .input:checked + span {
 }
 
 a,
-.button.link {
+.button.link,
+.link[role=button],
+button.link,
+button.link[role=link],
+button.button[role=link],
+[role=button][role=link],
+button[role=link],
+input.link[type=button],
+input.link[type=reset],
+input.link[type=submit] {
   color: #365d98;
 }
 a:hover,
 .button.link:hover,
+.link[role=button]:hover,
+button.link:hover,
+[role=button][role=link]:hover,
+button[role=link]:hover,
+input.link[type=button]:hover,
+input.link[type=reset]:hover,
+input.link[type=submit]:hover,
 a:focus,
-.button.link:focus {
+.button.link:focus,
+.link[role=button]:focus,
+button.link:focus,
+[role=button][role=link]:focus,
+button[role=link]:focus,
+input.link[type=button]:focus,
+input.link[type=reset]:focus,
+input.link[type=submit]:focus {
   color: #4474bd;
 }
 a:active,
-.button.link:active {
+.button.link:active,
+.link[role=button]:active,
+button.link:active,
+[role=button][role=link]:active,
+button[role=link]:active,
+input.link[type=button]:active,
+input.link[type=reset]:active,
+input.link[type=submit]:active {
   color: #294672;
 }
 
@@ -1008,7 +1385,14 @@ pre code {
 }
 
 .nav a,
-.nav .button.link {
+.nav .button.link,
+.nav .link[role=button],
+.nav button.link,
+.nav [role=button][role=link],
+.nav button[role=link],
+.nav input.link[type=button],
+.nav input.link[type=reset],
+.nav input.link[type=submit] {
   display: block;
   font-weight: bold;
   overflow: hidden;
@@ -1027,7 +1411,14 @@ pre code {
   position: relative;
 }
 .nav li a,
-.nav li .button.link {
+.nav li .button.link,
+.nav li .link[role=button],
+.nav li button.link,
+.nav li [role=button][role=link],
+.nav li button[role=link],
+.nav li input.link[type=button],
+.nav li input.link[type=reset],
+.nav li input.link[type=submit] {
   padding: 0 18px;
 }
 .nav li li {
@@ -1057,18 +1448,46 @@ pre code {
   line-height: 40.5px;
 }
 .nav .current > a,
-.nav .current > .button.link {
+.nav .current > .button.link,
+.nav .current > .link[role=button],
+.nav .current > button.link,
+.nav .current > [role=button][role=link],
+.nav .current > button[role=link],
+.nav .current > input.link[type=button],
+.nav .current > input.link[type=reset],
+.nav .current > input.link[type=submit] {
   background: #365d98;
   color: #fff;
 }
 .nav .current > a:hover,
 .nav .current > .button.link:hover,
+.nav .current > .link[role=button]:hover,
+.nav .current > button.link:hover,
+.nav .current > [role=button][role=link]:hover,
+.nav .current > button[role=link]:hover,
+.nav .current > input.link[type=button]:hover,
+.nav .current > input.link[type=reset]:hover,
+.nav .current > input.link[type=submit]:hover,
 .nav .current > a:focus,
-.nav .current > .button.link:focus {
+.nav .current > .button.link:focus,
+.nav .current > .link[role=button]:focus,
+.nav .current > button.link:focus,
+.nav .current > [role=button][role=link]:focus,
+.nav .current > button[role=link]:focus,
+.nav .current > input.link[type=button]:focus,
+.nav .current > input.link[type=reset]:focus,
+.nav .current > input.link[type=submit]:focus {
   background: #3962a0;
 }
 .nav .current > a:active,
-.nav .current > .button.link:active {
+.nav .current > .button.link:active,
+.nav .current > .link[role=button]:active,
+.nav .current > button.link:active,
+.nav .current > [role=button][role=link]:active,
+.nav .current > button[role=link]:active,
+.nav .current > input.link[type=button]:active,
+.nav .current > input.link[type=reset]:active,
+.nav .current > input.link[type=submit]:active {
   background: #335890;
 }
 
@@ -1118,14 +1537,6 @@ pre code {
   float: right;
 }
 
-.t-o-c summary {
-  padding-left: 0;
-  text-transform: uppercase;
-}
-.t-o-c summary::before {
-  display: none;
-}
-
 .widget li,
 .widget ol,
 .widget ul {
@@ -1164,7 +1575,14 @@ pre code {
   content: ")";
 }
 .widget .current > a,
-.widget .current > .button.link {
+.widget .current > .button.link,
+.widget .current > .link[role=button],
+.widget .current > button.link,
+.widget .current > [role=button][role=link],
+.widget .current > button[role=link],
+.widget .current > input.link[type=button],
+.widget .current > input.link[type=reset],
+.widget .current > input.link[type=submit] {
   color: inherit;
 }
 .widget .form-search {
@@ -1177,12 +1595,20 @@ pre code {
   margin: 0;
 }
 .widget .form-search .button,
-.widget .form-search .input {
+.widget .form-search [role=button],
+.widget .form-search button,
+.widget .form-search .input,
+.widget .form-search input {
   background: none;
   border-radius: 0;
   width: 100%;
 }
-.widget .form-search .button {
+.widget .form-search .button,
+.widget .form-search [role=button],
+.widget .form-search button,
+.widget .form-search input[type=button],
+.widget .form-search input[type=reset],
+.widget .form-search input[type=submit] {
   bottom: 0;
   padding-left: 0;
   padding-right: 0;
@@ -1193,13 +1619,19 @@ pre code {
   width: 36px;
 }
 .widget .form-search .button,
+.widget .form-search [role=button],
+.widget .form-search button,
+.widget .form-search input[type=button],
+.widget .form-search input[type=reset],
+.widget .form-search input[type=submit],
 .widget .form-search .button:hover,
 .widget .form-search .button:focus,
 .widget .form-search .button:active {
   background: none;
   box-shadow: none;
 }
-.widget .form-search .input {
+.widget .form-search .input,
+.widget .form-search input {
   padding-right: 36px;
 }
 .widget .recent-comment,
@@ -1275,6 +1707,13 @@ pre code {
 }
 .pager-normal a,
 .pager-normal .button.link,
+.pager-normal .link[role=button],
+.pager-normal button.link,
+.pager-normal [role=button][role=link],
+.pager-normal button[role=link],
+.pager-normal input.link[type=button],
+.pager-normal input.link[type=reset],
+.pager-normal input.link[type=submit],
 .pager-normal a:hover,
 .pager-normal a:focus,
 .pager-normal a:active,
@@ -1291,17 +1730,45 @@ pre code {
   padding: 0;
 }
 .pager-normal a,
-.pager-normal .button.link {
+.pager-normal .button.link,
+.pager-normal .link[role=button],
+.pager-normal button.link,
+.pager-normal [role=button][role=link],
+.pager-normal button[role=link],
+.pager-normal input.link[type=button],
+.pager-normal input.link[type=reset],
+.pager-normal input.link[type=submit] {
   color: #365d98;
 }
 .pager-normal a:hover,
 .pager-normal .button.link:hover,
+.pager-normal .link[role=button]:hover,
+.pager-normal button.link:hover,
+.pager-normal [role=button][role=link]:hover,
+.pager-normal button[role=link]:hover,
+.pager-normal input.link[type=button]:hover,
+.pager-normal input.link[type=reset]:hover,
+.pager-normal input.link[type=submit]:hover,
 .pager-normal a:focus,
-.pager-normal .button.link:focus {
+.pager-normal .button.link:focus,
+.pager-normal .link[role=button]:focus,
+.pager-normal button.link:focus,
+.pager-normal [role=button][role=link]:focus,
+.pager-normal button[role=link]:focus,
+.pager-normal input.link[type=button]:focus,
+.pager-normal input.link[type=reset]:focus,
+.pager-normal input.link[type=submit]:focus {
   color: #4474bd;
 }
 .pager-normal a:active,
-.pager-normal .button.link:active {
+.pager-normal .button.link:active,
+.pager-normal .link[role=button]:active,
+.pager-normal button.link:active,
+.pager-normal [role=button][role=link]:active,
+.pager-normal button[role=link]:active,
+.pager-normal input.link[type=button]:active,
+.pager-normal input.link[type=reset]:active,
+.pager-normal input.link[type=submit]:active {
   color: #294672;
 }
 .pager-next {
@@ -1309,6 +1776,14 @@ pre code {
 }
 .pager-prev {
   float: left;
+}
+
+[role=doc-toc] summary {
+  padding-left: 0;
+  text-transform: uppercase;
+}
+[role=doc-toc] summary::before {
+  display: none;
 }
 
 @media (max-width: 960px) {
@@ -1321,11 +1796,9 @@ pre code {
   body {
     padding-top: 22px;
   }
-
   .header {
     text-align: center;
   }
-
   .nav {
     display: none;
     height: auto;
@@ -1347,14 +1820,20 @@ pre code {
     width: auto;
   }
   .nav li ul a,
-  .nav li ul .button.link {
+  .nav li ul .button.link,
+  .nav li ul .link[role=button],
+  .nav li ul button.link,
+  .nav li ul [role=button][role=link],
+  .nav li ul button[role=link],
+  .nav li ul input.link[type=button],
+  .nav li ul input.link[type=reset],
+  .nav li ul input.link[type=submit] {
     font-size: 10.4px;
     font-weight: normal;
   }
   .nav li ul ul {
     margin-left: 9px;
   }
-
   .aside,
   .main,
   .aside + .main {
@@ -1364,28 +1843,23 @@ pre code {
     padding: 0;
     width: auto;
   }
-
   .aside {
     display: none;
     padding-bottom: 5%;
   }
-
   .toggle,
   .is\:aside-visible .aside,
   .is\:aside-visible .nav {
     display: block;
   }
-
   .is\:aside-visible body {
     padding-top: 0;
   }
-
   .is\:aside-visible .toggle {
     float: left;
     margin: 0 0 5%;
     position: static;
   }
-
   .footer {
     text-align: center;
   }
@@ -1399,7 +1873,6 @@ pre code {
     content: "–";
     margin: 0 13px;
   }
-
   .align-right,
   .align-left {
     display: block;

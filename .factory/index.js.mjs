@@ -18,7 +18,7 @@ import {
 const toggles = getElements('.toggle');
 
 toCount(toggles) && toggles.forEach(toggle => {
-    onEvent('click', toggle, function(e) {
+    onEvent('click', toggle, function (e) {
         toggleClass(this, 'active');
         toggleClass(R, 'is:aside-visible');
         R.scrollTop = 0;

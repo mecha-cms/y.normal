@@ -66,11 +66,11 @@ sub,
 sup {
   line-height: 0;
   position: relative;
-  top: -.5em;
+  top: -0.5em;
 }
 
 sub {
-  top: .5em;
+  top: 0.5em;
 }
 
 blockquote,
@@ -95,6 +95,11 @@ section {
 mark,
 time {
   display: inline;
+}
+
+audio {
+  display: block;
+  width: 100%;
 }
 
 img {
@@ -126,14 +131,21 @@ input {
 }
 
 input {
+  &[type='button'],
   &[type='checkbox'],
   &[type='color'],
   &[type='file'],
   &[type='image'],
   &[type='radio'],
-  &[type='range'] {
+  &[type='range'],
+  &[type='reset'],
+  &[type='submit'] {
     cursor: pointer;
   }
+}
+
+[role='button'] {
+  cursor: pointer;
 }
 
 select {
@@ -159,4 +171,10 @@ td,
 th {
   text-align: left;
   vertical-align: top;
+}
+
+video {
+  display: block;
+  height: auto;
+  width: 100%;
 }

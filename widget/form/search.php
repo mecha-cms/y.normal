@@ -2,12 +2,15 @@
 
 $content = "";
 
-if ($c = $state->x->search ?? 0) {
-    $query = Get::get($q = $c->key ?? 'q');
-    $content .= '<form class="form-search" action="' . $url . $state->pathBlog . '" method="get">';
+if (isset($state->x->search)) {
+    $value = $_GET[$query = $state->x->search->key ?? 'query'] ?? null;
+    $content .= '<form class="form-search" action="' . eat($url . ($route ?? $state->routeBlog)) . '" method="get">';
     $content .= '<p>';
-    $content .= '<input class="input" name="' . $q . '" placeholder="' . i('Search') . '…" type="text"' . ($query ? ' value="' . From::HTML($query) . '"' : "") . '>';
-    $content .= ' <button class="button" type="submit"><span class="sr">' . i('Submit') . '</span></button>';
+    $content .= '<input class="input" name="' . eat($query) . '" placeholder="' . eat(i('Search')) . '…" type="text"' . ($value ? ' value="' . eat($value) . '"' : "") . '>';
+    $content .= ' ';
+    $content .= '<button class="button" type="submit">';
+    $content .= '<span class="sr">' . i('Submit') . '</span>';
+    $content .= '</button>';
     $content .= '</p>';
     $content .= '</form>';
 } else {

@@ -1,14 +1,16 @@
-<a href="#toggle" class="toggle">
-  <span class="sr"><?= i('More'); ?>&#x2026;</span>
+<a class="toggle" href="#toggle">
+  <span class="sr">
+    <?= i('More'); ?>&#x2026;
+  </span>
 </a>
 <aside class="aside">
   <?= self::widget('form/search'); ?>
   <?= self::widget('tag'); ?>
-  <?php if (!$site->is('home')): ?>
-    <?= self::widget('page/recent'); ?>
-    <?= self::widget('page/alike'); ?>
-  <?php else: ?>
+  <?php if ($site->is('home')): ?>
     <?= self::widget('comment/recent'); ?>
-    <?= self::widget('archive'); ?>
+  <?php else: ?>
+    <?= self::widget('page/recent'); ?>
+    <?= self::widget('page/other'); ?>
   <?php endif; ?>
+  <?= self::widget('archive'); ?>
 </aside>

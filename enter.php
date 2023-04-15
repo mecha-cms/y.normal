@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html class dir="<?= $site->direction; ?>">
+<html class>
   <head>
-    <meta charset="<?= $site->charset; ?>">
+    <meta charset="utf-8">
     <meta content="Mecha <?= VERSION; ?>" name="generator">
     <meta content="width=device-width" name="viewport">
     <?php if ($w = w($page->description ?? $site->description)): ?>
@@ -11,10 +11,12 @@
       <!-- Prevent search engines from indexing pages with `archive` state -->
       <meta content="noindex" name="robots">
     <?php endif; ?>
-    <meta content="<?= w($page->author); ?>" name="author">
-    <title><?= w($t->reverse); ?></title>
-    <link href="<?= $url; ?>/favicon.ico" rel="shortcut icon">
-    <link href="<?= $url->clean; ?>" rel="canonical">
+    <meta content="<?= eat($page->author); ?>" name="author">
+    <title>
+      <?= w($t->reverse); ?>
+    </title>
+    <link href="<?= eat($url); ?>/favicon.ico" rel="shortcut icon">
+    <link href="<?= eat($url->current(false, false)); ?>" rel="canonical">
   </head>
   <body>
     <div class="body">
@@ -23,4 +25,4 @@
       <div class="content">
         <?= self::aside(); ?>
         <main class="main">
-          <?= $alert; ?>
+          <?= self::alert(); ?>

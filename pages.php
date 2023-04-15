@@ -1,4 +1,4 @@
-<?= self::before(); ?>
+<?= self::enter(); ?>
 <?php if ($pages->count): ?>
   <?php foreach ($pages as $page): ?>
     <article class="page type:<?= c2f($page->type); ?>" id="page:<?= $page->id; ?>">
@@ -17,4 +17,4 @@
 </article>
 <?php endif; ?>
 <?= self::pager(); ?>
-<?= self::after(); ?>
+<?= self::exit(); ?>

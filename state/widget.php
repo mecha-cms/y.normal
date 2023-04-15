@@ -1,6 +1,6 @@
 <?php
 
-// Widget setting(s)
+// Widget state(s)
 return [
     'comment' => [
         'chunk' => 5,
@@ -9,4 +9,4 @@ return [
     'page' => [
         'chunk' => 7
     ]
-];
+];

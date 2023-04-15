@@ -1,41 +1,41 @@
 <?php
 
-$path = $state->pathBlog;
-$chunk = $widget->page['chunk'];
+$route = $route ?? $state->routeBlog;
+$chunk = $state->widget->page->chunk;
 $content = "";
 $c = $page ?? 0; // Store current page instance if any
 $query = explode('-', $c ? $c->name : "");
 
-$alikes = [];
-foreach (g(LOT . DS . 'page' . $path, 'page') as $k => $v) {
+$relates = [];
+foreach (g(LOT . D . 'page' . $route, 'page') as $k => $v) {
     foreach ($query as $q) {
         if ("" === $q || $c && $c->path === $k) {
             continue; // Skip current page path
         }
         if (false !== strpos(basename($k, '.page'), $q)) {
-            $alikes[$k] = 1;
+            $relates[$k] = 1;
         }
     }
 }
 
-if ($alike = count($alikes) > 1) {
+if ($relate = count($relates) > 1) {
     // Related post(s)
     $content .= '<ul>';
-    foreach ((new Pages(array_keys($alikes)))->shake->chunk($chunk, 0) as $page) {
+    foreach ((new Pages(array_keys($relates)))->shake->chunk($chunk, 0) as $page) {
         $content .= '<li>';
-        $content .= '<a href="' . $page->url . '">' . $page->title . '</a>';
+        $content .= '<a href="' . eat($page->url) . '">' . $page->title . '</a>';
         $content .= '</li>';
     }
     $content .= '</ul>';
     $title_default = i('Related %s', ['Posts']);
 } else {
     // Random post(s)
-    $pages = Pages::from(LOT . DS . 'page' . $path);
+    $pages = Pages::from(LOT . D . 'page' . $route);
     if ($pages->count) {
         $content .= '<ul>';
         foreach ($pages->shake->chunk($chunk, 0) as $page) {
             $content .= '<li' . ($c && $c->name === $page->name ? ' class="current"' : "") . '>';
-            $content .= '<a href="' . $page->url . '">' . $page->title . '</a>';
+            $content .= '<a href="' . eat($page->url) . '">' . $page->title . '</a>';
             $content .= '</li>';
         }
         $content .= '</ul>';
@@ -46,7 +46,7 @@ if ($alike = count($alikes) > 1) {
 }
 
 echo self::widget([
-    'id' => 'page-' . ($alike ? 'alike' : 'random'),
+    'id' => 'page-' . ($relate ? 'relate' : 'random'),
     'title' => $title ?? $title_default,
     'content' => $content
 ]);

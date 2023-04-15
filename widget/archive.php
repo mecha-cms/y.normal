@@ -1,12 +1,10 @@
 <?php
 
-$content = "";
-
 if (isset($state->x->archive)) {
     $archives = [];
-    $x_archive_path = $state->x->archive->path ?? '/archive';
-    $x_page_path = $path ?? $state->pathBlog;
-    foreach (g(LOT . DS . 'page' . $x_page_path, 'page') as $k => $v) {
+    $archive_route = $state->x->archive->route ?? '/archive';
+    $page_route = $route ?? $state->routeBlog;
+    foreach (g(LOT . D . 'page' . $page_route, 'page') as $k => $v) {
         $page = new Page($k);
         $v = $page->time;
         if ($v) {
@@ -30,8 +28,11 @@ if (isset($state->x->archive)) {
     ];
     if ($site->is('archives')) {
         $current = $archive->format('Y-m');
+    } else if ($site->is('page')) {
+        $current = $page->time->format('Y-m');
     }
     krsort($archives);
+    $content = "";
     foreach ($archives as $k => $v) {
         $k = (string) $k;
         if (!isset($current)) {
@@ -39,7 +40,7 @@ if (isset($state->x->archive)) {
         }
         $content .= '<details class="archive' . (($open = $k === explode('-', $current)[0]) ? ' current' : "") . '"' . ($open ? ' open' : "") . '>';
         $content .= '<summary>';
-        $content .= '<a href="' . $url . $x_page_path . $x_archive_path . '/' . $k . '/1">';
+        $content .= '<a href="' . $url . $page_route . $archive_route . '/' . $k . '/1">';
         $content .= $k;
         $content .= '</a> <span class="count">' . count($v) . '</span>';
         $content .= '</summary>';
@@ -48,7 +49,7 @@ if (isset($state->x->archive)) {
             $content .= '<ul>';
             foreach ($v as $kk => $vv) {
                 $content .= '<li' . ($k . '-' . $kk === $current ? ' class="current"' : "") . '>';
-                $content .= '<a href="' . $url . $x_page_path . $x_archive_path . '/' . $k . '-' . $kk . '/1">';
+                $content .= '<a href="' . $url . $page_route . $archive_route . '/' . $k . '-' . $kk . '/1">';
                 $content .= $k . ' ' . i($dates[((int) $kk) - 1]);
                 $content .= '</a> <span class="count">' . count($vv) . '</span>';
                 $content .= '</li>';
@@ -58,10 +59,10 @@ if (isset($state->x->archive)) {
         $content .= '</details>';
     }
 } else {
-    $content .= '<p>' . i('Missing %s extension.', ['<a href="https://mecha-cms.com/store/extension/archive" target="_blank">archive</a>']) . '</p>';
+    $content = '<p>' . i('Missing %s extension.', ['<a href="https://mecha-cms.com/store/extension/archive" target="_blank">archive</a>']) . '</p>';
 }
 
 echo self::widget([
     'title' => $title ?? i('Archives'),
-    'content' => $content ?: '<p>' . i('No %s yet.', ['posts']) . '</p>'
+    'content' => $content ?? '<p>' . i('No %s yet.', ['posts']) . '</p>'
 ]);

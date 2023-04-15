@@ -12,4 +12,4 @@ echo self::widget([
     'id' => 'list' . (isset($id) ? '-' . $id : ""),
     'title' => $title ?? "",
     'content' => $content ?? ""
-]);
+]);

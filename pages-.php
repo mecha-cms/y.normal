@@ -1,23 +1,23 @@
 <?php
 
 $page = $lot['page'];
-$view = !empty($state->x->view);
+$view = isset($state->x->view);
 
 ?>
 <header class="page-header">
   <p class="page-meta">
-    <time class="page-time" datetime="<?= $page->time->ISO8601; ?>">
-      <?= $page->time->{r('-', '_', $site->language)}; ?>
-      <?= $view ? ' &#x00B7; ' . $page->view : ""; ?>
+    <time class="page-time" datetime="<?= eat($page->time->format('c')); ?>">
+      <?= $page->time('%A, %B %d, %Y'); ?>
+      <?= $view ? ' &#x00b7; ' . $page->view : ""; ?>
     </time>
   </p>
   <h4 class="page-title">
     <?php if ($page->link): ?>
-      <a class="page-link" href="<?= $page->link; ?>" target="_blank">
+      <a class="page-link" href="<?= eat($page->link); ?>" target="_blank">
         <?= $page->title; ?>
       </a>
     <?php elseif ($page->url): ?>
-      <a class="page-url" href="<?= $page->url; ?>">
+      <a class="page-url" href="<?= eat($page->url); ?>">
         <?= $page->title; ?>
       </a>
     <?php else: ?>
@@ -31,9 +31,9 @@ $view = !empty($state->x->view);
   <?php if ($excerpt = $page->excerpt): ?>
     <div class="page-excerpt">
       <?= $excerpt; ?>
-      <p>
-        <a href="<?= $page->url; ?>#next:<?= $page->id; ?>">
-          <?= i('Read More'); ?>
+      <p role="group">
+        <a href="<?= eat($page->url . '#next:' . $page->id); ?>">
+          <?= i('Continue'); ?>
         </a>
       </p>
     </div>

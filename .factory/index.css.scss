@@ -1,6 +1,6 @@
 @use 'sass:math';
 
-@import '_/var';
+@import '_/variable';
 @import '_/reset';
 @import '_/type';
 @import '_/base';
@@ -222,5 +222,6 @@ pre {
 @import '_/widget';
 @import '_/comment';
 @import '_/pager';
+@import '_/t-o-c';
 
 @import '_/media';

@@ -19,23 +19,13 @@
   color: $fill;
   display: inline-block;
   height: ($y * 2);
-  padding: math.div((($y * 2) - $h), 2) ($x * .65);
+  padding: math.div((($y * 2) - $h), 2) ($x * 0.65);
   text-align: left;
   vertical-align: middle;
   width: ($x * 10);
-  &.small {
-    font-size: ($z * .8);
-    height: ($y * 1.5);
-    padding: math.div((($y * 1.5) - $h), 2) ($x * .5);
-  }
-  &.width {
-    display: block;
-    width: 100%;
-  }
-  &:disabled,
-  &.disabled {
+  &:disabled {
     cursor: not-allowed;
-    opacity: .9;
+    opacity: 0.9;
   }
   &:invalid {
     color: $color-input--invalid;
@@ -46,8 +36,8 @@
   border-radius: 2px;
   color: $color-button;
   overflow: hidden;
-  padding-left: ($x * .75);
-  padding-right: ($x * .75);
+  padding-left: ($x * 0.75);
+  padding-right: ($x * 0.75);
   width: auto;
   &:hover,
   &:focus {
@@ -56,7 +46,7 @@
   }
   &:active {
     background: darken($color, 2%);
-    box-shadow: inset 0 2px 1px rgba(0, 0, 0, .1);
+    box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.1);
     color: $color-button;
   }
   @each $k, $v in (error $fill-button--error, info $fill-button--info, primary $fill-button--primary, success $fill-button--success) {
@@ -71,11 +61,6 @@
       }
     }
   }
-  &.link {
-    @extend a;
-    background: none;
-    box-shadow: none;
-  }
   &:any-link {
     @extend .primary;
     &[href$='#comment'] {
@@ -87,17 +72,19 @@
   }
 }
 
+.button {
+  &.link {
+    @extend a;
+    background: none;
+    box-shadow: none;
+  }
+}
+
 .textarea {
   height: auto;
   min-height: ($y * 5);
   overflow: auto;
   resize: vertical;
-  &.small {
-    min-height: ($y * 2.5);
-  }
-  &.height {
-    height: ($y * 16);
-  }
 }
 
 .input {
@@ -135,8 +122,33 @@ label {
   .input {
     &:checked {
       + span {
-        opacity: .6;
+        opacity: 0.6;
       }
     }
   }
+}
+
+[role='button'],
+button {
+  @extend .button;
+  &[role='link'] {
+    @extend .button, .link;
+  }
+}
+
+input {
+  @extend .input;
+  &[type='button'],
+  &[type='reset'],
+  &[type='submit'] {
+    @extend .button;
+  }
+}
+
+select {
+  @extend .select;
+}
+
+textarea {
+  @extend .textarea;
 }

@@ -1,4 +1,4 @@
-<?= self::before(); ?>
+<?= self::enter(); ?>
 <article class="page type:<?= c2f($page->type); ?>" id="page:<?= $page->id; ?>">
   <?= self::get('page-', [
       'author' => $page->author,
@@ -7,6 +7,6 @@
 </article>
 <?php if ($site->has('parent')): ?>
   <?= self::pager(); ?>
-  <?= self::comments(); ?>
+  <?= isset($state->x->comment) ? self::comments() : ""; ?>
 <?php endif; ?>
-<?= self::after(); ?>
+<?= self::exit(); ?>

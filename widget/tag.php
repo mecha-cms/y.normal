@@ -2,10 +2,10 @@
 
 $content = "";
 
-if ($cc = $state->x->tag ?? 0) {
+if (isset($state->x->tag)) {
     $a = [];
     $c = $tag ?? 0; // Store current tag instance if any
-    $pages = Pages::from($folder = LOT . DS . 'page' . $state->pathBlog, 'page');
+    $pages = Pages::from($folder = LOT . D . 'page' . ($route ?? $state->routeBlog), 'page');
     if ($pages->count) {
         foreach ($pages as $page) {
             $a = array_merge($a, (array) $page->kind);
@@ -17,14 +17,14 @@ if ($cc = $state->x->tag ?? 0) {
                 if (false === ($n = To::tag($k))) {
                     continue;
                 }
-                $tag = new Tag(LOT . DS . 'tag' . DS . $n . '.page');
-                if ($page = File::exist([
+                $tag = new Tag(LOT . D . 'tag' . D . $n . '.page');
+                if ($page = exist([
                     $folder . '.archive',
                     $folder . '.page'
-                ])) {
+                ], 1)) {
                     $tag->parent = new Page($page);
                 }
-                $tags[$t = $tag->title] = '<li' . ($site->is('tags') && $c && $n === $c->name ? ' class="current"' : "") . '><a href="' . $tag->link . '" rel="tag">' . $t . '</a> <span class="count">' . $v . '</span></li>';
+                $tags[$t = $tag->title] = '<li' . ($site->is('tags') && $c && $n === $c->name ? ' class="current"' : "") . '><a href="' . eat($tag->link) . '" rel="tag">' . $t . '</a> <span class="count">' . $v . '</span></li>';
             }
             ksort($tags); // Sort by `title`
             $content .= implode("", $tags);

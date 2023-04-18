@@ -34,3 +34,46 @@ $defaults = [
 foreach ($defaults as $k => $v) {
     !State::get($k) && State::set($k, $v);
 }
+
+if (isset($state->x->alert)) {
+    Hook::set('y.alert', function ($alert) {
+        foreach ($alert[1] as &$v) {
+            if (!$name = $v[2]['type'] ?? $v['type'] ?? "") {
+                continue;
+            }
+            if (isset($v[2]['class'])) {
+                $v[2]['class'] .= ' ' . $name;
+            } else {
+                $v[2]['class'] = $name;
+            }
+        }
+        unset($v);
+        return $alert;
+    });
+}
+
+if (isset($state->x->pass)) {
+    // Add legacy form class name
+    Hook::set('y.form.pass', function ($y) {
+        $suffix = ':' . (Is::user() ? 'exit' : 'enter');
+        if (isset($y[2]['class'])) {
+            $y[2]['class'] .= ' form-pass form-pass' . $suffix;
+        } else {
+            $y[2]['class'] = 'form-pass form-pass' . $suffix;
+        }
+        return $y;
+    });
+}
+
+if (isset($state->x->user)) {
+    // Add legacy form class name
+    Hook::set('y.form.user', function ($y) {
+        $suffix = ':' . (Is::user() ? 'exit' : 'enter');
+        if (isset($y[2]['class'])) {
+            $y[2]['class'] .= ' form-user form-user' . $suffix;
+        } else {
+            $y[2]['class'] = 'form-user form-user' . $suffix;
+        }
+        return $y;
+    });
+}

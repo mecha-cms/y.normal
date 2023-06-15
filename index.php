@@ -52,6 +52,12 @@ if (isset($state->x->alert)) {
     });
 }
 
+if (isset($state->x->excerpt) && $state->is('page')) {
+    Hook::set('page.content', function ($content) {
+        return null !== $content ? strtr($content, ["\f" => '<span id="next:' . $this->id . '" role="doc-pagebreak"></span>']) : null;
+    });
+}
+
 if (isset($state->x->pass)) {
     // Add legacy form class name
     Hook::set('y.form.pass', function ($y) {

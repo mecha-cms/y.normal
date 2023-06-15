@@ -578,6 +578,7 @@ table td {
 .form-comment .button[href$="#comment"]::before,
 .form-comment input[href$="#comment"][type=button]::before,
 .form-comment input[href$="#comment"][type=reset]::before,
+.form-comment input[href$="#comment"][type=submit]::before,
 .form-comment [href$="#comment"][role=button]::before,
 .form-comment button[href$="#comment"]::before,
 .form-comment .button[type=submit]::before,
@@ -638,6 +639,24 @@ table td {
 .pager-next [role=button][role=link]::after,
 .pager-next button.link::after,
 .pager-next button[role=link]::after,
+.pager-peek > span:first-child > a[rel=prev]::before,
+.pager-peek > span:first-child > [rel=prev].button.link::before,
+.pager-peek > span:first-child > input[rel=prev].link[type=button]::before,
+.pager-peek > span:first-child > input[rel=prev].link[type=reset]::before,
+.pager-peek > span:first-child > input[rel=prev].link[type=submit]::before,
+.pager-peek > span:first-child > [rel=prev].link[role=button]::before,
+.pager-peek > span:first-child > [rel=prev][role=button][role=link]::before,
+.pager-peek > span:first-child > button[rel=prev].link::before,
+.pager-peek > span:first-child > button[rel=prev][role=link]::before,
+.pager-peek > span:last-child > a[rel=next]::after,
+.pager-peek > span:last-child > [rel=next].button.link::after,
+.pager-peek > span:last-child > input[rel=next].link[type=button]::after,
+.pager-peek > span:last-child > input[rel=next].link[type=reset]::after,
+.pager-peek > span:last-child > input[rel=next].link[type=submit]::after,
+.pager-peek > span:last-child > [rel=next].link[role=button]::after,
+.pager-peek > span:last-child > [rel=next][role=button][role=link]::after,
+.pager-peek > span:last-child > button[rel=next].link::after,
+.pager-peek > span:last-child > button[rel=next][role=link]::after,
 .pager-prev a::before,
 .pager-prev .button.link::before,
 .pager-prev input.link[type=button]::before,
@@ -829,6 +848,32 @@ button[role=alert][type=submit]::before {
 .pager-next [role=button][role=link]::after,
 .pager-next button.link::after,
 .pager-next button[role=link]::after {
+  content: "\f105";
+  float: right;
+  margin-left: 0.5em;
+}
+.pager-peek > span:first-child > a[rel=prev]::before,
+.pager-peek > span:first-child > [rel=prev].button.link::before,
+.pager-peek > span:first-child > input[rel=prev].link[type=button]::before,
+.pager-peek > span:first-child > input[rel=prev].link[type=reset]::before,
+.pager-peek > span:first-child > input[rel=prev].link[type=submit]::before,
+.pager-peek > span:first-child > [rel=prev].link[role=button]::before,
+.pager-peek > span:first-child > [rel=prev][role=button][role=link]::before,
+.pager-peek > span:first-child > button[rel=prev].link::before,
+.pager-peek > span:first-child > button[rel=prev][role=link]::before {
+  content: "\f104";
+  float: left;
+  margin-right: 0.5em;
+}
+.pager-peek > span:last-child > a[rel=next]::after,
+.pager-peek > span:last-child > [rel=next].button.link::after,
+.pager-peek > span:last-child > input[rel=next].link[type=button]::after,
+.pager-peek > span:last-child > input[rel=next].link[type=reset]::after,
+.pager-peek > span:last-child > input[rel=next].link[type=submit]::after,
+.pager-peek > span:last-child > [rel=next].link[role=button]::after,
+.pager-peek > span:last-child > [rel=next][role=button][role=link]::after,
+.pager-peek > span:last-child > button[rel=next].link::after,
+.pager-peek > span:last-child > button[rel=next][role=link]::after {
   content: "\f105";
   float: right;
   margin-left: 0.5em;
@@ -1268,50 +1313,6 @@ label input:checked + span {
   width: 100%;
 }
 
-[role=alert] {
-  background: #333;
-  color: #fff;
-  margin: 0;
-  overflow: hidden;
-  padding: 9px 12px;
-}
-[role=alert].error,
-[role=alert].button[href$="#comment"]:any-link,
-[role=alert][role=button][href$="#comment"]:any-link,
-button[role=alert][href$="#comment"]:any-link,
-input[role=alert][type=button][href$="#comment"]:any-link,
-input[role=alert][type=reset][href$="#comment"]:any-link,
-input[role=alert][type=submit][href$="#comment"]:any-link {
-  background: #cf3030;
-}
-[role=alert].info {
-  background: #00a2d1;
-}
-[role=alert].success,
-[role=alert].button[type=submit],
-[role=alert][type=submit][role=button],
-button[role=alert][type=submit],
-input[role=alert][type=submit] {
-  background: #8eab1a;
-}
-[role=alert] a,
-[role=alert] .button.link,
-[role=alert] .link[role=button],
-[role=alert] button.link,
-[role=alert] [role=button][role=link],
-[role=alert] button[role=link],
-[role=alert] input.link[type=button],
-[role=alert] input.link[type=reset],
-[role=alert] input.link[type=submit] {
-  color: #ffa;
-}
-[role=alert] code {
-  opacity: 0.7;
-}
-[role=alert] + [role=alert] {
-  margin-top: 2px;
-}
-
 ::selection {
   background: #fdf2c4;
   color: #333;
@@ -1367,6 +1368,28 @@ input.link[type=button]:active,
 input.link[type=reset]:active,
 input.link[type=submit]:active {
   color: #294672;
+}
+a[aria-current],
+[aria-current].button.link,
+[aria-current].link[role=button],
+button[aria-current].link,
+[aria-current][role=button][role=link],
+button[aria-current][role=link],
+input[aria-current].link[type=button],
+input[aria-current].link[type=reset],
+input[aria-current].link[type=submit],
+a[aria-disabled=true],
+[aria-disabled=true].button.link,
+[aria-disabled=true].link[role=button],
+button[aria-disabled=true].link,
+[aria-disabled=true][role=button][role=link],
+button[aria-disabled=true][role=link],
+input[aria-disabled=true].link[type=button],
+input[aria-disabled=true].link[type=reset],
+input[aria-disabled=true].link[type=submit] {
+  color: inherit;
+  cursor: default;
+  text-decoration: none;
 }
 
 abbr[title],
@@ -1724,6 +1747,50 @@ pre code {
   margin-top: 9px;
 }
 
+[role=alert] {
+  background: #333;
+  color: #fff;
+  margin: 0;
+  overflow: hidden;
+  padding: 9px 12px;
+}
+[role=alert].error,
+[role=alert].button[href$="#comment"]:any-link,
+[role=alert][role=button][href$="#comment"]:any-link,
+button[role=alert][href$="#comment"]:any-link,
+input[role=alert][type=button][href$="#comment"]:any-link,
+input[role=alert][type=reset][href$="#comment"]:any-link,
+input[role=alert][type=submit][href$="#comment"]:any-link {
+  background: #cf3030;
+}
+[role=alert].info {
+  background: #00a2d1;
+}
+[role=alert].success,
+[role=alert].button[type=submit],
+[role=alert][type=submit][role=button],
+button[role=alert][type=submit],
+input[role=alert][type=submit] {
+  background: #8eab1a;
+}
+[role=alert] a,
+[role=alert] .button.link,
+[role=alert] .link[role=button],
+[role=alert] button.link,
+[role=alert] [role=button][role=link],
+[role=alert] button[role=link],
+[role=alert] input.link[type=button],
+[role=alert] input.link[type=reset],
+[role=alert] input.link[type=submit] {
+  color: #ffa;
+}
+[role=alert] code {
+  opacity: 0.7;
+}
+[role=alert] + [role=alert] {
+  margin-top: 2px;
+}
+
 .comments {
   margin: 5% 0 0;
 }
@@ -1740,6 +1807,10 @@ pre code {
 
 .form-comment label {
   padding-top: 9px;
+}
+
+[role=doc-pagebreak] {
+  display: block;
 }
 
 .pager {

@@ -19,6 +19,8 @@
 .page-link::before,
 .page-time::before,
 .pager-next a::after,
+.pager-peek > span:first-child > a[rel='prev']::before,
+.pager-peek > span:last-child > a[rel='next']::after,
 .pager-prev a::before,
 .toggle::before,
 [role='alert'].error::before,
@@ -179,6 +181,30 @@ blockquote::before {
         content: '\f105';
         float: right;
         margin-left: 0.5em;
+      }
+    }
+  }
+  &-peek {
+    > span:first-child {
+      > a {
+        &[rel='prev'] {
+          &::before {
+            content: '\f104';
+            float: left;
+            margin-right: 0.5em;
+          }
+        }
+      }
+    }
+    > span:last-child {
+      > a {
+        &[rel='next'] {
+          &::after {
+            content: '\f105';
+            float: right;
+            margin-left: 0.5em;
+          }
+        }
       }
     }
   }

@@ -1,5 +1,5 @@
-<?php if ($site->is('pages') && !empty($state->x->pager)): ?>
-  <?= self::pager('steps'); ?>
+<?php if ($site->is('pages') && isset($state->x->pager)): ?>
+  <?= self::pager('peek'); ?>
 <?php else: ?>
   <nav class="pager pager-normal">
     <span class="pager-prev">

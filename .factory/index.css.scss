@@ -7,7 +7,6 @@
 @import '_/icon';
 @import '_/form';
 @import '_/grid';
-@import '_/alert';
 
 ::selection {
   background: lighten($fill-mark, 20%);
@@ -29,6 +28,12 @@ a {
   }
   &:active {
     color: darken($color-link, 10%);
+  }
+  &[aria-current],
+  &[aria-disabled='true'] {
+    color: inherit;
+    cursor: default;
+    text-decoration: none;
   }
 }
 
@@ -223,8 +228,10 @@ pre {
 }
 
 @import '_/widget';
-@import '_/comment';
-@import '_/pager';
-@import '_/t-o-c';
+@import '_/x/alert';
+@import '_/x/comment';
+@import '_/x/excerpt';
+@import '_/x/pager';
+@import '_/x/t-o-c';
 
 @import '_/media';

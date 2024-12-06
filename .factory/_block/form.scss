@@ -1,15 +1,15 @@
 @use 'sass:color';
 @use 'sass:math';
 
-@use 'variable' as *;
+@use '../state' as *;
 
 @mixin form {
   ::placeholder {
-    @include placeholder;
+    @include as-secondary;
   }
   :focus {
     &::placeholder {
-      color: color.scale($color, $lightness: 20%);
+      @include as-secondary(20%);
     }
   }
   .button,

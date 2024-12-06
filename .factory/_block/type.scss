@@ -1,6 +1,6 @@
 @use 'sass:math';
 
-@use 'variable' as *;
+@use '../state' as *;
 
 @mixin type {
   .code {
@@ -27,6 +27,7 @@
       width: ($z * 7);
     }
     ol {
+      @include as-secondary;
       font-size: ($z * 0.8);
     }
   }

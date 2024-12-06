@@ -24,12 +24,12 @@ $font-mono: monospace;
 $font-sans: sans-serif;
 $font-serif: serif;
 
-@mixin placeholder {
-  color: color.scale($color, $lightness: 30%);
-  opacity: 1;
+@mixin as-secondary($level: 30%) {
+  color: color.scale($color, $lightness: $level);
   line-height: inherit;
+  opacity: 1;
 }
 
-@mixin user-select-none {
+@mixin no-select {
   user-select: none;
 }

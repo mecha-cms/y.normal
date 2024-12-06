@@ -1,6 +1,6 @@
 @use 'sass:math';
 
-@use 'variable' as *;
+@use '../state' as *;
 
 @mixin media {
   @media (max-width: 960px) {

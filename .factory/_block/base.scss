@@ -1,6 +1,6 @@
 @use 'sass:math';
 
-@use 'variable' as *;
+@use '../state' as *;
 
 @mixin base {
   :root {
@@ -103,6 +103,7 @@
     }
   }
   figcaption {
+    @include as-secondary;
     margin-top: math.div($y, 2);
     text-align: center;
   }
@@ -144,6 +145,7 @@
   table {
     @extend .table;
     caption {
+      @include as-secondary;
       caption-side: bottom;
       margin: math.div($y, 2) 0 0;
       text-align: center;
@@ -152,8 +154,5 @@
     td {
       padding: math.div(($y - math.div(($h - $z), 2)), 2) math.div($x, 2);
     }
-  }
-  [role='doc-endnotes'] {
-    @extend .notes;
   }
 }

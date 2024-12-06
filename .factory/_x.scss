@@ -1,7 +1,7 @@
 @use 'sass:color';
 @use 'sass:math';
 
-@use 'variable' as *;
+@use 'state' as *;
 
 @mixin alert {
   [role='alert'] {
@@ -48,6 +48,11 @@
         margin-top: $y;
       }
     }
+    br {
+      + small {
+        @include as-secondary;
+      }
+    }
     label {
       padding-top: math.div((($y * 2) - $h), 2);
     }
@@ -57,6 +62,12 @@
 @mixin excerpt {
   [role='doc-pagebreak'] {
     display: block;
+  }
+}
+
+@mixin markdown {
+  [role='doc-endnotes'] {
+    @extend .notes;
   }
 }
 

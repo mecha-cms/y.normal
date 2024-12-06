@@ -1,6 +1,6 @@
 @use 'sass:math';
 
-@use 'variable' as *;
+@use '../state' as *;
 
 @mixin widget {
   .widget {

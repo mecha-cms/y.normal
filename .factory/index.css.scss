@@ -1,25 +1,16 @@
 @use 'sass:color';
 @use 'sass:math';
 
-@use '_/variable' as *;
+@use 'block';
+@use 'state' as *;
+@use 'x';
 
-@use '_/base' as *;
-@use '_/form' as *;
-@use '_/grid' as *;
-@use '_/icon' as *;
-@use '_/media' as *;
-@use '_/reset' as *;
-@use '_/type' as *;
-@use '_/widget' as *;
-
-@use '_/x';
-
-@include reset;
-@include type;
-@include base;
-@include icon;
-@include form;
-@include grid;
+@include block.reset;
+@include block.type;
+@include block.base;
+@include block.icon;
+@include block.form;
+@include block.grid;
 
 ::selection {
   background: color.scale($fill-mark, $lightness: 20%);
@@ -240,12 +231,13 @@ pre {
   }
 }
 
-@include widget;
+@include block.widget;
 
 @include x.alert;
 @include x.comment;
 @include x.excerpt;
+@include x.markdown;
 @include x.pager;
 @include x.t-o-c;
 
-@include media;
+@include block.media;

@@ -227,6 +227,9 @@ kbd {
 }
 .notes ol,
 [role=doc-endnotes] ol {
+  color: rgb(112.2, 112.2, 112.2);
+  line-height: inherit;
+  opacity: 1;
   font-size: 10.4px;
 }
 
@@ -517,6 +520,9 @@ ul ul {
 }
 
 figcaption {
+  color: rgb(112.2, 112.2, 112.2);
+  line-height: inherit;
+  opacity: 1;
   margin-top: 9px;
   text-align: center;
 }
@@ -557,6 +563,9 @@ iframe:not([height]) {
 }
 
 table caption {
+  color: rgb(112.2, 112.2, 112.2);
+  line-height: inherit;
+  opacity: 1;
   caption-side: bottom;
   margin: 9px 0 0;
   text-align: center;
@@ -911,12 +920,14 @@ blockquote::before {
 
 ::placeholder {
   color: rgb(112.2, 112.2, 112.2);
-  opacity: 1;
   line-height: inherit;
+  opacity: 1;
 }
 
 :focus::placeholder {
   color: rgb(91.8, 91.8, 91.8);
+  line-height: inherit;
+  opacity: 1;
 }
 
 .button,
@@ -1805,6 +1816,11 @@ input[role=alert][type=submit] {
 
 .form-comment [role=alert]:not(:first-child) {
   margin-top: 18px;
+}
+.form-comment br + small {
+  color: rgb(112.2, 112.2, 112.2);
+  line-height: inherit;
+  opacity: 1;
 }
 .form-comment label {
   padding-top: 9px;

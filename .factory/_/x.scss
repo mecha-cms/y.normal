@@ -1,0 +1,109 @@
+@use 'sass:color';
+@use 'sass:math';
+
+@use 'variable' as *;
+
+@mixin alert {
+  [role='alert'] {
+    background: $color;
+    color: $fill;
+    margin: 0;
+    overflow: hidden;
+    padding: math.div($y, 2) math.div($x, 1.5);
+    @each $k, $v in (error #cf3030, info #00a2d1, success #8eab1a) {
+      &.#{$k} {
+        background: $v;
+      }
+    }
+    a {
+      color: $color-button;
+    }
+    code {
+      opacity: 0.7;
+    }
+    + [role='alert'] {
+      margin-top: 2px;
+    }
+  }
+}
+
+@mixin comment {
+  .comments {
+    margin: $gap 0 0;
+  }
+  .comment {
+    &-author {
+      font-weight: bold;
+    }
+    &-meta {
+      color: $color-secondary;
+      font-size: ($z * 0.8);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+  }
+  .form-comment {
+    [role='alert'] {
+      &:not(:first-child) {
+        margin-top: $y;
+      }
+    }
+    label {
+      padding-top: math.div((($y * 2) - $h), 2);
+    }
+  }
+}
+
+@mixin excerpt {
+  [role='doc-pagebreak'] {
+    display: block;
+  }
+}
+
+@mixin pager {
+  .pager {
+    margin-top: $gap;
+    overflow: hidden;
+    &-normal {
+      a,
+      b,
+      span {
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+          background: none;
+          color: inherit;
+          padding: 0;
+        }
+      }
+      a {
+        color: $color-link;
+        &:hover,
+        &:focus {
+          color: color.scale($color-link, $lightness: 10%);
+        }
+        &:active {
+          color: color.scale($color-link, $lightness: 10%);
+        }
+      }
+    }
+    &-next {
+      float: right;
+    }
+    &-prev {
+      float: left;
+    }
+  }
+}
+
+@mixin t-o-c {
+  [role='doc-toc'] {
+    summary {
+      padding-left: 0;
+      &::before {
+        display: none;
+      }
+    }
+  }
+}

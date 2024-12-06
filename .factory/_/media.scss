@@ -1,109 +1,113 @@
-@media (max-width: 960px) {
-  .body {
-    margin: 0 $gap;
-    width: auto;
-  }
-}
+@use 'sass:math';
 
-@media (max-width: 690px) {
-  body {
-    padding-top: 22px;
+@use 'variable' as *;
+
+@mixin media {
+  @media (max-width: 960px) {
+    .body {
+      margin: 0 $gap;
+      width: auto;
+    }
   }
-  .header {
-    text-align: center;
-  }
-  .nav {
-    display: none;
-    height: auto;
-    li {
-      display: block;
-      float: none;
-      ul {
-        background: none;
-        border: 0;
-        box-shadow: none;
-        margin-top: 0;
-        max-width: 100%;
-        min-width: 0;
-        opacity: 1;
-        position: static;
-        visibility: visible;
-        width: auto;
-        a {
-          font-size: ($z * 0.8);
-          font-weight: normal;
-        }
+  @media (max-width: 690px) {
+    body {
+      padding-top: 22px;
+    }
+    .header {
+      text-align: center;
+    }
+    .nav {
+      display: none;
+      height: auto;
+      li {
+        display: block;
+        float: none;
         ul {
-          margin-left: math.div($x, 2);
+          background: none;
+          border: 0;
+          box-shadow: none;
+          margin-top: 0;
+          max-width: 100%;
+          min-width: 0;
+          opacity: 1;
+          position: static;
+          visibility: visible;
+          width: auto;
+          a {
+            font-size: ($z * 0.8);
+            font-weight: normal;
+          }
+          ul {
+            margin-left: math.div($x, 2);
+          }
         }
       }
     }
-  }
-  .aside,
-  .main,
-  .aside + .main {
-    clear: both;
-    display: block;
-    float: none;
-    padding: 0;
-    width: auto;
-  }
-  .aside {
-    display: none;
-    padding-bottom: $gap;
-  }
-  .toggle,
-  .is\:aside-visible .aside,
-  .is\:aside-visible .nav {
-    display: block;
-  }
-  .is\:aside-visible body {
-    padding-top: 0;
-  }
-  .is\:aside-visible .toggle {
-    float: left;
-    margin: 0 0 $gap;
-    position: static;
-  }
-  .footer {
-    text-align: center;
-    &-right,
-    &-left {
-      display: inline;
-      float: none;
-    }
-    &-right {
-      &::before {
-        color: $color-secondary;
-        content: '\2013';
-        margin: 0 $z;
-      }
-    }
-  }
-  .align {
-    &-right,
-    &-left {
+    .aside,
+    .main,
+    .aside + .main {
+      clear: both;
       display: block;
       float: none;
-      margin-left: auto;
-      margin-right: auto;
-      * + & {
-        margin-top: $y;
-      }
-    }
-  }
-}
-
-@media (max-width: 580px) {
-  .grids {
-    margin-left: 0;
-    margin-right: 0;
-    .grid {
-      display: block;
-      float: none;
-      margin: 0;
       padding: 0;
       width: auto;
+    }
+    .aside {
+      display: none;
+      padding-bottom: $gap;
+    }
+    .toggle,
+    .is\:aside-visible .aside,
+    .is\:aside-visible .nav {
+      display: block;
+    }
+    .is\:aside-visible body {
+      padding-top: 0;
+    }
+    .is\:aside-visible .toggle {
+      float: left;
+      margin: 0 0 $gap;
+      position: static;
+    }
+    .footer {
+      text-align: center;
+      &-right,
+      &-left {
+        display: inline;
+        float: none;
+      }
+      &-right {
+        &::before {
+          color: $color-secondary;
+          content: '\2013';
+          margin: 0 $z;
+        }
+      }
+    }
+    .align {
+      &-right,
+      &-left {
+        display: block;
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+        * + & {
+          margin-top: $y;
+        }
+      }
+    }
+  }
+  @media (max-width: 580px) {
+    .grids {
+      margin-left: 0;
+      margin-right: 0;
+      .grid {
+        display: block;
+        float: none;
+        margin: 0;
+        padding: 0;
+        width: auto;
+      }
     }
   }
 }

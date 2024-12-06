@@ -1,7 +1,7 @@
 <?php
 
-$GLOBALS['links'] = new Anemone((static function ($links, $state, $url) {
-    $index = LOT . D . 'page' . D . trim(strtr($state->route, '/', D), D) . '.page';
+lot('links', $links = new Anemone((static function ($links, $state, $url) {
+    $index = LOT . D . 'page' . D . trim(strtr($state->route ?? 'index', '/', D), D) . '.page';
     $path = $url->path . '/';
     foreach (g(LOT . D . 'page', 'page') as $k => $v) {
         // Exclude home page
@@ -15,7 +15,7 @@ $GLOBALS['links'] = new Anemone((static function ($links, $state, $url) {
     }
     ksort($links);
     return $links;
-})([], $state, $url));
+})([], $state, $url)));
 
 $z = defined('TEST') && TEST ? '.' : '.min.';
 Asset::set(__DIR__ . D . 'index' . $z . 'css', 20);
@@ -36,19 +36,19 @@ foreach ($defaults as $k => $v) {
 }
 
 if (isset($state->x->alert)) {
-    Hook::set('y.alert', function ($alert) {
-        foreach ($alert[1] as &$v) {
-            if (!$name = $v[2]['type'] ?? $v['type'] ?? "") {
+    Hook::set('y.alert', function ($y) {
+        foreach ($y[1] as &$v) {
+            if (!$n = $v[2]['type'] ?? $v['type'] ?? "") {
                 continue;
             }
             if (isset($v[2]['class'])) {
-                $v[2]['class'] .= ' ' . $name;
+                $v[2]['class'] .= ' ' . $n;
             } else {
-                $v[2]['class'] = $name;
+                $v[2]['class'] = $n;
             }
         }
         unset($v);
-        return $alert;
+        return $y;
     });
 }
 
@@ -60,8 +60,8 @@ if (isset($state->x->excerpt) && $state->is('page')) {
 
 if (isset($state->x->pass)) {
     // Add legacy form class name
-    Hook::set('y.form.pass', function ($y) {
-        $suffix = ':' . (Is::user() ? 'exit' : 'enter');
+    Hook::set('y.form.pass', function ($y) use ($state) {
+        $suffix = ':' . ($state->has('user') ? 'exit' : 'enter');
         if (isset($y[2]['class'])) {
             $y[2]['class'] .= ' form-pass form-pass' . $suffix;
         } else {
@@ -73,8 +73,8 @@ if (isset($state->x->pass)) {
 
 if (isset($state->x->user)) {
     // Add legacy form class name
-    Hook::set('y.form.user', function ($y) {
-        $suffix = ':' . (Is::user() ? 'exit' : 'enter');
+    Hook::set('y.form.user', function ($y) use ($state) {
+        $suffix = ':' . ($state->has('user') ? 'exit' : 'enter');
         if (isset($y[2]['class'])) {
             $y[2]['class'] .= ' form-user form-user' . $suffix;
         } else {

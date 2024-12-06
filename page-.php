@@ -20,7 +20,7 @@
   </div>
   <?php if ($page->link): ?>
     <p>
-      <a class="button page-link" href="<?= $page->link; ?>">
+      <a class="button page-link" href="<?= eat($page->link); ?>">
         <?= i('Direct Link'); ?>
       </a>
     </p>

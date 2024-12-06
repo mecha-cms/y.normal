@@ -1,173 +1,159 @@
-:root {
-  font: normal normal #{$z}/#{$h} $font-sans;
-}
+@use 'sass:math';
 
-blockquote {
-  font-size: ($z * 1.1);
-  line-height: ($h * 1.1);
-}
+@use 'variable' as *;
 
-code,
-kbd {
-  @extend .code;
-}
-
-details {
-  summary {
-    cursor: pointer;
-    display: block;
-    padding-left: $x;
-    position: relative;
-    &::before {
-      border-bottom: math.div($z, 2) solid transparent;
-      border-left: (math.div($z, 2) + 2px) solid;
-      border-right: 0 solid transparent;
-      border-top: math.div($z, 2) solid transparent;
-      content: "";
-      height: 0;
-      left: 0;
-      margin-top: math.div($z, -2);
-      position: absolute;
-      top: 50%;
-      width: 0;
-    }
+@mixin base {
+  :root {
+    font: normal normal #{$z}/#{$h} $font-sans;
   }
-  &[open] {
+  blockquote {
+    font-size: ($z * 1.1);
+    line-height: ($h * 1.1);
+  }
+  code,
+  kbd {
+    @extend .code;
+  }
+  details {
     summary {
+      cursor: pointer;
+      display: block;
+      padding-left: $x;
+      position: relative;
       &::before {
-        transform: rotate(90deg);
+        border-bottom: math.div($z, 2) solid transparent;
+        border-left: (math.div($z, 2) + 2px) solid;
+        border-right: 0 solid transparent;
+        border-top: math.div($z, 2) solid transparent;
+        content: "";
+        height: 0;
+        left: 0;
+        margin-top: math.div($z, -2);
+        position: absolute;
+        top: 50%;
+        width: 0;
+      }
+    }
+    &[open] {
+      summary {
+        &::before {
+          transform: rotate(90deg);
+        }
       }
     }
   }
-}
-
-@for $i from 0 through 5 {
-  h#{$i + 1},
-  .h#{$i + 1} {
-    @extend .p;
-    font-size: ($z * (2 - (0.2 * $i)));
-    line-height: 1.25;
-    word-wrap: break-word;
+  @for $i from 0 through 5 {
+    h#{$i + 1},
+    .h#{$i + 1} {
+      @extend .p;
+      font-size: ($z * (2 - (0.2 * $i)));
+      line-height: 1.25;
+      word-wrap: break-word;
+    }
   }
-}
-
-hr {
-  @extend .p;
-  border-top: 1px solid;
-  color: inherit;
-}
-
-blockquote,
-details,
-dl,
-dt,
-fieldset,
-figure,
-form,
-ol,
-p,
-pre,
-table,
-ul {
-  @extend .p;
-}
-
-dl {
-  margin-left: $x;
-}
-
-ol,
-ul {
-  margin-left: ($x * 1.5);
-}
-
-ol,
-ul {
-  & & {
+  hr {
+    @extend .p;
+    border-top: 1px solid;
+    color: inherit;
+  }
+  blockquote,
+  details,
+  dl,
+  dt,
+  fieldset,
+  figure,
+  form,
+  ol,
+  p,
+  pre,
+  table,
+  ul {
+    @extend .p;
+  }
+  dl {
     margin-left: $x;
   }
-}
-
-ol {
-  list-style-type: decimal;
-}
-
-pre {
-  code {
-    font-size: 100%;
-    padding: math.div($y, 2) math.div($x, 1.5);
-  }
-}
-
-ul {
-  list-style-type: disc;
-}
-
-ol,
-ul {
   ol,
   ul {
-    margin-top: 0;
+    margin-left: ($x * 1.5);
   }
-}
-
-figcaption {
-  margin-top: math.div($y, 2);
-  text-align: center;
-}
-
-fieldset {
-  border: 1px solid;
-  padding: $y $x;
-  legend {
-    + * {
-      clear: left;
+  ol,
+  ul {
+    & & {
+      margin-left: $x;
+    }
+  }
+  ol {
+    list-style-type: decimal;
+  }
+  pre {
+    code {
+      font-size: 100%;
+      padding: math.div($y, 2) math.div($x, 1.5);
+    }
+  }
+  ul {
+    list-style-type: disc;
+  }
+  ol,
+  ul {
+    ol,
+    ul {
       margin-top: 0;
     }
   }
-}
-
-legend {
-  background: $fill;
-  float: left;
-  font-size: ($z * 0.86);
-  font-weight: bold;
-  margin: ($y * -1.5) 0 0;
-  padding: 0 math.div($x, 2);
-  text-transform: uppercase;
-}
-
-optgroup {
-  font: inherit;
-  font-weight: bold;
-  option {
-    font-weight: normal;
-    padding-left: $x;
-  }
-}
-
-iframe {
-  &:not([width]) {
-    width: 100%;
-  }
-  &:not([height]) {
-    height: ($y * 5);
-  }
-}
-
-table {
-  @extend .table;
-  caption {
-    caption-side: bottom;
-    margin: math.div($y, 2) 0 0;
+  figcaption {
+    margin-top: math.div($y, 2);
     text-align: center;
   }
-  th,
-  td {
-    padding: math.div(($y - math.div(($h - $z), 2)), 2) math.div($x, 2);
+  fieldset {
+    border: 1px solid;
+    padding: $y $x;
+    legend {
+      + * {
+        clear: left;
+        margin-top: 0;
+      }
+    }
   }
-}
-
-[role='doc-endnotes'] {
-  @extend .notes;
+  legend {
+    background: $fill;
+    float: left;
+    font-size: ($z * 0.86);
+    font-weight: bold;
+    margin: ($y * -1.5) 0 0;
+    padding: 0 math.div($x, 2);
+    text-transform: uppercase;
+  }
+  optgroup {
+    font: inherit;
+    font-weight: bold;
+    option {
+      font-weight: normal;
+      padding-left: $x;
+    }
+  }
+  iframe {
+    &:not([width]) {
+      width: 100%;
+    }
+    &:not([height]) {
+      height: ($y * 5);
+    }
+  }
+  table {
+    @extend .table;
+    caption {
+      caption-side: bottom;
+      margin: math.div($y, 2) 0 0;
+      text-align: center;
+    }
+    th,
+    td {
+      padding: math.div(($y - math.div(($h - $z), 2)), 2) math.div($x, 2);
+    }
+  }
+  [role='doc-endnotes'] {
+    @extend .notes;
+  }
 }

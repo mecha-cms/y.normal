@@ -2,10 +2,10 @@
 <html class>
   <head>
     <meta charset="utf-8">
-    <meta content="Mecha <?= VERSION; ?>" name="generator">
+    <meta content="Mecha <?= eat(VERSION); ?>" name="generator">
     <meta content="width=device-width" name="viewport">
-    <?php if ($w = w($page->description ?? $site->description)): ?>
-      <meta content="<?= $w; ?>" name="description">
+    <?php if ($v = w($page->description ?? $site->description)): ?>
+      <meta content="<?= $v; ?>" name="description">
     <?php endif; ?>
     <?php if ('archive' === $page->x): ?>
       <!-- Prevent search engines from indexing pages with `archive` state -->
@@ -15,7 +15,7 @@
     <title>
       <?= w($t->reverse); ?>
     </title>
-    <link href="<?= eat($url); ?>/favicon.ico" rel="shortcut icon">
+    <link href="<?= eat($url . '/favicon.ico'); ?>" rel="icon">
     <link href="<?= eat($url->current(false, false)); ?>" rel="canonical">
   </head>
   <body>

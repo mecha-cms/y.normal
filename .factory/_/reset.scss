@@ -1,180 +1,159 @@
-* {
-  border: 0;
-  box-sizing: border-box;
-  font-size: 100%;
-  font: inherit;
-  margin: 0;
-  outline: none;
-  padding: 0;
-}
+@use 'variable' as *;
 
-:focus:not(:focus-visible) {
-  outline: 0;
-}
-
-a {
-  text-decoration: none;
-  img {
+@mixin reset {
+  * {
     border: 0;
-  }
-}
-
-abbr,
-dfn {
-  cursor: help;
-  text-decoration: none;
-}
-b,
-dt,
-strong,
-th {
-  font-weight: bold;
-}
-
-caption,
-dfn,
-em,
-figcaption,
-i,
-var {
-  font-style: italic;
-}
-
-ins,
-u {
-  text-decoration: underline;
-}
-
-del,
-s,
-strike {
-  text-decoration: line-through;
-}
-
-code,
-kbd {
-  font-family: monospace;
-}
-
-sub,
-sup,
-small {
-  font-size: smaller;
-}
-
-sub,
-sup {
-  line-height: 0;
-  position: relative;
-  top: -0.5em;
-}
-
-sub {
-  top: 0.5em;
-}
-
-blockquote,
-q {
-  &::before,
-  &::after {
-    content: "";
-    display: none;
-  }
-}
-
-article,
-aside,
-footer,
-header,
-hgroup,
-nav,
-section {
-  display: block;
-}
-
-mark,
-time {
-  display: inline;
-}
-
-audio {
-  display: block;
-  width: 100%;
-}
-
-img {
-  height: auto;
-  max-width: 100%;
-}
-
-iframe {
-  background: none;
-  border: 0;
-  display: inline-block;
-}
-
-button,
-label,
-summary {
-  @include user-select-none;
-  cursor: pointer;
-}
-
-button,
-input {
-  &::-moz-focus-inner {
-    border: 0;
+    box-sizing: border-box;
+    font-size: 100%;
+    font: inherit;
     margin: 0;
-    outline: 0;
+    outline: none;
     padding: 0;
   }
-}
-
-input {
-  &[type='button'],
-  &[type='checkbox'],
-  &[type='color'],
-  &[type='file'],
-  &[type='image'],
-  &[type='radio'],
-  &[type='range'],
-  &[type='reset'],
-  &[type='submit'] {
-    cursor: pointer;
+  :focus:not(:focus-visible) {
+    outline: 0;
   }
-}
-
-[role='button'] {
-  cursor: pointer;
-}
-
-select {
-  cursor: pointer;
-}
-
-pre {
-  overflow: auto;
-  white-space: -moz-pre-wrap;
-  white-space: pre-wrap;
-  white-space: pre;
-  word-wrap: break-word;
-  code {
+  a {
+    text-decoration: none;
+    img {
+      border: 0;
+    }
+  }
+  abbr,
+  dfn {
+    cursor: help;
+    text-decoration: none;
+  }
+  b,
+  dt,
+  strong,
+  th {
+    font-weight: bold;
+  }
+  caption,
+  dfn,
+  em,
+  figcaption,
+  i,
+  var {
+    font-style: italic;
+  }
+  ins,
+  u {
+    text-decoration: underline;
+  }
+  del,
+  s,
+  strike {
+    text-decoration: line-through;
+  }
+  code,
+  kbd {
+    font-family: monospace;
+  }
+  sub,
+  sup,
+  small {
+    font-size: smaller;
+  }
+  sub,
+  sup {
+    line-height: 0;
+    position: relative;
+    top: -0.5em;
+  }
+  sub {
+    top: 0.5em;
+  }
+  blockquote,
+  q {
+    &::before,
+    &::after {
+      content: "";
+      display: none;
+    }
+  }
+  article,
+  aside,
+  footer,
+  header,
+  hgroup,
+  nav,
+  section {
     display: block;
   }
-}
-
-table {
-  border-collapse: collapse;
-}
-
-td,
-th {
-  text-align: left;
-  vertical-align: top;
-}
-
-video {
-  display: block;
-  height: auto;
-  width: 100%;
+  mark,
+  time {
+    display: inline;
+  }
+  audio {
+    display: block;
+    width: 100%;
+  }
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+  iframe {
+    background: none;
+    border: 0;
+    display: inline-block;
+  }
+  button,
+  label,
+  summary {
+    @include user-select-none;
+    cursor: pointer;
+  }
+  button,
+  input {
+    &::-moz-focus-inner {
+      border: 0;
+      margin: 0;
+      outline: 0;
+      padding: 0;
+    }
+  }
+  input {
+    &[type='button'],
+    &[type='checkbox'],
+    &[type='color'],
+    &[type='file'],
+    &[type='image'],
+    &[type='radio'],
+    &[type='range'],
+    &[type='reset'],
+    &[type='submit'] {
+      cursor: pointer;
+    }
+  }
+  [role='button'] {
+    cursor: pointer;
+  }
+  select {
+    cursor: pointer;
+  }
+  pre {
+    overflow: auto;
+    white-space: -moz-pre-wrap;
+    white-space: pre-wrap;
+    white-space: pre;
+    word-wrap: break-word;
+    code {
+      display: block;
+    }
+  }
+  table {
+    border-collapse: collapse;
+  }
+  td,
+  th {
+    text-align: left;
+    vertical-align: top;
+  }
+  video {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
 }

@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   border: 0;
   box-sizing: border-box;
@@ -578,7 +577,6 @@ table td {
 .form-comment .button[href$="#comment"]::before,
 .form-comment input[href$="#comment"][type=button]::before,
 .form-comment input[href$="#comment"][type=reset]::before,
-.form-comment input[href$="#comment"][type=submit]::before,
 .form-comment [href$="#comment"][role=button]::before,
 .form-comment button[href$="#comment"]::before,
 .form-comment .button[type=submit]::before,
@@ -912,13 +910,13 @@ blockquote::before {
 }
 
 ::placeholder {
-  color: gray;
+  color: rgb(112.2, 112.2, 112.2);
   opacity: 1;
   line-height: inherit;
 }
 
 :focus::placeholder {
-  color: #666666;
+  color: rgb(91.8, 91.8, 91.8);
 }
 
 .button,
@@ -1004,7 +1002,7 @@ input[type=submit]:focus,
 button[role=link]:focus,
 [role=button]:focus,
 button:focus {
-  background: #383838;
+  background: rgb(55.08, 55.08, 55.08);
   color: #ffa;
 }
 .button:active,
@@ -1014,7 +1012,7 @@ input[type=submit]:active,
 button[role=link]:active,
 [role=button]:active,
 button:active {
-  background: #2e2e2e;
+  background: rgb(49.98, 49.98, 49.98);
   box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.1);
   color: #ffa;
 }
@@ -1058,7 +1056,7 @@ input[href$="#comment"][type=reset]:focus:any-link,
 input[href$="#comment"][type=submit]:focus:any-link,
 [href$="#comment"][role=button]:focus:any-link,
 button[href$="#comment"]:focus:any-link {
-  background: #a13636;
+  background: rgb(157.59, 52.53, 52.53);
 }
 .button.error:active,
 input.error[type=button]:active,
@@ -1072,7 +1070,7 @@ input[href$="#comment"][type=reset]:active:any-link,
 input[href$="#comment"][type=submit]:active:any-link,
 [href$="#comment"][role=button]:active:any-link,
 button[href$="#comment"]:active:any-link {
-  background: #913030;
+  background: rgb(149.94, 49.98, 49.98);
 }
 .button.info,
 input.info[type=button],
@@ -1095,7 +1093,7 @@ input.info[type=reset]:focus,
 input.info[type=submit]:focus,
 .info[role=button]:focus,
 button.info:focus {
-  background: #71aec5;
+  background: rgb(108.98, 171.7, 195.22);
 }
 .button.info:active,
 input.info[type=button]:active,
@@ -1103,7 +1101,7 @@ input.info[type=reset]:active,
 input.info[type=submit]:active,
 .info[role=button]:active,
 button.info:active {
-  background: #63a6bf;
+  background: rgb(101.7428571429, 167.5714285714, 192.2571428571);
 }
 .button.primary,
 input.primary[type=button],
@@ -1145,7 +1143,7 @@ input[type=reset]:focus:any-link,
 input[type=submit]:focus:any-link,
 [role=button]:focus:any-link,
 button:focus:any-link {
-  background: #3962a0;
+  background: rgb(55.5937864078, 95.7448543689, 156.4862135922);
 }
 .button.primary:active,
 input.primary[type=button]:active,
@@ -1159,7 +1157,7 @@ input[type=reset]:active:any-link,
 input[type=submit]:active:any-link,
 [role=button]:active:any-link,
 button:active:any-link {
-  background: #335890;
+  background: rgb(52.92, 91.14, 148.96);
 }
 .button.success,
 input.success[type=button],
@@ -1194,7 +1192,7 @@ button.success:focus,
 input[type=submit]:focus,
 [type=submit][role=button]:focus,
 button[type=submit]:focus {
-  background: #4f9a46;
+  background: rgb(77.0747663551, 151.0665420561, 68.8534579439);
 }
 .button.success:active,
 input.success[type=button]:active,
@@ -1205,7 +1203,7 @@ button.success:active,
 input[type=submit]:active,
 [type=submit][role=button]:active,
 button[type=submit]:active {
-  background: #478c40;
+  background: rgb(73.5, 144.06, 65.66);
 }
 .button.link,
 input.link[type=button],
@@ -1314,7 +1312,7 @@ label input:checked + span {
 }
 
 ::selection {
-  background: #fdf2c4;
+  background: rgb(250.2, 227, 129.4);
   color: #333;
   text-shadow: none;
 }
@@ -1356,7 +1354,7 @@ button[role=link]:focus,
 input.link[type=button]:focus,
 input.link[type=reset]:focus,
 input.link[type=submit]:focus {
-  color: #4474bd;
+  color: rgb(61.9689320388, 106.7242718447, 174.4310679612);
 }
 a:active,
 .button.link:active,
@@ -1367,7 +1365,7 @@ button[role=link]:active,
 input.link[type=button]:active,
 input.link[type=reset]:active,
 input.link[type=submit]:active {
-  color: #294672;
+  color: rgb(48.6, 83.7, 136.8);
 }
 a[aria-current],
 [aria-current].button.link,
@@ -1535,7 +1533,7 @@ pre code {
 .nav .current > input.link[type=button]:focus,
 .nav .current > input.link[type=reset]:focus,
 .nav .current > input.link[type=submit]:focus {
-  background: #3962a0;
+  background: rgb(55.5937864078, 95.7448543689, 156.4862135922);
 }
 .nav .current > a:active,
 .nav .current > .button.link:active,
@@ -1546,7 +1544,7 @@ pre code {
 .nav .current > input.link[type=button]:active,
 .nav .current > input.link[type=reset]:active,
 .nav .current > input.link[type=submit]:active {
-  background: #335890;
+  background: rgb(52.92, 91.14, 148.96);
 }
 
 .toggle {
@@ -1805,6 +1803,9 @@ input[role=alert][type=submit] {
   text-transform: uppercase;
 }
 
+.form-comment [role=alert]:not(:first-child) {
+  margin-top: 18px;
+}
 .form-comment label {
   padding-top: 9px;
 }
@@ -1870,7 +1871,7 @@ input[role=alert][type=submit] {
 .pager-normal input.link[type=button]:focus,
 .pager-normal input.link[type=reset]:focus,
 .pager-normal input.link[type=submit]:focus {
-  color: #4474bd;
+  color: rgb(61.9689320388, 106.7242718447, 174.4310679612);
 }
 .pager-normal a:active,
 .pager-normal .button.link:active,
@@ -1881,7 +1882,7 @@ input[role=alert][type=submit] {
 .pager-normal input.link[type=button]:active,
 .pager-normal input.link[type=reset]:active,
 .pager-normal input.link[type=submit]:active {
-  color: #294672;
+  color: rgb(61.9689320388, 106.7242718447, 174.4310679612);
 }
 .pager-next {
   float: right;

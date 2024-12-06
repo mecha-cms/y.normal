@@ -1,24 +1,30 @@
-.grids {
-  @extend .cf, .p;
-  margin-left: math.div($x, -2);
-  margin-right: math.div($x, -2);
-  &.no-gap {
-    margin-left: 0;
-    margin-right: 0;
-    .grid {
-      padding-left: 0;
-      padding-right: 0;
+@use 'sass:math';
+
+@use 'variable' as *;
+
+@mixin grid {
+  .grids {
+    @extend .cf, .p;
+    margin-left: math.div($x, -2);
+    margin-right: math.div($x, -2);
+    &.no-gap {
+      margin-left: 0;
+      margin-right: 0;
+      .grid {
+        padding-left: 0;
+        padding-right: 0;
+      }
     }
-  }
-  .grid {
-    background-clip: content-box;
-    float: left;
-    min-height: 1px;
-    padding: 0 math.div($x, 2);
-    &.span {
-      @for $i from 1 through 6 {
-        &-#{$i} {
-          width: (100% * math.div($i, 6));
+    .grid {
+      background-clip: content-box;
+      float: left;
+      min-height: 1px;
+      padding: 0 math.div($x, 2);
+      &.span {
+        @for $i from 1 through 6 {
+          &-#{$i} {
+            width: (100% * math.div($i, 6));
+          }
         }
       }
     }

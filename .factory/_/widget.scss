@@ -1,150 +1,154 @@
-.widget {
-  li,
-  ol,
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  li {
-    border: inherit;
-    border-width: 0 0 1px;
-    padding: math.div($y, 4) 0;
-  }
-  ol,
-  ul {
-    border: 0 solid;
-    border-width: 1px 0 0;
-  }
-}
+@use 'sass:math';
 
-.widget {
-  .archive {
+@use 'variable' as *;
+
+@mixin widget {
+  .widget {
+    li,
     ol,
     ul {
-      border: 0;
-      margin-top: math.div($y, 4);
-      margin-left: $x;
-      li {
-        border: 0;
-      }
-    }
-    + .archive {
-      margin-top: math.div($y, 4);
-    }
-  }
-  .count {
-    &::before {
-      content: '(';
-    }
-    &::after {
-      content: ')';
-    }
-  }
-  .current {
-    > a {
-      color: inherit;
-    }
-  }
-  .form {
-    &-search {
-      background: $color;
-      color: $fill;
-      overflow: hidden;
-      position: relative;
-      p {
-        margin: 0;
-      }
-      .button,
-      .input {
-        background: none;
-        border-radius: 0;
-        width: 100%;
-      }
-      .button {
-        bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        position: absolute;
-        right: 0;
-        text-align: center;
-        top: 0;
-        width: ($x * 2);
-        &,
-        &:hover,
-        &:focus,
-        &:active {
-          background: none;
-          box-shadow: none;
-        }
-      }
-      .input {
-        padding-right: ($x * 2); // Same with button width
-      }
-    }
-  }
-  .recent {
-    &-comment,
-    &-comments {
-      border-width: 0;
       list-style: none;
-      margin-left: 0;
-      margin-right: 0;
+      margin: 0;
       padding: 0;
     }
-    &-comment {
-      p {
-        margin: 0;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+    li {
+      border: inherit;
+      border-width: 0 0 1px;
+      padding: math.div($y, 4) 0;
+    }
+    ol,
+    ul {
+      border: 0 solid;
+      border-width: 1px 0 0;
+    }
+  }
+  .widget {
+    .archive {
+      ol,
+      ul {
+        border: 0;
+        margin-top: math.div($y, 4);
+        margin-left: $x;
+        li {
+          border: 0;
+        }
       }
-      &-author {
-        font: inherit;
-        font-weight: bold;
-        margin: 0;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-      &-avatar {
-        display: block;
-        height: 50px;
-        width: 50px;
-      }
-      &-body,
-      &-footer {
-        margin-top: math.div($z, 4);
-      }
-      &-figure {
-        float: left;
-        width: (math.div($y, 2) + 50px);
-      }
-      &-time {
-        @extend .cf;
-        color: $color-secondary;
-        font-size: ($z * .8);
-        letter-spacing: 1px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        text-transform: uppercase;
-        white-space: nowrap;
+      + .archive {
+        margin-top: math.div($y, 4);
       }
     }
-    &-comments {
-      li {
-        + li {
-          margin-top: math.div($y, 2);
+    .count {
+      &::before {
+        content: '(';
+      }
+      &::after {
+        content: ')';
+      }
+    }
+    .current {
+      > a {
+        color: inherit;
+      }
+    }
+    .form {
+      &-search {
+        background: $color;
+        color: $fill;
+        overflow: hidden;
+        position: relative;
+        p {
+          margin: 0;
+        }
+        .button,
+        .input {
+          background: none;
+          border-radius: 0;
+          width: 100%;
+        }
+        .button {
+          bottom: 0;
+          padding-left: 0;
+          padding-right: 0;
+          position: absolute;
+          right: 0;
+          text-align: center;
+          top: 0;
+          width: ($x * 2);
+          &,
+          &:hover,
+          &:focus,
+          &:active {
+            background: none;
+            box-shadow: none;
+          }
+        }
+        .input {
+          padding-right: ($x * 2); // Same with button width
+        }
+      }
+    }
+    .recent {
+      &-comment,
+      &-comments {
+        border-width: 0;
+        list-style: none;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0;
+      }
+      &-comment {
+        p {
+          margin: 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        &-author {
+          font: inherit;
+          font-weight: bold;
+          margin: 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        &-avatar {
+          display: block;
+          height: 50px;
+          width: 50px;
+        }
+        &-body,
+        &-footer {
+          margin-top: math.div($z, 4);
+        }
+        &-figure {
+          float: left;
+          width: (math.div($y, 2) + 50px);
+        }
+        &-time {
+          @extend .cf;
+          color: $color-secondary;
+          font-size: ($z * .8);
+          letter-spacing: 1px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+      &-comments {
+        li {
+          + li {
+            margin-top: math.div($y, 2);
+          }
         }
       }
     }
   }
-}
-
-.aside {
-  .widget-header {
-    + .widget-body {
-      margin-top: math.div($y, 2);
+  .aside {
+    .widget-header {
+      + .widget-body {
+        margin-top: math.div($y, 2);
+      }
     }
   }
 }

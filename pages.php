@@ -2,7 +2,7 @@
 <?php if ($page->exist): ?>
   <?php if ($pages->count): ?>
     <?php foreach ($pages as $page): ?>
-      <article class="page type:<?= c2f($page->type); ?>" id="page:<?= $page->id; ?>">
+      <article class="page type:<?= c2f($page->type); ?>" id="page:<?= eat($page->id); ?>">
         <?= self::get('pages-', ['page' => $page]); ?>
       </article>
     <?php endforeach; ?>

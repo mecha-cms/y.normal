@@ -1,160 +1,154 @@
-.code {
-  font: inherit;
-  font-family: $font-mono;
-  font-size: ($z * 0.86);
-}
+@use 'sass:math';
 
-.hidden {
-  display: none;
-  &-visually {
-    border: 0;
-    clip: rect(0 0 0 0);
-    clip: rect(0px, 0px, 0px, 0px);
-    height: 1px;
-    margin: -1px 0 0;
-    overflow: hidden;
-    padding: 0;
-    position: absolute !important;
-    width: 1px;
+@use 'variable' as *;
+
+@mixin type {
+  .code {
+    font: inherit;
+    font-family: $font-mono;
+    font-size: ($z * 0.86);
   }
-}
-
-.notes {
-  hr {
-    width: ($z * 7);
-  }
-  ol {
-    font-size: ($z * 0.8);
-  }
-}
-
-.sr {
-  @extend .hidden-visually;
-}
-
-.cl {
-  clear: both;
-  display: table;
-}
-
-.cf {
-  *zoom: 1;
-  &::after {
-    @extend .cl;
-    content: "";
-  }
-}
-
-.align {
-  &-right {
-    display: block;
-    float: right;
-    margin-left: $x;
-    padding-bottom: math.div(($h - $z), 2);
-    padding-top: math.div(($h - $z), 2);
-    img {
-      display: inline-block;
+  .hidden {
+    display: none;
+    &-visually {
+      border: 0;
+      clip: rect(0 0 0 0);
+      clip: rect(0px, 0px, 0px, 0px);
+      height: 1px;
+      margin: -1px 0 0;
+      overflow: hidden;
+      padding: 0;
+      position: absolute !important;
+      width: 1px;
     }
   }
-  &-left {
-    display: block;
-    float: left;
-    margin-right: $x;
-    padding-bottom: math.div(($h - $z), 2);
-    padding-top: math.div(($h - $z), 2);
-    img {
-      display: inline-block;
+  .notes {
+    hr {
+      width: ($z * 7);
+    }
+    ol {
+      font-size: ($z * 0.8);
     }
   }
-  &-bottom {
-    vertical-align: bottom;
+  .sr {
+    @extend .hidden-visually;
   }
-  &-center {
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    img {
+  .cl {
+    clear: both;
+    display: table;
+  }
+  .cf {
+    *zoom: 1;
+    &::after {
+      @extend .cl;
+      content: "";
+    }
+  }
+  .align {
+    &-right {
       display: block;
+      float: right;
+      margin-left: $x;
+      padding-bottom: math.div(($h - $z), 2);
+      padding-top: math.div(($h - $z), 2);
+      img {
+        display: inline-block;
+      }
+    }
+    &-left {
+      display: block;
+      float: left;
+      margin-right: $x;
+      padding-bottom: math.div(($h - $z), 2);
+      padding-top: math.div(($h - $z), 2);
+      img {
+        display: inline-block;
+      }
+    }
+    &-bottom {
+      vertical-align: bottom;
+    }
+    &-center {
+      display: inline-block;
       margin-left: auto;
       margin-right: auto;
+      text-align: center;
+      img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    &-middle {
+      vertical-align: middle;
+    }
+    &-top {
+      vertical-align: top;
     }
   }
-  &-middle {
-    vertical-align: middle;
+  .text {
+    &-center {
+      text-align: center;
+    }
+    &-justify {
+      text-align: justify;
+    }
+    &-left {
+      text-align: left;
+    }
+    &-right {
+      text-align: right;
+    }
   }
-  &-top {
-    vertical-align: top;
+  /* `<div class="p">` */
+  .p {
+    * + & {
+      margin-top: $y;
+    }
   }
-}
-
-.text {
-  &-center {
+  /* `<div class="audio"><audio src></audio></div>` */
+  .audio {
+    @extend .p;
+    position: relative;
+    audio {
+      display: block;
+      width: 100%;
+    }
+  }
+  /* `<figure class="image">` */
+  .image {
+    @extend .p;
     text-align: center;
+    img {
+      display: inline-block;
+      margin-right: auto;
+      marign-left: auto;
+    }
   }
-  &-justify {
-    text-align: justify;
-  }
-  &-left {
-    text-align: left;
-  }
-  &-right {
-    text-align: right;
-  }
-}
-
-/* `<div class="p">` */
-.p {
-  * + & {
-    margin-top: $y;
-  }
-}
-
-/* `<div class="audio"><audio src></audio></div>` */
-.audio {
-  @extend .p;
-  position: relative;
-  audio {
-    display: block;
+  /* `<table class="table">` */
+  .table {
     width: 100%;
+    td,
+    th {
+      border: 1px solid;
+    }
   }
-}
-
-/* `<figure class="image">` */
-.image {
-  @extend .p;
-  text-align: center;
-  img {
-    display: inline-block;
-    margin-right: auto;
-    marign-left: auto;
-  }
-}
-
-/* `<table class="table">` */
-.table {
-  width: 100%;
-  td,
-  th {
-    border: 1px solid;
-  }
-}
-
-/* `<div class="video"><video src></video></div>` */
-.video {
-  @extend .p;
-  height: 0;
-  padding-bottom: 56.25%;
-  position: relative;
-  embed,
-  iframe,
-  img, /* :\ */
-  object,
-  video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  /* `<div class="video"><video src></video></div>` */
+  .video {
+    @extend .p;
+    height: 0;
+    padding-bottom: 56.25%;
+    position: relative;
+    embed,
+    iframe,
+    img, /* :\ */
+    object,
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 }

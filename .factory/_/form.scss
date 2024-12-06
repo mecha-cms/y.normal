@@ -1,154 +1,150 @@
-::placeholder {
-  @include placeholder;
-}
+@use 'sass:color';
+@use 'sass:math';
 
-:focus {
-  &::placeholder {
-    color: lighten($color, 20%);
-  }
-}
+@use 'variable' as *;
 
-.button,
-.input,
-.output,
-.select,
-.textarea {
-  accent-color: $fill-button--primary;
-  background: $color;
-  border: 0;
-  color: $fill;
-  display: inline-block;
-  height: ($y * 2);
-  padding: math.div((($y * 2) - $h), 2) ($x * 0.65);
-  text-align: left;
-  vertical-align: middle;
-  width: ($x * 10);
-  &:disabled {
-    cursor: not-allowed;
-    opacity: 0.9;
+@mixin form {
+  ::placeholder {
+    @include placeholder;
   }
-  &:invalid {
-    color: $color-input--invalid;
-  }
-}
-
-.button {
-  border-radius: 2px;
-  color: $color-button;
-  overflow: hidden;
-  padding-left: ($x * 0.75);
-  padding-right: ($x * 0.75);
-  width: auto;
-  &:hover,
-  &:focus {
-    background: lighten($color, 2%);
-    color: $color-button;
-  }
-  &:active {
-    background: darken($color, 2%);
-    box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.1);
-    color: $color-button;
-  }
-  @each $k, $v in (error $fill-button--error, info $fill-button--info, primary $fill-button--primary, success $fill-button--success) {
-    &.#{$k} {
-      background: $v;
-      &:hover,
-      &:focus {
-        background: lighten($v, 2%);
-      }
-      &:active {
-        background: darken($v, 2%);
-      }
+  :focus {
+    &::placeholder {
+      color: color.scale($color, $lightness: 20%);
     }
   }
-  &:any-link {
-    @extend .primary;
-    &[href$='#comment'] {
-      @extend .error;
-    }
-  }
-  &[type='submit'] {
-    @extend .success;
-  }
-}
-
-.button {
-  &.link {
-    @extend a;
-    background: none;
-    box-shadow: none;
-  }
-}
-
-.textarea {
-  height: auto;
-  min-height: ($y * 5);
-  overflow: auto;
-  resize: vertical;
-}
-
-.input {
-  &[type='checkbox'],
-  &[type='color'],
-  &[type='file'],
-  &[type='image'],
-  &[type='range'] {
-    background: none;
-    color: inherit;
-    padding: 0;
-  }
-  &[type='color'] {
+  .button,
+  .input,
+  .output,
+  .select,
+  .textarea {
+    accent-color: $fill-button--primary;
+    background: $color;
+    border: 0;
+    color: $fill;
+    display: inline-block;
     height: ($y * 2);
-    width: ($x * 2);
-    &::-moz-color-swatch {
-      border: 0;
+    padding: math.div((($y * 2) - $h), 2) ($x * 0.65);
+    text-align: left;
+    vertical-align: middle;
+    width: ($x * 10);
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.9;
     }
-    &::-webkit-color-swatch {
-      border: 0;
+    &:invalid {
+      color: $color-input--invalid;
     }
-    &::-webkit-color-swatch-wrapper {
+  }
+  .button {
+    border-radius: 2px;
+    color: $color-button;
+    overflow: hidden;
+    padding-left: ($x * 0.75);
+    padding-right: ($x * 0.75);
+    width: auto;
+    &:hover,
+    &:focus {
+      background: color.scale($color, $lightness: 2%);
+      color: $color-button;
+    }
+    &:active {
+      background: color.scale($color, $lightness: -2%);
+      box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.1);
+      color: $color-button;
+    }
+    @each $k, $v in (error $fill-button--error, info $fill-button--info, primary $fill-button--primary, success $fill-button--success) {
+      &.#{$k} {
+        background: $v;
+        &:hover,
+        &:focus {
+          background: color.scale($v, $lightness: 2%);
+        }
+        &:active {
+          background: color.scale($v, $lightness: -2%);
+        }
+      }
+    }
+    &:any-link {
+      @extend .primary;
+      &[href$='#comment'] {
+        @extend .error;
+      }
+    }
+    &[type='submit'] {
+      @extend .success;
+    }
+  }
+  .button {
+    &.link {
+      @extend a;
+      background: none;
+      box-shadow: none;
+    }
+  }
+  .textarea {
+    height: auto;
+    min-height: ($y * 5);
+    overflow: auto;
+    resize: vertical;
+  }
+  .input {
+    &[type='checkbox'],
+    &[type='color'],
+    &[type='file'],
+    &[type='image'],
+    &[type='range'] {
+      background: none;
+      color: inherit;
       padding: 0;
     }
+    &[type='color'] {
+      height: ($y * 2);
+      width: ($x * 2);
+      &::-moz-color-swatch {
+        border: 0;
+      }
+      &::-webkit-color-swatch {
+        border: 0;
+      }
+      &::-webkit-color-swatch-wrapper {
+        padding: 0;
+      }
+    }
+    &[type='checkbox'],
+    &[type='image'],
+    &[type='radio'] {
+      height: auto;
+      width: auto;
+    }
   }
-  &[type='checkbox'],
-  &[type='image'],
-  &[type='radio'] {
-    height: auto;
-    width: auto;
-  }
-}
-
-label {
-  .input {
-    &:checked {
-      + span {
-        opacity: 0.6;
+  label {
+    .input {
+      &:checked {
+        + span {
+          opacity: 0.6;
+        }
       }
     }
   }
-}
-
-[role='button'],
-button {
-  @extend .button;
-  &[role='link'] {
-    @extend .button, .link;
-  }
-}
-
-input {
-  @extend .input;
-  &[type='button'],
-  &[type='reset'],
-  &[type='submit'] {
+  [role='button'],
+  button {
     @extend .button;
+    &[role='link'] {
+      @extend .button, .link;
+    }
   }
-}
-
-select {
-  @extend .select;
-}
-
-textarea {
-  @extend .textarea;
+  input {
+    @extend .input;
+    &[type='button'],
+    &[type='reset'],
+    &[type='submit'] {
+      @extend .button;
+    }
+  }
+  select {
+    @extend .select;
+  }
+  textarea {
+    @extend .textarea;
+  }
 }

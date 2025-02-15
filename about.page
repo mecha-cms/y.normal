@@ -7,7 +7,7 @@ images:
 - /lot/y/normal/index/1.png
 author: Taufik Nurrohman
 type: Markdown
-version: 2.13.0
+version: 2.13.1
 ...
 
 This is the default layout used by Mecha version `1.x.x`.

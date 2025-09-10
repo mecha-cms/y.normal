@@ -1,42 +1,43 @@
-<?php
+<?php namespace y\normal;
 
-lot('links', $links = new Anemone((static function ($links, $state, $url) {
-    $index = LOT . D . 'page' . D . trim(strtr($state->route ?? 'index', '/', D), D) . '.page';
-    $route = $url->path . '/';
-    foreach (g(LOT . D . 'page', 'page') as $k => $v) {
+\lot('links', new \Anemone(\fire(function ($r) use ($state) {
+    $route_current = $this->path . '/';
+    $route_r = '/' . \trim($state->route ?? 'index', '/');
+    foreach (\g(\LOT . \D . 'page', 'page') as $k => $v) {
+        $v = new \Page($k);
         // Exclude home page
-        if ($k === $index) {
+        if ($route_r === ($route = $v->route)) {
             continue;
         }
-        $v = new Page($k);
         // Add current state
-        $v->current = 0 === strpos($route, $v->route . '/');
-        $links[$k] = $v;
+        $v->current = 0 === \strpos($route_current, $route . '/');
+        $r[$v->title . \P . $k] = $v;
     }
-    ksort($links);
-    return $links;
-})([], $state, $url)));
+    \ksort($r);
+    return \array_values($r);
+}, [[]], $url)));
 
-$z = defined('TEST') && TEST ? '.' : '.min.';
-Asset::set(__DIR__ . D . 'index' . $z . 'css', 20);
-Asset::set(__DIR__ . D . 'index' . $z . 'js', 20);
+$z = \defined("\\TEST") && \TEST ? '.' : '.min.';
 
-State::set('widget', require __DIR__ . D . 'state' . D . 'widget.php');
+\Asset::set(__DIR__ . \D . 'index' . $z . 'css', 20);
+\Asset::set(__DIR__ . \D . 'index' . $z . 'js', 20);
 
-$defaults = [
+\State::set('widget', require __DIR__ . \D . 'state' . \D . 'widget.php');
+
+$states = [
     'route-blog' => '/article',
-    'x.comment.page.type' => 'Markdown',
-    'x.page.page.chunk' => 14,
-    'x.page.page.sort' => [1, 'time'],
-    'x.page.page.type' => 'Markdown'
+    'x.comment.page.type' => isset($state->x->comment) ? 'Markdown' : null,
+    'x.page.page.chunk' => isset($state->x->page) ? 14 : null,
+    'x.page.page.sort' => isset($state->x->page) ? [1, 'time'] : null,
+    'x.page.page.type' => isset($state->x->page) ? 'Markdown' : null
 ];
 
-foreach ($defaults as $k => $v) {
-    !State::get($k) && State::set($k, $v);
+foreach ($states as $k => $v) {
+    !\State::get($k) && null !== $v && \State::set($k, $v);
 }
 
 if (isset($state->x->alert)) {
-    Hook::set('y.alert', function ($y) {
+    \Hook::set('y.alert', function ($y) {
         foreach ($y[1] as &$v) {
             if (!$n = $v[2]['type'] ?? $v['type'] ?? "") {
                 continue;
@@ -53,15 +54,15 @@ if (isset($state->x->alert)) {
 }
 
 if (isset($state->x->excerpt) && $state->is('page')) {
-    Hook::set('page.content', function ($content) {
-        return null !== $content ? strtr($content, ["\f" => '<span id="next:' . $this->id . '" role="doc-pagebreak"></span>']) : null;
+    \Hook::set('page.content', function ($content) {
+        return null !== $content ? \strtr($content, ["\f" => '<span id="next:' . $this->id . '" role="doc-pagebreak"></span>']) : null;
     });
 }
 
 if (isset($state->x->pass)) {
     // Add legacy form class name
-    Hook::set('y.form.pass', function ($y) use ($state) {
-        $suffix = ':' . ($state->has('user') ? 'exit' : 'enter');
+    \Hook::set('y.form.pass', function ($y) use ($state) {
+        $suffix = '-' . ($state->has('user') ? 'exit' : 'enter');
         if (isset($y[2]['class'])) {
             $y[2]['class'] .= ' form-pass form-pass' . $suffix;
         } else {
@@ -73,8 +74,8 @@ if (isset($state->x->pass)) {
 
 if (isset($state->x->user)) {
     // Add legacy form class name
-    Hook::set('y.form.user', function ($y) use ($state) {
-        $suffix = ':' . ($state->has('user') ? 'exit' : 'enter');
+    \Hook::set('y.form.user', function ($y) use ($state) {
+        $suffix = '-' . ($state->has('user') ? 'exit' : 'enter');
         if (isset($y[2]['class'])) {
             $y[2]['class'] .= ' form-user form-user' . $suffix;
         } else {

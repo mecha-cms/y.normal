@@ -586,6 +586,7 @@ table td {
 .form-comment .button[href$="#comment"]::before,
 .form-comment input[href$="#comment"][type=button]::before,
 .form-comment input[href$="#comment"][type=reset]::before,
+.form-comment input[href$="#comment"][type=submit]::before,
 .form-comment [href$="#comment"][role=button]::before,
 .form-comment button[href$="#comment"]::before,
 .form-comment .button[type=submit]::before,
@@ -1628,12 +1629,17 @@ pre code {
 .widget .archive ol,
 .widget .archive ul {
   border: 0;
-  margin-top: 4.5px;
   margin-left: 18px;
+  margin-top: 4.5px;
 }
 .widget .archive ol li,
 .widget .archive ul li {
   border: 0;
+  padding: 0;
+}
+.widget .archive ol li + li,
+.widget .archive ul li + li {
+  margin-top: 4.5px;
 }
 .widget .archive + .archive {
   margin-top: 4.5px;

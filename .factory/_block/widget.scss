@@ -27,10 +27,14 @@
       ol,
       ul {
         border: 0;
-        margin-top: math.div($y, 4);
         margin-left: $x;
+        margin-top: math.div($y, 4);
         li {
           border: 0;
+          padding: 0;
+          + li {
+            margin-top: math.div($y, 4);
+          }
         }
       }
       + .archive {

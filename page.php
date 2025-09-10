@@ -1,6 +1,6 @@
 <?= self::enter(); ?>
 <?php if ($page->exist): ?>
-  <article class="page type:<?= c2f($page->type); ?>" id="page:<?= eat($page->id); ?>">
+  <article class="page page-type-<?= c2f($page->type); ?>" id="page:<?= eat($page->id); ?>">
     <?= self::get('page-', [
         'author' => $page->author,
         'tags' => $page->tags

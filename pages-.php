@@ -8,7 +8,7 @@ $view = isset($state->x->view);
   <p class="page-meta">
     <time class="page-time" datetime="<?= eat($page->time->format('c')); ?>">
       <?= $page->time('%A, %B %d, %Y'); ?>
-      <?= $view ? ' &#x00b7; ' . $page->view : ""; ?>
+      <?= $view ? ' &#x00b7; ' . i('%d View' . (1 === ($v = $page->view) ? "" : 's'), [$v]) : ""; ?>
     </time>
   </p>
   <h4 class="page-title">
@@ -17,7 +17,8 @@ $view = isset($state->x->view);
         <?= $page->title; ?>
       </a>
     <?php elseif ($page->url): ?>
-      <a class="page-url" href="<?= eat($page->url); ?>">
+      <?php $children = $page->children; ?>
+      <a class="page-url" href="<?= eat($page->url . ($children && $children->count ? '/1' : "")); ?>">
         <?= $page->title; ?>
       </a>
     <?php else: ?>

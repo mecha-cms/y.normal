@@ -1,11 +1,11 @@
 {
   "dependencies": {
-    "@taufik-nurrohman/document": "*",
-    "@taufik-nurrohman/event": "*",
-    "@taufik-nurrohman/to": "*"
+    "@taufik-nurrohman/document": "^1.5.3",
+    "@taufik-nurrohman/event": "^1.0.1",
+    "@taufik-nurrohman/to": "^1.2.0"
   },
   "devDependencies": {
-    "@taufik-nurrohman/factory": "*"
+    "@taufik-nurrohman/factory": "^2.3.1"
   },
   "scripts": {
     "pack": "pack --clean=false --from=.factory --to=."

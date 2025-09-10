@@ -3,15 +3,16 @@
     var toCount = function toCount(x) {
         return x.length;
     };
+
+    function _toArray(iterable) {
+        return Array.from(iterable);
+    }
     var D = document;
     var R = D.documentElement;
     var getElements = function getElements(query, scope) {
-        return (scope || D).querySelectorAll(query);
+        return _toArray((D).querySelectorAll(query));
     };
     var getParent = function getParent(node, query) {
-        if (query) {
-            return node.closest(query) || null;
-        }
         return node.parentNode || null;
     };
     var toggleClass = function toggleClass(node, name, force) {

@@ -4,7 +4,7 @@
     <p class="page-meta">
       <time class="page-time" datetime="<?= eat($page->time->format('c')); ?>">
         <?= $page->time('%A, %B %d, %Y'); ?>
-        <?= $view ? ' &#x00b7; ' . $page->view : ""; ?>
+        <?= $view ? ' &#x00b7; ' . i('%d View' . (1 === ($v = $page->view) ? "" : 's'), [$v]) : ""; ?>
       </time>
     </p>
   <?php endif; ?>

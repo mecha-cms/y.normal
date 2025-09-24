@@ -13,12 +13,18 @@ if (isset($state->x->comment)) {
     foreach (array_chunk($comments, $chunk, true)[0] ?? [] as $k => $v) {
         $comment = new Comment($k);
         $content .= '<li class="recent-comment recent-comment-status:' . eat($comment->status) . '">';
-        $content .= '<figure class="recent-comment-figure">';
-        $content .= '<img alt="" class="recent-comment-avatar" height="50" src="' . eat($comment->avatar(50)) . '" width="50">';
-        $content .= '</figure>';
+        if (isset($comment['avatar'])) {
+            $content .= '<figure class="recent-comment-figure">';
+            $content .= '<img alt="" class="recent-comment-avatar" height="50" src="' . eat($comment->avatar(50)) . '" width="50">';
+            $content .= '</figure>';
+        } else if (isset($comment['image'])) {
+            $content .= '<figure class="recent-comment-figure">';
+            $content .= '<img alt="" class="recent-comment-avatar" height="50" src="' . eat($comment->image(50)) . '" width="50">';
+            $content .= '</figure>';
+        }
         $content .= '<header class="recent-comment-header">';
         $content .= '<h5 class="recent-comment-author">';
-        $content .= '<a class="recent-comment-url" href="' . eat($comment->url . '#comment:' . $comment->id) . '" rel="nofollow">' . $comment->author . '</a>';
+        $content .= '<a class="recent-comment-url" href="' . eat($comment->url) . '" rel="nofollow">' . $comment->author . '</a>';
         $content .= '</h5>';
         $content .= '</header>';
         $content .= '<div class="recent-comment-body">';

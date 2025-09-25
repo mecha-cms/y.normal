@@ -5,21 +5,15 @@ $content = "";
 if (isset($state->x->comment)) {
     $chunk = $state->widget->comment->chunk;
     $excerpt = $state->widget->comment->excerpt;
-    $comments = [];
-    foreach (g(LOT . D . 'comment' . ($route ?? $state->routeBlog), 'page', true) as $k => $v) {
-        $comments[$k] = basename($k);
-    }
-    arsort($comments);
-    foreach (array_chunk($comments, $chunk, true)[0] ?? [] as $k => $v) {
-        $comment = new Comment($k);
-        $content .= '<li class="recent-comment recent-comment-status:' . eat($comment->status) . '">';
-        if (isset($comment['avatar'])) {
+    foreach (Comments::from(LOT . D . 'comment' . ($route ?? $state->routeBlog), 'page', true)->sort([-1, 'time'])->chunk($chunk, 0) as $comment) {
+        $content .= '<li class="recent-comment" data-status="' . eat($comment->status ?? 2) . '">';
+        if ($avatar = $comment->avatar(50)) {
             $content .= '<figure class="recent-comment-figure">';
-            $content .= '<img alt="" class="recent-comment-avatar" height="50" src="' . eat($comment->avatar(50)) . '" width="50">';
+            $content .= '<img alt="" class="recent-comment-avatar" height="50" src="' . eat($avatar) . '" width="50">';
             $content .= '</figure>';
-        } else if (isset($comment['image'])) {
+        } else if ($image = $comment->image(50)) {
             $content .= '<figure class="recent-comment-figure">';
-            $content .= '<img alt="" class="recent-comment-avatar" height="50" src="' . eat($comment->image(50)) . '" width="50">';
+            $content .= '<img alt="" class="recent-comment-avatar" height="50" src="' . eat($image) . '" width="50">';
             $content .= '</figure>';
         }
         $content .= '<header class="recent-comment-header">';
@@ -37,9 +31,9 @@ if (isset($state->x->comment)) {
         $content .= '</footer>';
         $content .= '</li>';
     }
-    $content = $content ? '<ul class="recent-comments">' . $content . '</ul>' : '<p>' . i('No %s yet.', ['comments']) . '</p>';
+    $content = $content ? '<ul class="recent-comments">' . $content . '</ul>' : '<p role="status">' . i('No %s yet.', ['comments']) . '</p>';
 } else {
-    $content .= '<p>' . i('Missing %s extension.', ['<a href="https://mecha-cms.com/store/extension/comment" target="_blank">comment</a>']) . '</p>';
+    $content .= '<p role="status">' . i('Missing %s extension.', ['<a href="https://mecha-cms.com/store/extension/comment" target="_blank">comment</a>']) . '</p>';
 }
 
 echo self::widget([

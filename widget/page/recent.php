@@ -14,7 +14,7 @@ if ($pages->count) {
     }
     $content .= '</ul>';
 } else {
-    $content .= '<p>' . i('No %s yet.', ['posts']) . '</p>';
+    $content .= '<p role="status">' . i('No %s yet.', ['posts']) . '</p>';
 }
 
 echo self::widget([

@@ -31,9 +31,9 @@ if (isset($state->x->tag)) {
             $content .= '</ul>';
         }
     }
-    $content = $content ?: '<p>' . i('No %s yet.', ['tags']) . '</p>';
+    $content = $content ?: '<p role="status">' . i('No %s yet.', ['tags']) . '</p>';
 } else {
-    $content = '<p>' . i('Missing %s extension.', ['<a href="https://mecha-cms.com/store/extension/tag" target="_blank">tag</a>']) . '</p>';
+    $content = '<p role="status">' . i('Missing %s extension.', ['<a href="https://mecha-cms.com/store/extension/tag" target="_blank">tag</a>']) . '</p>';
 }
 
 echo self::widget([

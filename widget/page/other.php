@@ -40,7 +40,7 @@ if ($relate = count($relates) > 1) {
         }
         $content .= '</ul>';
     } else {
-        $content .= '<p>' . i('No %s yet.', ['posts']) . '</p>';
+        $content .= '<p role="status">' . i('No %s yet.', ['posts']) . '</p>';
     }
     $title_default = i('Random %s', ['Posts']);
 }

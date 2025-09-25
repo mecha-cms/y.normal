@@ -72,6 +72,14 @@ if (isset($state->x->pass)) {
     });
 }
 
+if (isset($state->x->search)) {
+    \Hook::set('y.form.search', function ($y) {
+        $y[1]['search'][1]['button'][1] = '<span class="sr">' . \i('Search') . '</span>';
+        $y[2]['class'] = 'form-search';
+        return $y;
+    });
+}
+
 if (isset($state->x->user)) {
     // Add legacy form class name
     \Hook::set('y.form.user', function ($y) use ($state) {
